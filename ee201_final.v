@@ -6,25 +6,29 @@
 module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,draw_unknown);
    
 
-reg[15:0] temp1, temp2, temp3, temp4, temp5;//temporary calculation registers
+   reg[15:0] temp1, temp2, temp3, temp4, temp5;//temporary calculation registers
 
-reg [400] openx [7:0];//open list x cord
-reg [400] openy [7:0];//open list y cord
-reg [9] opencounter;//count openx/y reg
-reg [400] closex [7:0];//close list x cord
-reg [400] closey [7:0];//close list y cord
-reg [9] closecounter;//count closex/y reg
+   reg [400] openx [7:0];//open list x cord
+   reg [400] openy [7:0];//open list y cord
+   reg [9]   opencounter;//count openx/y reg
+   reg [400] closex [7:0];//close list x cord
+   reg [400] closey [7:0];//close list y cord
+   reg [9]   closecounter;//count closex/y reg
 
-reg state[8];//current state
-reg nextstate[8];//for utility sms this lets it know where to go next
+   reg [7:0] currentx;
+   reg [7:0] currenty;
+   
+   
+   reg 	     state[8];//current state
+   reg 	     nextstate[8];//for utility sms this lets it know where to go next
 
-reg bad;
+   reg 	     bad;
 
-localparam
-  INITIALIZE=8'b00000000,INITIALIZE_ARRAY=8'b00000001,VERIFY=8'b00000010,CHECK_DONE=8'b00000011,QUEUE_MODS=8'b00000100,SORT_QUEUE=8'b00001000,CREATE_NEIGHBORS=8'b00010000,CHECK_IF_IN_OPEN=8'b01000000, CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000, IS_BETTER=8'b01110000,RECONSTRUCT=8'b10000000,DONE=8'b11111100,ERROR=8'b11111111;
+   localparam
+     INITIALIZE=8'b00000000,INITIALIZE_ARRAY=8'b00000001,VERIFY=8'b00000010,CHECK_DONE=8'b00000011,QUEUE_MODS=8'b00000100,SORT_QUEUE=8'b00001000,CREATE_NEIGHBORS=8'b00010000,CHECK_IF_IN_OPEN=8'b01000000, CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000, IS_BETTER=8'b01110000,RECONSTRUCT=8'b10000000,DONE=8'b11111100,ERROR=8'b11111111;
 
 
-reg [40] map [39:0];
+   reg [40]  map [39:0];
 
    
    always @ (posedge sync,posedge reset)
@@ -110,8 +114,26 @@ reg [40] map [39:0];
 	       else
 		 state <= CHECK_DONE;
 	       //RTL
+	       openx[0] <= 8'b00000000;
+	       openy[0] <= 8'b00000000;
+	       opencounter <= opencounter + 1;
+	    end // case: VERIFY
+	  CHECK_DONE:
+	    begin
+	       if(openx[0] == 8'b00010011 && openy[0] == 8'b00010011)
+		 state <= RECONSTRUCT;
+	       else state <= QUEUE_MODS;
+	    end // case: CHECK_DONE
+	  QUEUE_MODS:
+	    begin
+	       //STATE TRANSITION
+	       state <= SORT_QUEUE;
+	       //RTL
+	       currentx = openx[0];
+	       currenty = openy[0];
 	       
-	    end 
+	    end
+	  
 	
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
