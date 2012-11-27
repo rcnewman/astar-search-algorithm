@@ -1,17 +1,23 @@
+/*questions
+ VGA output?
+ string output to some sort of console for debugging? display
+ */
 
 reg[8] temp1, temp2, temp3, temp4, temp5;//temporary calculation registers
 
-reg [400][8] openx;//open list x cord
-reg [400][8] openy;//open list y cord
+reg [400] openx [8];//open list x cord
+reg [400] openy [8];//open list y cord
 reg [9] opencounter;//count openx/y reg
-reg [400][8] closex;//close list x cord
-reg [400][8] closey;//close list y cord
+reg [400] closex [8];//close list x cord
+reg [400] closey [8];//close list y cord
 reg [9] closecounter;//count closex/y reg
 
 reg state[8];//current state
 reg nextstate[8];//for utility sms this lets it know where to go next
 
-reg [40][40] map;
+reg bad;
+
+reg [40] map [40];
 map[0]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 map[1]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 map[2]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -70,6 +76,7 @@ else
      closecounter <= closecounter + 1;
      popOpen();
 
+     
      setNeighborNodes();
      for(0-numNeighbors)
        begin
