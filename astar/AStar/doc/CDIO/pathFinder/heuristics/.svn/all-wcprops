@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics
+END
+package-summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/package-summary.html
+END
+package-tree.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/package-tree.html
+END
+AStarHeuristic.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/AStarHeuristic.html
+END
+ClosestHeuristic.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/ClosestHeuristic.html
+END
+DiagonalHeuristic.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/DiagonalHeuristic.html
+END
+package-frame.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/package-frame.html
+END
+package-use.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/15/AStar/doc/CDIO/pathFinder/heuristics/package-use.html
+END
