@@ -27,13 +27,6 @@ localparam
 reg [40] map [39:0];
 
    
-
-if(map[0] == 40'b0000000000000000000000000000000000000001)
-  bad = 1;
-if(map[39] == 40'b1000000000000000000000000000000000000000)
-  bad = 1;
-
-
    always @ (posedge sync,posedge reset)
      begin
 	if(reset)
@@ -106,7 +99,20 @@ if(map[39] == 40'b1000000000000000000000000000000000000000)
 	       closex[temp1] <= 8'b11111111;
 	       closey[temp1] <= 8'b11111111;
 	       temp1 <= temp1 + temp1;
-	    end
+	    end // case: INITIALIZE_ARRAY
+	  VERIFY:
+	    begin
+	       //TRANSITION LOGIC
+	       if(map[0] == 40'b0000000000000000000000000000000000000001)
+		 state <= ERROR;
+	       else if(map[39] == 40'b1000000000000000000000000000000000000000)
+		 state <= ERROR;
+	       else
+		 state <= CHECK_DONE;
+	       //RTL
+	       
+	    end 
+	
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
    
