@@ -116,22 +116,41 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	    end // case: VERIFY
 	  CHECK_DONE:
 	    begin
-	       if(openx[0] == 8'b00010011 && openy[0] == 8'b00010011)
+	       if(openx[0] == 8'b00100111 && openy[0] == 8'b00100111)
+		 state <= RECONSTRUCT;
+	       else if(openx[0] == 8'b11111111 && openy[0] == 8'b11111111)
 		 state <= RECONSTRUCT;
 	       else state <= QUEUE_MODS;
 	    end // case: CHECK_DONE
 	  QUEUE_MODS:
 	    begin
 	       //STATE TRANSITION
-	       state <= SORT_QUEUE;
-	       nextstate <= SHIFT_QUEUE;
+	       state <= QUEUE_MODS_SHIFT;
 	       //RTL
 	       currentx <= openx[0];
 	       currenty <= openy[0];
 	       closex[closecounter] <= openx[0];
 	       closex[closecounter] <= openy[0];
-	       closecounter <= closecounter + 1; 
-	    end
+	       closecounter <= closecounter + 1;
+	       temp1 <= 0; 
+	    end // case: QUEUE_MODS
+	  QUEUE_MODS_SHIFT:
+	    begin
+	       //STATE TRANSITION
+	       if(temp1 == 16'b0000000110001110)//equals to 398
+		 state <= QUEUE_MODS_APPEND;
+	       //RTL
+	       openx[temp] <= openx[temp+1];
+	       openy[temp] <= openy[temp+1];
+	    end // case: QUEUE_MODS_SHIFT
+	  QUEUE_MODS_APPEND:
+	    begin
+	       //STATE TRANSITION
+	       state <= SORT_QUEUE;
+	       //RTL
+	       openx[399] <= 8'b11111111;
+	       openy[399] <= 8'b11111111;
+	    end // case: QUEUE_MODS_APPEND
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
    
