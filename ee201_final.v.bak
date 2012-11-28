@@ -7,6 +7,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    
 
    reg[15:0] temp1, temp2, temp3, temp4, temp5, temp6, total1, total2;//temporary calculation registers
+   reg did_swap;
 
    reg [400] openx [7:0];//open list x cord
    reg [400] openy [7:0];//open list y cord

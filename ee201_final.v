@@ -19,8 +19,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0] currentx;
    reg [7:0] currenty;
       
-   reg 	     state[8];//current state
-   reg 	     nextstate[8];//for utility sms this lets it know where to go next
+   reg 	     state[7:0];//current state
+   reg 	     nextstate[7:0];//for utility sms this lets it know where to go next
 
    reg 	     bad;
 
