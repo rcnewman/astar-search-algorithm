@@ -17,8 +17,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 
    reg [7:0] currentx;
    reg [7:0] currenty;
-   
-   
+      
    reg 	     state[8];//current state
    reg 	     nextstate[8];//for utility sms this lets it know where to go next
 
@@ -27,9 +26,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    localparam
      INITIALIZE=8'b00000000,INITIALIZE_ARRAY=8'b00000001,VERIFY=8'b00000010,CHECK_DONE=8'b00000011,QUEUE_MODS=8'b00000100,SORT_QUEUE=8'b00001000,CREATE_NEIGHBORS=8'b00010000,CHECK_IF_IN_OPEN=8'b01000000, CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000, IS_BETTER=8'b01110000,RECONSTRUCT=8'b10000000,DONE=8'b11111100,ERROR=8'b11111111;
 
-
    reg [40]  map [39:0];
-
    
    always @ (posedge sync,posedge reset)
      begin
@@ -44,7 +41,6 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	    begin
 	       //STATE TRANSITION
 	       state <= INITIALIZE_ARRAY;
-
 	       //RTL
 	       map[0]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	       map[1]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -128,13 +124,14 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	    begin
 	       //STATE TRANSITION
 	       state <= SORT_QUEUE;
+	       nextstate <= SHIFT_QUEUE;
 	       //RTL
-	       currentx = openx[0];
-	       currenty = openy[0];
-	       
+	       currentx <= openx[0];
+	       currenty <= openy[0];
+	       closex[closecounter] <= openx[0];
+	       closex[closecounter] <= openy[0];
+	       closecounter <= closecounter + 1; 
 	    end
-	  
-	
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
    
