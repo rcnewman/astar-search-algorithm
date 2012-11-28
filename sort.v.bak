@@ -16,7 +16,7 @@ module sort(Clk,Reset);
     case(state)
         if(Reset)
           begin
-openx[0]= 8'11111111;
+            openx[0]= 8'11111111;
 openy[0]= 8'11111111;
 openx[1]= 8'11111111;
 openy[1]= 8'11111111;
