@@ -11,6 +11,15 @@ module sort(Clk,Reset);
 
   reg [7:0] openx [0:399];//open list x cord
   reg [7:0] openy [0:399];//open list y cord
+  
+  localparam
+    BUBBLE_SORT = 8'b00001000,
+	  GET_SECOND_DISTANCE = 8'b00001001,
+	  COMPARE_BETTER = 8'b00001010,
+	  SWITCH = 8'b00001011,
+	  BUBBLE_NEXT = 8'b00001100,
+	  SORT_DONE = 8'b00001101;
+    
 
   always @ (posedge Clk, posedge Reset)
   begin
