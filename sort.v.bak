@@ -6,15 +6,15 @@ module sort(Clk,Reset);
 
   reg[15:0] temp1,temp2,temp3,temp4,temp5,temp6,total1,total2;
   reg did_swap;
+  
+  reg [7:0] state;
 
-  reg [399:0] openx [7:0];//open list x cord
-  reg [399:0] openy [7:0];//open list y cord
+  reg [7:0] openx [0:399];//open list x cord
+  reg [7:0] openy [0:399];//open list y cord
 
   always @ (posedge Clk, posedge Reset)
   begin
-
-    case(state)
-        if(Reset)
+    if(Reset)
           begin
 openx[0]= 8'11111111;
 openy[0]= 8'11111111;
@@ -819,6 +819,8 @@ openy[399]= 8'11111111;
 
           end
         else begin
+    case(state)
+        
         /////////////////////////////////////////////////////////////////////////////////
         
         
