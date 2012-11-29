@@ -890,7 +890,7 @@ COMPARE_BETTER:
 	begin
 		if(total2 > total1)
 			state <= SWITCH;
-		if(total1 < total2)
+		if(total1 >= total2)
 			state <= BUBBLE_NEXT;
 	end
 SWITCH:
