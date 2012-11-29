@@ -11,21 +11,26 @@ module sort(Clk,Reset);
 
   reg [7:0] openx [0:399];//open list x cord
   reg [7:0] openy [0:399];//open list y cord
+   reg [9:0] opencounter;
+   
+   reg [7:0] sort_count;//used for sorting
+   
   
   localparam
-    BUBBLE_SORT = 8'b00001000,
-	  GET_SECOND_DISTANCE = 8'b00001001,
-	  COMPARE_BETTER = 8'b00001010,
-	  SWITCH = 8'b00001011,
-	  BUBBLE_NEXT = 8'b00001100,
-	  SORT_DONE = 8'b00001101;
+    SORT_QUEUE = 8'b000010000,
+    BUBBLE_SORT = 8'b00001001,
+	  GET_SECOND_DISTANCE = 8'b00001010,
+	  COMPARE_BETTER = 8'b00001011,
+	  SWITCH = 8'b00001100,
+	  BUBBLE_NEXT = 8'b00001101,
+	  SORT_DONE = 8'b00001110;
     
 
   always @ (posedge Clk, posedge Reset)
   begin
     if(Reset)
           begin
-openx[0]= {0,0,0,0,0,0,0,0};
+openx[0]    = {0,0,0,0,0,0,0,0};
 openy[0]= {0,0,0,0,0,0,0,0};
 openx[1]= {0,0,0,0,0,0,0,0};
 openy[1]= {0,0,0,0,0,0,0,0};
@@ -826,12 +831,28 @@ openy[398]= {0,0,0,0,0,0,0,0};
 openx[399]= {0,0,0,0,0,0,0,0};
 openy[399]= {0,0,0,0,0,0,0,0};
 
+
+
+	     state <= SORT_QUEUE;
+	     opencounter <= 3'd399;
+	     did_swap = 1'b0;
+	     
+	     
+
+
+	     
           end
         else begin
     case(state)
         
         /////////////////////////////////////////////////////////////////////////////////
-        
+
+      SORT_QUEUE:
+	begin
+	   sort_count = 8'b0;
+	   
+	end
+      
         
 //GET FIRST, DISTANCE
 BUBBLE_SORT:
@@ -882,16 +903,16 @@ SWITCH:
 	end
 BUBBLE_NEXT:
 	begin
-		if(sort_count >= open_counter && did_swap == 1'b1)
+		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
 			sort_count <= 0;
 			did_swap <= 1'b0;
 			state <= BUBBLE_SORT;
 		end
-		if(sort_count >= open_counter && did_swap == 1'b0)
+		if(sort_count >= opencounter && did_swap == 1'b0)
 		begin
 			sort_count <= 0;
-			state <= SORT_DONE;
+			state <= SORT_DONE;//go to next stage here
 		end
 		if(sort_count < open_counter)
 		begin
