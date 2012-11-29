@@ -1,0 +1,40 @@
+A* Search Algorithm + SearchSortGraphics (verilog version)
+
+Sorting Functionality
+Step 1:
+Take an inputed text file of numbers
+Step 1b:
+Randomly generate a set of numbers
+
+Step 2:
+Generate a graphic representation of the array
+
+Step 3:
+Apply the next step of [INSERT] algorithm
+if(!done) goto Step 2
+
+Step 4:
+Output text file to computer with sorted numbers
+
+A* Search Functionality
+
+
+
+Conway's Game of Life
+
+Step 1:
+Seed
+
+Step 2:
+Check adjacent squares of all blocks
+if(needs change)
+make change in buffer
+
+Step 3:
+Print buffer
+if(buffer != previous)
+goto Step 2
+
+Step 4:
+end game
+
