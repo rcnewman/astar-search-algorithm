@@ -39,14 +39,59 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      SORT_QUEUE=8'b00001000,
      CREATE_NEIGHBORS=8'b00010000,
      RESET_NEIGHBORS=8'b00010001,
-     CHECK_IF_IN_OPEN=8'b01000000,
+     GENERATE_NEIGHBORS=8'b00010010,
+     NEIGHBOR_CHECK_LOOP=8'b00010011,
+     CHECK_IF_IN_CLOSED=8'b01000000,
+     CHECK_IF_IN_OPEN=8'b01000001,
      CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000,
      IS_BETTER=8'b01110000,
      RECONSTRUCT=8'b10000000,
      DONE=8'b11111100,
      ERROR=8'b11111111;
 
-   reg [40]  map [39:0];
+   reg [39:0]  map [39:0];
+   
+   reg [7:0]   previousNode0 [39:0];
+   reg [7:0]   previousNode1 [39:0];
+   reg [7:0]   previousNode2 [39:0];
+   reg [7:0]   previousNode3 [39:0];
+   reg [7:0]   previousNode4 [39:0];
+   reg [7:0]   previousNode5 [39:0];
+   reg [7:0]   previousNode6 [39:0];
+   reg [7:0]   previousNode7 [39:0];
+   reg [7:0]   previousNode8 [39:0];
+   reg [7:0]   previousNode9 [39:0];
+   reg [7:0]   previousNode10 [39:0];
+   reg [7:0]   previousNode11 [39:0];
+   reg [7:0]   previousNode12 [39:0];
+   reg [7:0]   previousNode13 [39:0];
+   reg [7:0]   previousNode14 [39:0];
+   reg [7:0]   previousNode15 [39:0];
+   reg [7:0]   previousNode16 [39:0];
+   reg [7:0]   previousNode17 [39:0];
+   reg [7:0]   previousNode18 [39:0];
+   reg [7:0]   previousNode19 [39:0];
+   reg [7:0]   previousNode20 [39:0];
+   reg [7:0]   previousNode21 [39:0];
+   reg [7:0]   previousNode22 [39:0];
+   reg [7:0]   previousNode23 [39:0];
+   reg [7:0] previousNode24 [39:0];
+   reg [7:0] previousNode25 [39:0];
+   reg [7:0] previousNode26 [39:0];
+   reg [7:0] previousNode27 [39:0];
+   reg [7:0] previousNode28 [39:0];
+   reg [7:0] previousNode29 [39:0];
+   reg [7:0] previousNode30 [39:0];
+   reg [7:0] previousNode31 [39:0];
+   reg [7:0] previousNode32 [39:0];
+   reg [7:0] previousNode33 [39:0];
+   reg [7:0] previousNode34 [39:0];
+   reg [7:0] previousNode35 [39:0];
+   reg [7:0] previousNode36 [39:0];
+   reg [7:0] previousNode37 [39:0];
+   reg [7:0] previousNode38 [39:0];
+   reg [7:0] previousNode39 [39:0];
+   
    
    always @ (posedge sync,posedge reset)
      begin
@@ -189,7 +234,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	       neighbory[neighborcounter] <= 8'b11111111;
 	       tempneighborx[neighborcounter] <= 8'b11111111;
 	       tempneighbory[neighborcounter] <= 8'b11111111;
-	       
+	    end // case: RESET_NEIGHBORS
 	  GENERATE_NEIGHBORS:
 	    begin
 	       //0 - NW
@@ -284,42 +329,21 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    tempneighbory[7] <= 8'b11111111;
 		 end
 	    end // case: GENERATE_NEIGHBORS
-	  
-		    
+	  NEIGHBOR_CHECK_LOOP:
+	    begin	    
+   	       if(tempneighborx[neighborcounter] != 8'b11111111 && tempneighbory[neighborcounter] != 8'b11111111 && map[tempneighbory[neighborcounter]][tempneighborx[neighborcounter]] != 1'b1)//exists and is not obstacle
+		 state <= CHECK_IF_IN_CLOSED;
+	       else
+		 begin
+		    state <= CHECK_IF_IN_CLOSED;
+		    neighborcounter <= neighborcounter + 1;
+		 end
+	    end	  
 				       
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
 
 
-
-   	public ArrayList<Node> getNeighborList() {
-		ArrayList<Node> neighborList = new ArrayList<Node>();
-		if (!(y==0)) {
-			neighborList.add(map.getNode(x, (y-1)));
-		}
-		if (!(y==0) && !(x==(map.getMapWith()-1))) {
-			neighborList.add(map.getNode(x+1,y-1));
-		}
-		if (!(x==(map.getMapWith()-1))) {
-			neighborList.add(map.getNode(x+1,y));
-		}
-		if (!(x==(map.getMapWith()-1)) && !(y==(map.getMapHeight()-1))) {
-			neighborList.add(map.getNode(x+1,y+1));
-		}
-		if (!(y==(map.getMapHeight()-1))) {
-			neighborList.add(map.getNode(x,y+1));
-		}
-		if (!(x==0) && !(y==(map.getMapHeight()-1))) {
-			neighborList.add(map.getNode(x-1,y+1));
-		}
-		if (!(x==0)) {
-			neighborList.add(map.getNode(x-1,y));
-		}
-		if (!(x==0) && !(y==0)) {
-			neighborList.add(map.getNode(x-1,y-1));
-		}
-		return neighborList;
-	}
 
    
 
