@@ -9,15 +9,21 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg[15:0] temp1, temp2, temp3, temp4, temp5, temp6, total1, total2;//temporary calculation registers
    reg did_swap;
 
-   reg [400] openx [7:0];//open list x cord
-   reg [400] openy [7:0];//open list y cord
-   reg [9]   opencounter;//count openx/y reg
-   reg [400] closex [7:0];//close list x cord
-   reg [400] closey [7:0];//close list y cord
-   reg [9]   closecounter;//count closex/y reg
+   reg [7:0] openx [0:399];//open list x cord
+   reg [7:0] openy [0:399];//open list y cord
+   reg [8:0]   opencounter;//count openx/y reg
+   reg [7:0] closex [0:399];//close list x cord
+   reg [7:0] closey [0:399];//close list y cord
+   reg [8:0]   closecounter;//count closex/y reg
 
    reg [7:0] currentx;
    reg [7:0] currenty;
+
+   reg [7:0]   neighborx [7:0];//9x1byte, stores neighbor list
+   reg [7:0]   neighbory [7:0];//9x1byte, stores neighbor list
+   reg [7:0]   tempneighborx [7:0];
+   reg [7:0]   tempneighbory [7:0];
+   
       
    reg 	     state[7:0];//current state
    reg 	     nextstate[7:0];//for utility sms this lets it know where to go next
@@ -32,6 +38,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      QUEUE_MODS=8'b00000100,
      SORT_QUEUE=8'b00001000,
      CREATE_NEIGHBORS=8'b00010000,
+     RESET_NEIGHBORS=8'b00010001,
      CHECK_IF_IN_OPEN=8'b01000000,
      CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000,
      IS_BETTER=8'b01110000,
@@ -164,8 +171,156 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	       openx[399] <= 8'b11111111;
 	       openy[399] <= 8'b11111111;
 	    end // case: QUEUE_MODS_APPEND
+	  CREATE_NEIGHBORS:
+	    begin
+	       //STATE TRANSITIONS
+	       state <= RESET_NEIGHBOR;
+	       //RTL
+	       neighborcounter <= 8'b0;
+	       
+	    end
+	  RESET_NEIGHBORS:
+	    begin
+	       //STATE TRANSITIONS
+	       if(neighborcounter == 7)
+		 state <= GENERATE_NEIGHBORS;
+	       //RTL
+	       neighborx[neighborcounter] <= 8'b11111111;
+	       neighbory[neighborcounter] <= 8'b11111111;
+	       tempneighborx[neighborcounter] <= 8'b11111111;
+	       tempneighbory[neighborcounter] <= 8'b11111111;
+	       
+	  GENERATE_NEIGHBORS:
+	    begin
+	       //0 - NW
+	       //1 - N
+	       //2 - NE
+	       //3 - E
+	       //4 - SE
+	       //5 - S
+	       //6 - SW
+	       //7 - W
+	       //STATE TRANSITION
+	       state <= SHIFT_NEIGHBORS;
+	       //RTL
+	       if(currentx != 0 && currenty != 0)//NW
+		 begin
+		    tempneighborx[0] <= currentx-1;
+		    tempneighrboxy[0] <= currentx-1;
+		 end
+	       else
+		 begin
+		    tempneighborx[0] <= 8'b11111111;
+		    tempneighbory[0] <= 8'b11111111;
+		 end
+	       if(currenty != 0)//N
+		 begin
+		    tempneighborx[1] <= currentx;
+		    tempneighbory[1] <= currenty-1;
+		 end
+	       else
+		 begin
+		    tempneighborx[1] <= 8'b11111111;
+		    tempneighbory[1] <= 8'b11111111;
+		 end
+	       if(currentx != 8'b00100111 && currenty != 0)//NE
+		 begin
+		    tempneighborx[2] <= currentx + 1;
+		    tempneighbory[2] <= currenty -1;
+		 end
+	       else
+		 begin
+		    tempneighborx[2] <= 8'b11111111;
+		    tempneighbory[2] <= 8'b11111111;
+		 end
+	       if(currentx != 8'b00100111)//E
+		 begin
+		    tempneighborx[3] <= currentx + 1;
+		    tempneighbory[3] <= currenty;
+		 end
+	       else
+		 begin
+		    tempneighborx[3] <= 8'b11111111;
+		    tempneighbory[3] <= 8'b11111111;
+		 end
+	       if(currentx != 8'b00100111 && currenty != 8'b00100111)//SE
+		 begin
+		    tempneighborx[4] <= currentx + 1;
+		    tempneighbory[4] <= currenty + 1;
+		 end
+	       else
+		 begin
+		    tempneighborx[4] <= 8'b11111111;
+		    tempneighbory[4] <= 8'b11111111;
+		 end
+	       if(currenty != 8'b00100111)//S
+		 begin
+		    tempneighborx[5] <= currentx;
+		    tempneighbory[5] <= currenty + 1;
+		 end
+	       else
+		 begin
+		    tempneighborx[5] <= 8'b11111111;
+		    tempneighbory[5] <= 8'b11111111;
+		 end
+	       if(currentx != 8'b0 && currenty != 8'b00100111)
+		 begin
+		    tempneighborx[6] <= currentx -1;
+		    tempneighbory[6] <= currenty + 1;
+		 end
+	       else
+		 begin
+		    tempneighborx[6] <= 8'b11111111;
+		    tempneighbory[6] <= 8'b11111111;
+		 end
+	       if(currentx != 8'b0)//W
+		 begin
+		    tempneighborx[7] <= currentx - 1;
+		    tempneighbory[7] <= currenty;
+		 end
+	       else
+		 begin
+		    tempneighborx[7] <= 8'b11111111;
+		    tempneighbory[7] <= 8'b11111111;
+		 end
+	    end // case: GENERATE_NEIGHBORS
+	  
+		    
+				       
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
+
+
+
+   	public ArrayList<Node> getNeighborList() {
+		ArrayList<Node> neighborList = new ArrayList<Node>();
+		if (!(y==0)) {
+			neighborList.add(map.getNode(x, (y-1)));
+		}
+		if (!(y==0) && !(x==(map.getMapWith()-1))) {
+			neighborList.add(map.getNode(x+1,y-1));
+		}
+		if (!(x==(map.getMapWith()-1))) {
+			neighborList.add(map.getNode(x+1,y));
+		}
+		if (!(x==(map.getMapWith()-1)) && !(y==(map.getMapHeight()-1))) {
+			neighborList.add(map.getNode(x+1,y+1));
+		}
+		if (!(y==(map.getMapHeight()-1))) {
+			neighborList.add(map.getNode(x,y+1));
+		}
+		if (!(x==0) && !(y==(map.getMapHeight()-1))) {
+			neighborList.add(map.getNode(x-1,y+1));
+		}
+		if (!(x==0)) {
+			neighborList.add(map.getNode(x-1,y));
+		}
+		if (!(x==0) && !(y==0)) {
+			neighborList.add(map.getNode(x-1,y-1));
+		}
+		return neighborList;
+	}
+
    
 
    

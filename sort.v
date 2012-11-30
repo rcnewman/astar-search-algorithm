@@ -10,7 +10,7 @@ module sort(Clk,Reset);
   reg [7:0] state;
 
   reg [7:0] openx [0:399];//open list x cord
-  reg [7:0] openy [0:399];//open list y cord
+ reg [7:0] openy [0:399];//open list y cord
    reg [9:0] opencounter;
    
    reg [7:0] sort_count;//used for sorting
@@ -19,17 +19,17 @@ module sort(Clk,Reset);
   localparam
     SORT_QUEUE = 8'b000010000,
     BUBBLE_SORT = 8'b00001001,
-	  GET_SECOND_DISTANCE = 8'b00001010,
-	  COMPARE_BETTER = 8'b00001011,
-	  SWITCH = 8'b00001100,
-	  BUBBLE_NEXT = 8'b00001101,
-	  SORT_DONE = 8'b00001110;
-    
+    GET_SECOND_DISTANCE = 8'b00001010,
+    COMPARE_BETTER = 8'b00001011,
+    SWITCH = 8'b00001100,
+    BUBBLE_NEXT = 8'b00001101,
+    SORT_DONE = 8'b00001110;
+   
 
-  always @ (posedge Clk, posedge Reset)
-  begin
-    if(Reset)
-          begin
+   always @ (posedge Clk, posedge Reset)
+     begin
+	if(Reset)
+	  begin
 
 openx[0] <= {0,0,0,0,0,0,0,0};
 openy[0] <= {0,0,0,0,0,0,0,0};
@@ -834,30 +834,28 @@ openy[399] <= {0,0,0,0,0,0,0,0};
 
 
 	     state <= SORT_QUEUE;
-	     opencounter <= 3'd399;
-	     did_swap = 1'b0;
 	     
 	     
-
-
-	     
-          end
+          end // if (Reset)
+	
         else begin
-    case(state)
+	   case(state)
         
         /////////////////////////////////////////////////////////////////////////////////
 
       SORT_QUEUE:
 	begin
 	   sort_count = 8'b0;
+	   opencounter <= 3'd399;
+	   did_swap = 1'b0;
 	   
 	end
       
         
 //GET FIRST, DISTANCE
-BUBBLE_SORT:
+      BUBBLE_SORT:
 	begin
-	temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
+	   temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
 	temp2 <= ((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx);
 	
 	temp3 <= 1.41421 * temp1 + (temp2 - 2 * temp1);
@@ -870,7 +868,8 @@ BUBBLE_SORT:
 	//TotalDistanceFromGoal
 	total1 = temp3 + temp6;
 	state = GET_SECOND_DISTANCE;
-	end
+	end // case: BUBBLE_SORT
+      
 GET_SECOND_DISTANCE:
 	begin
 	temp1 <=((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx);
@@ -884,15 +883,16 @@ GET_SECOND_DISTANCE:
 	temp6 <= 1.41421 * temp4 + (temp5 - 2 * temp6);
 	
 	total2 = temp3 + temp6;
-	end
+	end // case: GET_SECOND_DISTANCE
+      
 
 COMPARE_BETTER:
-	begin
-		if(total2 > total1)
+  begin
+     if(total2 > total1)
 			state <= SWITCH;
 		if(total1 < total2)
 			state <= BUBBLE_NEXT;
-	end
+  end
 SWITCH:
 	begin
 		did_swap <= 1'b1;
@@ -901,28 +901,30 @@ SWITCH:
 		openx[sort_count+1] = sort_count;
 		state <= BUBBLE_NEXT;
 	end
-BUBBLE_NEXT:
-	begin
-		if(sort_count >= opencounter && did_swap == 1'b1)
-		begin
+	     BUBBLE_NEXT:
+	       begin
+		  if(sort_count >= opencounter && did_swap == 1'b1)
+		    begin
 			sort_count <= 0;
 			did_swap <= 1'b0;
 			state <= BUBBLE_SORT;
-		end
-		if(sort_count >= opencounter && did_swap == 1'b0)
-		begin
+		    end
+		  if(sort_count >= opencounter && did_swap == 1'b0)
+		    begin
 			sort_count <= 0;
 			state <= SORT_DONE;//go to next stage here
-		end
-		if(sort_count < open_counter)
-		begin
+		    end
+		  if(sort_count < open_counter)
+		    begin
 			sort_count <= sort_count + 1;
 			state <= BUBBLE_SORT;
-		end
-	end
-	
-	///////////////////////////////////////////////////////////////////////////
-	 end
-	end
-endmodule;
+		    end
+	       end // case: BUBBLE_NEXT
+
+/////////////////////////////////////////////////////////////////////
+	     
+	   end // else: !if(Reset)
+     end // always @ (posedge Clk, posedge Reset)
+endmodule // sort
+
 			
