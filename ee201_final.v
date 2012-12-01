@@ -24,6 +24,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]   tempneighborx [7:0];
    reg [7:0]   tempneighbory [7:0];
    reg 	       neighbor_is_better;
+   reg [7:0]   neighbor_distance_from_start;
    
       
    reg 	     state[7:0];//current state
@@ -436,7 +437,48 @@ distanceFromStart39[temp1] = 8'b11111111;
 	  CHECK_IF_NEIGHBOR_IS_BETTER:
 	     case(currentx)
 	       begin
-		  8':
+8'b0:
+  neighbor_distance_from_start = distanceFromStart0[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19); 
+8'b1:
+8'b10:
+8'b11:
+8'b100:
+8'b101:
+8'b110:
+8'b111:
+8'b1000:
+8'b1001:
+8'b1010:
+8'b1011:
+8'b1100:
+8'b1101:
+8'b1110:
+8'b1111:
+8'b10000:
+8'b10001:
+8'b10010:
+8'b10011:
+8'b10100:
+8'b10101:
+8'b10110:
+8'b10111:
+8'b11000:
+8'b11001:
+8'b11010:
+8'b11011:
+8'b11100:
+8'b11101:
+8'b11110:
+8'b11111:
+8'b100000:
+8'b100001:
+8'b100010:
+8'b100011:
+8'b100100:
+8'b100101:
+8'b100110:
+8'b100111:
+  end
 	    					float neighborDistanceFromStart = (current.getDistanceFromStart() + map.getDistanceBetween(current, neighbor));
 
 				       
