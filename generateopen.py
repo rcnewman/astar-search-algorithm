@@ -6,3 +6,9 @@ for num in range(0,400):
 
 for num in range(0,40):
     print ('reg [7:0]   previousNode%d [39:0];' % (num))
+
+for num in range(0,40):
+    print ('reg [7:0]   distanceFromStart%d [39:0];' % (num))
+
+for num in range(0,40):
+    print ('distanceFromStart%d = 8\'b11111111' % (num))

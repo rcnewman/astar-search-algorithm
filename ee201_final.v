@@ -23,6 +23,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]   neighbory [7:0];//9x1byte, stores neighbor list
    reg [7:0]   tempneighborx [7:0];
    reg [7:0]   tempneighbory [7:0];
+   reg 	       neighbor_is_better;
    
       
    reg 	     state[7:0];//current state
@@ -91,6 +92,47 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0] previousNode37 [39:0];
    reg [7:0] previousNode38 [39:0];
    reg [7:0] previousNode39 [39:0];
+
+reg [7:0]   distanceFromStart0 [39:0];
+reg [7:0]   distanceFromStart1 [39:0];
+reg [7:0]   distanceFromStart2 [39:0];
+reg [7:0]   distanceFromStart3 [39:0];
+reg [7:0]   distanceFromStart4 [39:0];
+reg [7:0]   distanceFromStart5 [39:0];
+reg [7:0]   distanceFromStart6 [39:0];
+reg [7:0]   distanceFromStart7 [39:0];
+reg [7:0]   distanceFromStart8 [39:0];
+reg [7:0]   distanceFromStart9 [39:0];
+reg [7:0]   distanceFromStart10 [39:0];
+reg [7:0]   distanceFromStart11 [39:0];
+reg [7:0]   distanceFromStart12 [39:0];
+reg [7:0]   distanceFromStart13 [39:0];
+reg [7:0]   distanceFromStart14 [39:0];
+reg [7:0]   distanceFromStart15 [39:0];
+reg [7:0]   distanceFromStart16 [39:0];
+reg [7:0]   distanceFromStart17 [39:0];
+reg [7:0]   distanceFromStart18 [39:0];
+reg [7:0]   distanceFromStart19 [39:0];
+reg [7:0]   distanceFromStart20 [39:0];
+reg [7:0]   distanceFromStart21 [39:0];
+reg [7:0]   distanceFromStart22 [39:0];
+reg [7:0]   distanceFromStart23 [39:0];
+reg [7:0]   distanceFromStart24 [39:0];
+reg [7:0]   distanceFromStart25 [39:0];
+reg [7:0]   distanceFromStart26 [39:0];
+reg [7:0]   distanceFromStart27 [39:0];
+reg [7:0]   distanceFromStart28 [39:0];
+reg [7:0]   distanceFromStart29 [39:0];
+reg [7:0]   distanceFromStart30 [39:0];
+reg [7:0]   distanceFromStart31 [39:0];
+reg [7:0]   distanceFromStart32 [39:0];
+reg [7:0]   distanceFromStart33 [39:0];
+reg [7:0]   distanceFromStart34 [39:0];
+reg [7:0]   distanceFromStart35 [39:0];
+reg [7:0]   distanceFromStart36 [39:0];
+reg [7:0]   distanceFromStart37 [39:0];
+reg [7:0]   distanceFromStart38 [39:0];
+reg [7:0]   distanceFromStart39 [39:0];
    
    
    always @ (posedge sync,posedge reset)
@@ -147,6 +189,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	       map[37]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	       map[38]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	       map[39]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+	       
 	       bad = 0;
 	       opencounter <= 9'b000000000;
 	       closecounter <= 9'b000000000;
@@ -159,6 +203,11 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		 state <= VERIFY;
 
 	       //RTL
+	       if(temp1 <= 16'b0000000000100111)
+		 begin
+		    
+		 end
+	       
 	       openx[temp1] <= 8'b11111111;
 	       openy[temp1] <= 8'b11111111;
 	       closex[temp1] <= 8'b11111111;
@@ -338,7 +387,14 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    state <= CHECK_IF_IN_CLOSED;
 		    neighborcounter <= neighborcounter + 1;
 		 end
-	    end	  
+	       neighbor_is_better = 1'b0;
+	       
+	    end
+
+	  CHECK_IF_NEIGHBOR_IS_BETTER:
+	    
+	    					float neighborDistanceFromStart = (current.getDistanceFromStart() + map.getDistanceBetween(current, neighbor));
+
 				       
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
