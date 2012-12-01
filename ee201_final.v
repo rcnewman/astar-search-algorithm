@@ -46,7 +46,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      CHECK_IF_IN_CLOSED=8'b01000000,
      CHECK_IF_IN_OPEN=8'b01000001,
      CHECK_IF_NEIGHBOR_IS_BETTER=8'b01100000,
-     IS_BETTER=8'b01110000,
+     NEIGHBOR_IS_BETTER=8'b01110000,
      RECONSTRUCT=8'b10000000,
      DONE=8'b11111100,
      ERROR=8'b11111111;
@@ -435,53 +435,15 @@ distanceFromStart39[temp1] = 8'b11111111;
 	    end
 
 	  CHECK_IF_NEIGHBOR_IS_BETTER:
+	    begin
 	     case(currentx)
-	       begin
-8'b0:
-  neighbor_distance_from_start = distanceFromStart0[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19); 
-8'b1:
-8'b10:
-8'b11:
-8'b100:
-8'b101:
-8'b110:
-8'b111:
-8'b1000:
-8'b1001:
-8'b1010:
-8'b1011:
-8'b1100:
-8'b1101:
-8'b1110:
-8'b1111:
-8'b10000:
-8'b10001:
-8'b10010:
-8'b10011:
-8'b10100:
-8'b10101:
-8'b10110:
-8'b10111:
-8'b11000:
-8'b11001:
-8'b11010:
-8'b11011:
-8'b11100:
-8'b11101:
-8'b11110:
-8'b11111:
-8'b100000:
-8'b100001:
-8'b100010:
-8'b100011:
-8'b100100:
-8'b100101:
-8'b100110:
-8'b100111:
-  end
-	    					float neighborDistanceFromStart = (current.getDistanceFromStart() + map.getDistanceBetween(current, neighbor));
+	      
 
-				       
+	     end // case: CHECK_IF_NEIGHBOR_IS_BETTER
+	  
+	       
+
+
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
 
