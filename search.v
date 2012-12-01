@@ -21,7 +21,7 @@ module search(check,Clk,Reset);
 	localparam 
 		SEARCH_QUEUE 	=	8'b0000_0000,
 		COMPARE 		= 	8'b0000_0010,
-		SEARCH			= 	8'b0000_0011,
+		NEXT			= 	8'b0000_0011,
 		SEARCH_DONE		= 	8'b0000_0100;
 		
 	
@@ -56,7 +56,7 @@ module search(check,Clk,Reset);
 					state <= NEXT;
 				end
 			end
-		SEARCH:
+		NEXT:
 			begin
 				if(search_index == 3d'399)
 				begin
