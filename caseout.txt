@@ -1,42 +1,82 @@
 --==CHECK IF NEIGHBOR IS BETTER==--
 case(currentx) begin
 8'b0:
+neighbor_distance_from_start = distanceFromStart0[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1:
+neighbor_distance_from_start = distanceFromStart1[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10:
+neighbor_distance_from_start = distanceFromStart2[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11:
+neighbor_distance_from_start = distanceFromStart3[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100:
+neighbor_distance_from_start = distanceFromStart4[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b101:
+neighbor_distance_from_start = distanceFromStart5[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b110:
+neighbor_distance_from_start = distanceFromStart6[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b111:
+neighbor_distance_from_start = distanceFromStart7[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1000:
+neighbor_distance_from_start = distanceFromStart8[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1001:
+neighbor_distance_from_start = distanceFromStart9[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1010:
+neighbor_distance_from_start = distanceFromStart10[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1011:
+neighbor_distance_from_start = distanceFromStart11[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1100:
+neighbor_distance_from_start = distanceFromStart12[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1101:
+neighbor_distance_from_start = distanceFromStart13[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1110:
+neighbor_distance_from_start = distanceFromStart14[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b1111:
+neighbor_distance_from_start = distanceFromStart15[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10000:
+neighbor_distance_from_start = distanceFromStart16[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10001:
+neighbor_distance_from_start = distanceFromStart17[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10010:
+neighbor_distance_from_start = distanceFromStart18[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10011:
+neighbor_distance_from_start = distanceFromStart19[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10100:
+neighbor_distance_from_start = distanceFromStart20[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10101:
+neighbor_distance_from_start = distanceFromStart21[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10110:
+neighbor_distance_from_start = distanceFromStart22[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b10111:
+neighbor_distance_from_start = distanceFromStart23[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11000:
+neighbor_distance_from_start = distanceFromStart24[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11001:
+neighbor_distance_from_start = distanceFromStart25[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11010:
+neighbor_distance_from_start = distanceFromStart26[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11011:
+neighbor_distance_from_start = distanceFromStart27[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11100:
+neighbor_distance_from_start = distanceFromStart28[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11101:
+neighbor_distance_from_start = distanceFromStart29[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11110:
+neighbor_distance_from_start = distanceFromStart30[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b11111:
+neighbor_distance_from_start = distanceFromStart31[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100000:
+neighbor_distance_from_start = distanceFromStart32[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100001:
+neighbor_distance_from_start = distanceFromStart33[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100010:
+neighbor_distance_from_start = distanceFromStart34[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100011:
+neighbor_distance_from_start = distanceFromStart35[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100100:
+neighbor_distance_from_start = distanceFromStart36[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100101:
+neighbor_distance_from_start = distanceFromStart37[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100110:
+neighbor_distance_from_start = distanceFromStart38[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
 8'b100111:
+neighbor_distance_from_start = distanceFromStart39[currentx]+ ((currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 10 : 19);
