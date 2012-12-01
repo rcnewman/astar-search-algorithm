@@ -436,7 +436,7 @@ distanceFromStart39[temp1] = 8'b11111111;
 	  CHECK_IF_NEIGHBOR_IS_BETTER:
 	     case(currentx)
 	       begin
-		  8'b0:
+		  8':
 	    					float neighborDistanceFromStart = (current.getDistanceFromStart() + map.getDistanceBetween(current, neighbor));
 
 				       
