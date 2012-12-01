@@ -205,8 +205,50 @@ reg [7:0]   distanceFromStart39 [39:0];
 	       //RTL
 	       if(temp1 <= 16'b0000000000100111)
 		 begin
-		    
-		 end
+		    distanceFromStart0[temp1] = 8'b11111111;
+distanceFromStart1[temp1] = 8'b11111111;
+distanceFromStart2[temp1] = 8'b11111111;
+distanceFromStart3[temp1] = 8'b11111111;
+distanceFromStart4[temp1] = 8'b11111111;
+distanceFromStart5[temp1] = 8'b11111111;
+distanceFromStart6[temp1] = 8'b11111111;
+distanceFromStart7[temp1] = 8'b11111111;
+distanceFromStart8[temp1] = 8'b11111111;
+distanceFromStart9[temp1] = 8'b11111111;
+distanceFromStart10[temp1] = 8'b11111111;
+distanceFromStart11[temp1] = 8'b11111111;
+distanceFromStart12[temp1] = 8'b11111111;
+distanceFromStart13[temp1] = 8'b11111111;
+distanceFromStart14[temp1] = 8'b11111111;
+distanceFromStart15[temp1] = 8'b11111111;
+distanceFromStart16[temp1] = 8'b11111111;
+distanceFromStart17[temp1] = 8'b11111111;
+distanceFromStart18[temp1] = 8'b11111111;
+distanceFromStart19[temp1] = 8'b11111111;
+distanceFromStart20[temp1] = 8'b11111111;
+distanceFromStart21[temp1] = 8'b11111111;
+distanceFromStart22[temp1] = 8'b11111111;
+distanceFromStart23[temp1] = 8'b11111111;
+distanceFromStart24[temp1] = 8'b11111111;
+distanceFromStart25[temp1] = 8'b11111111;
+distanceFromStart26[temp1] = 8'b11111111;
+distanceFromStart27[temp1] = 8'b11111111;
+distanceFromStart28[temp1] = 8'b11111111;
+distanceFromStart29[temp1] = 8'b11111111;
+distanceFromStart30[temp1] = 8'b11111111;
+distanceFromStart31[temp1] = 8'b11111111;
+distanceFromStart32[temp1] = 8'b11111111;
+distanceFromStart33[temp1] = 8'b11111111;
+distanceFromStart34[temp1] = 8'b11111111;
+distanceFromStart35[temp1] = 8'b11111111;
+distanceFromStart36[temp1] = 8'b11111111;
+distanceFromStart37[temp1] = 8'b11111111;
+distanceFromStart38[temp1] = 8'b11111111;
+distanceFromStart39[temp1] = 8'b11111111;
+		 end // if (temp1 <= 16'b0000000000100111)
+	       else
+		 distanceFromStart0[0] = 8'b0;
+	       
 	       
 	       openx[temp1] <= 8'b11111111;
 	       openy[temp1] <= 8'b11111111;
@@ -392,7 +434,9 @@ reg [7:0]   distanceFromStart39 [39:0];
 	    end
 
 	  CHECK_IF_NEIGHBOR_IS_BETTER:
-	    
+	     case(currentx)
+	       begin
+		  8'b0:
 	    					float neighborDistanceFromStart = (current.getDistanceFromStart() + map.getDistanceBetween(current, neighbor));
 
 				       
