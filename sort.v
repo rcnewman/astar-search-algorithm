@@ -928,8 +928,11 @@ BUBBLE_NEXT:
 			sort_count <= sort_count + 1;
 			state <= BUBBLE_SORT;
 		    end
-	       end // case: BUBBLE_NEXT
-
+	end // case: BUBBLE_NEXT
+SORT_DONE:
+	begin
+		//How do I exit a module in verilog?!?!?
+	end
 /////////////////////////////////////////////////////////////////////
 	     
 	   end // else: !if(Reset)

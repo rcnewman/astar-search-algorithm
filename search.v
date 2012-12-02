@@ -21,8 +21,8 @@ module search(check,Clk,Reset);
    localparam 
      SEARCH_QUEUE 	=	8'b0100_0010,
      COMPARE 		= 	8'b0100_0011,
-     NEXT		= 	8'b0100_0100,
-     SEARCH_DONE	= 	8'b0100_0101;
+     NEXT			= 	8'b0100_0100,
+	 DONE_SEARCH 	= 	8'b0100_0101;
 		
 	
    always @ (posedge Clk, posedge Reset)
@@ -68,6 +68,10 @@ module search(check,Clk,Reset);
 			 state <=COMPARE;
 		      end
 		 end // case: NEXT\
+			DONE_SEARCH:
+			begin
+				//How do I exit a module in verilog?!?!?
+			end //case: DONE_SEARCH
 	     end // else: !if(Reset)
      end // always @ (posedge Clk, posedge Reset)   
 endmodule // search
