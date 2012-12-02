@@ -71,6 +71,7 @@ module search(check,Clk,Reset);
 			DONE_SEARCH:
 			begin
 				//How do I exit a module in verilog?!?!?
+				
 			end //case: DONE_SEARCH
 	     end // else: !if(Reset)
      end // always @ (posedge Clk, posedge Reset)   
