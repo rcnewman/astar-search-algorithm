@@ -1,1 +1,10 @@
+C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v {0 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module sort
+** Warning: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(22): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 
+** Warning: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(839): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+** Error: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(927): near "end": syntax error, unexpected end
+
+} {8.0 9.0} {}}

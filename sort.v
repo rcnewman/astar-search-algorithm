@@ -10,11 +10,14 @@ module sort(Clk,Reset);
   reg [7:0] state;
 
   reg [7:0] openx [0:399];//open list x cord
- reg [7:0] openy [0:399];//open list y cord
-   reg [9:0] opencounter;
+
+  reg [7:0] openy [0:399];//open list y cord
+   reg [9:0] open_counter;
+   
+   
+   reg [7:0] startx, starty, goalx, goaly;
    
    reg [7:0] sort_count;//used for sorting
-   
   
   localparam
     SORT_QUEUE = 8'b000010000,
@@ -834,7 +837,13 @@ openy[399] <= {0,0,0,0,0,0,0,0};
 
 
 	     state <= SORT_QUEUE;
-	     
+
+	     open_counter <= 3'd399;
+	     did_swap <= 1'b0;
+	     startx <= 8'b0;
+	     starty <= 8'b0;
+	     goalx = 8'b00100111;
+	     goaly = 8'b00100111;
 	     
           end // if (Reset)
 	
@@ -848,7 +857,6 @@ openy[399] <= {0,0,0,0,0,0,0,0};
 	   sort_count = 8'b0;
 	   opencounter <= 3'd399;
 	   did_swap = 1'b0;
-	   
 	end
       
         
@@ -901,16 +909,17 @@ SWITCH:
 		openx[sort_count+1] = sort_count;
 		state <= BUBBLE_NEXT;
 	end
-	     BUBBLE_NEXT:
-	       begin
-		  if(sort_count >= opencounter && did_swap == 1'b1)
-		    begin
+
+BUBBLE_NEXT:
+	begin
+		if(sort_count >= open_counter && did_swap == 1'b1)
+		begin
 			sort_count <= 0;
 			did_swap <= 1'b0;
 			state <= BUBBLE_SORT;
-		    end
-		  if(sort_count >= opencounter && did_swap == 1'b0)
-		    begin
+		end
+		if(sort_count >= open_counter && did_swap == 1'b0)
+		begin
 			sort_count <= 0;
 			state <= SORT_DONE;//go to next stage here
 		    end
@@ -926,5 +935,6 @@ SWITCH:
 	   end // else: !if(Reset)
      end // always @ (posedge Clk, posedge Reset)
 endmodule // sort
+
 
 			
