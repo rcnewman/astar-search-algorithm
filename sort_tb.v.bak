@@ -55,4 +55,4 @@ module sort_tb;
 		  #20;	
 		
 	 end
-endmodule;
+endmodule

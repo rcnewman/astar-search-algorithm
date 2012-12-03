@@ -37,6 +37,7 @@ module sort_tb;
   	initial 
 		  begin
 			 Clk_tb = 0; // Initialize clock
+			 clk_cnt = 0;
 		  end
 		
 		always  begin #10; Clk_tb = ~ Clk_tb; if(Clk_tb)clk_cnt <= clk_cnt + 1 ; end
