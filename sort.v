@@ -1,9 +1,10 @@
 
-module sort(Clk,Reset);
+module sort(Clk,Reset,done);
   
   input Clk;
   input Reset;
-
+  output done;
+  
   reg[15:0] temp1,temp2,temp3,temp4,temp5,temp6,total1,total2;
   reg did_swap;
   
@@ -857,6 +858,7 @@ openy[399] <= {0,0,0,0,0,0,0,0};
 	   sort_count = 8'b0;
 	   opencounter <= 3'd399;
 	   did_swap = 1'b0;
+	   done = 0;
 	end
       
         
@@ -931,7 +933,7 @@ BUBBLE_NEXT:
 	end // case: BUBBLE_NEXT
 SORT_DONE:
 	begin
-		//How do I exit a module in verilog?!?!?
+		done <= 1;
 	end
 /////////////////////////////////////////////////////////////////////
 	     
