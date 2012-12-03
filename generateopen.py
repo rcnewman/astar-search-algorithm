@@ -11,4 +11,4 @@ for num in range(0,40):
     print ('reg [7:0]   distanceFromStart%d [39:0];' % (num))
 
 for num in range(0,40):
-    print ('distanceFromStart%d[temp1] = 8\'b11111111;' % (num))
+    print ('		    distanceFromStart%d[temp1] = 8\'b11111111;' % (num))
