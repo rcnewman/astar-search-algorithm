@@ -5,6 +5,8 @@
 
 module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,draw_unknown);
    
+   input sync, reset, gridx, gridy;
+   output draw_grid, draw_obstacle, draw_path, draw_unknown;
 
    reg[15:0] temp1, temp2, temp3, temp4, temp5, temp6, total1, total2;//temporary calculation registers
    reg did_swap;
@@ -19,16 +21,18 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0] currentx;
    reg [7:0] currenty;
 
+  
    reg [7:0]   neighborx [7:0];//9x1byte, stores neighbor list
    reg [7:0]   neighbory [7:0];//9x1byte, stores neighbor list
    reg [7:0]   tempneighborx [7:0];
    reg [7:0]   tempneighbory [7:0];
+   reg [3:0] neighborcounter;
    reg 	       neighbor_is_better;
    reg [7:0]   neighbor_distance_from_start;
    
       
-   reg 	     state[7:0];//current state
-   reg 	     nextstate[7:0];//for utility sms this lets it know where to go next
+   reg 	  [7:0]   state;//current state
+   reg 	    [7:0] nextstate;//for utility sms this lets it know where to go next
 
    reg 	     bad;
 
@@ -38,6 +42,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      VERIFY=8'b00000010,
      CHECK_DONE=8'b00000011,
      QUEUE_MODS=8'b00000100,
+     QUEUE_MODS_SHIFT=8'b00000101,
+     QUEUE_MODS_APPEND=8'b00000110,
      SORT_QUEUE=8'b00001000,
      CREATE_NEIGHBORS=8'b00010000,
      RESET_NEIGHBORS=8'b00010001,
@@ -152,46 +158,46 @@ reg [7:0]   distanceFromStart39 [39:0];
 	       //STATE TRANSITION
 	       state <= INITIALIZE_ARRAY;
 	       //RTL
-	       map[0]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[1]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[2]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[3]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[4]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[5]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[6]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[7]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[8]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[9]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[10]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[11]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[12]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[13]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[14]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[15]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[17]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[18]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[20]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[21]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[22]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[23]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[24]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[25]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[26]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[27]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[28]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[29]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[30]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[31]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[32]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[33]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[34]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[35]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[36]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[37]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[38]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	       map[39]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+map[0]=40'b0;
+map[1]=40'b0;
+map[2]=40'b0;
+map[3]=40'b0;
+map[4]=40'b0;
+map[5]=40'b0;
+map[6]=40'b0;
+map[7]=40'b0;
+map[8]=40'b0;
+map[9]=40'b0;
+map[10]=40'b0;
+map[11]=40'b0;
+map[12]=40'b0;
+map[13]=40'b0;
+map[14]=40'b0;
+map[15]=40'b0;
+map[16]=40'b0;
+map[17]=40'b0;
+map[18]=40'b0;
+map[19]=40'b0;
+map[20]=40'b0;
+map[21]=40'b0;
+map[22]=40'b0;
+map[23]=40'b0;
+map[24]=40'b0;
+map[25]=40'b0;
+map[26]=40'b0;
+map[27]=40'b0;
+map[28]=40'b0;
+map[29]=40'b0;
+map[30]=40'b0;
+map[31]=40'b0;
+map[32]=40'b0;
+map[33]=40'b0;
+map[34]=40'b0;
+map[35]=40'b0;
+map[36]=40'b0;
+map[37]=40'b0;
+map[38]=40'b0;
+map[39]=40'b0;
 
 	       
 	       bad = 0;
@@ -299,8 +305,8 @@ reg [7:0]   distanceFromStart39 [39:0];
 	       if(temp1 == 16'b0000000110001110)//equals to 398
 		 state <= QUEUE_MODS_APPEND;
 	       //RTL
-	       openx[temp] <= openx[temp+1];
-	       openy[temp] <= openy[temp+1];
+	       openx[temp1] <= openx[temp1+1];
+	       openy[temp1] <= openy[temp1+1];
 	    end // case: QUEUE_MODS_SHIFT
 	  QUEUE_MODS_APPEND:
 	    begin
@@ -313,15 +319,15 @@ reg [7:0]   distanceFromStart39 [39:0];
 	  CREATE_NEIGHBORS:
 	    begin
 	       //STATE TRANSITIONS
-	       state <= RESET_NEIGHBOR;
+	       state <= RESET_NEIGHBORS;
 	       //RTL
-	       neighborcounter <= 8'b0;
+	       neighborcounter <= 3'b0;
 	       
 	    end
 	  RESET_NEIGHBORS:
 	    begin
 	       //STATE TRANSITIONS
-	       if(neighborcounter == 7)
+	       if(neighborcounter == 3'b111)
 		 state <= GENERATE_NEIGHBORS;
 	       //RTL
 	       neighborx[neighborcounter] <= 8'b11111111;
@@ -340,12 +346,12 @@ reg [7:0]   distanceFromStart39 [39:0];
 	       //6 - SW
 	       //7 - W
 	       //STATE TRANSITION
-	       state <= SHIFT_NEIGHBORS;
+	       state <= NEIGHBOR_CHECK_LOOP;
 	       //RTL
 	       if(currentx != 0 && currenty != 0)//NW
 		 begin
 		    tempneighborx[0] <= currentx-1;
-		    tempneighrboxy[0] <= currentx-1;
+		    tempneighbory[0] <= currenty-1;
 		 end
 	       else
 		 begin
@@ -682,11 +688,11 @@ reg [7:0]   distanceFromStart39 [39:0];
 		 end
 
 	      
+	       endcase
 
 	     end // case: CHECK_IF_NEIGHBOR_IS_BETTER
 	  
-	       
-
+endcase
 
 	end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
@@ -694,7 +700,7 @@ reg [7:0]   distanceFromStart39 [39:0];
 
 
    
-
+/*
    
 while(openx[0] != 8'b11111111 && openy[0] != 8'b11111111)
   begin
@@ -728,7 +734,7 @@ subroutine estimateDistanceToGoal(startx starty goalx goaly)
 	    temp2 <= ((starty-goaly < 0)? -1*(starty-goaly):stary-goaly) + ((startx-goalx < 0)? -1*(startx-goalx):startx-goalx);//h_straight
 	    
 temp3 = 1.41421 * temp1 + (temp2 - 2*temp1);
-
+*/
 /*
   		float h_diagonal = (float) Math.min(Math.abs(start.x-goal.x), Math.abs(start.y-goal.y));
 		float h_straight = (float) (Math.abs(start.x-goal.x) + Math.abs(start.y-goal.y));
