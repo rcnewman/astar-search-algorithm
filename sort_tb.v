@@ -6,7 +6,7 @@
 //
 // Create Date:   19:46:25 11/27/2012
 // Design Name:   sort
-// Module Name:   C:/Documents and Settings/Administrator/Desktop/lab7/lab7/orange/ee201_GCD_tb_part1.v
+// Module Name:   sort_tb.v
 // Project Name:  astar-search
 // Target Device:  
 // Tool versions:  
