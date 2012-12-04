@@ -23,7 +23,7 @@ module sort(Clk,Reset,done);
    reg [9:0] sort_count;//used for sorting
   
   localparam
-    SORT_QUEUE = 8'b000010000,
+    SORT_QUEUE = 8'b00001000,
     BUBBLE_SORT = 8'b00001001,
     GET_SECOND_DISTANCE = 8'b00001010,
     COMPARE_BETTER = 8'b00001011,
@@ -856,7 +856,7 @@ openy[399] <= 8'b0;
       SORT_QUEUE:
 	begin
 	  state <= BUBBLE_SORT;
-	   sort_count = 10'b0;
+	   sort_count <= 10'b0;
 	   open_counter <= 10'b110001111;
 	   did_swap <= 1'b0;
 	   done <= 1'b0;
@@ -868,7 +868,7 @@ openy[399] <= 8'b0;
 	begin
 	  
 	
-	total1 <= 1.41421 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
+	total1 <= 1414 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
 	//temp5 <= ((openy[sort_count] - starty < 0)? -1*(openy[sort_count]-starty):openy[sort_count]-starty) + ((openx[sort_count]-startx < 0)? -1 *(openx[sort_count]-startx):openx[sort_count]-startx);
@@ -887,7 +887,7 @@ GET_SECOND_DISTANCE:
 	//temp1 <=;
 	//temp2 <= ;
 	
-	total2 <= 1.41421 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx) + (((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx) - 2 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx));
+	total2 <= 1414 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx) + (((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx) - 2 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx));
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
 	//temp5 <= ((openy[sort_count+1] - starty < 0)? -1*(openy[sort_count+1]-starty):openy[sort_count+1]-starty) + ((openx[sort_count+1]-startx < 0)? -1 *(openx[sort_count+1]-startx):openx[sort_count+1]-startx);
@@ -947,6 +947,7 @@ BUBBLE_NEXT:
 SORT_DONE:
 	begin
 		done <= 1'b1;
+		//state <= CREATE_NEIGHBORS;
 	end
 /////////////////////////////////////////////////////////////////////
 
