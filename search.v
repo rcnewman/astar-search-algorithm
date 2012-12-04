@@ -15,7 +15,7 @@ module search(check,Clk,Reset);
    reg [7:0] closey [0:399];
    
    //output these?
-   reg 	     search_index; //used to iterate through reg
+   reg [8:0] search_index; //used to iterate through reg
    reg 	    found;
 	
    localparam 
@@ -35,10 +35,10 @@ module search(check,Clk,Reset);
 	else 
 	  begin
 	     case(state)
-		
+////////////////////////////////////////////////////////////////////	
 	       SEARCH_QUEUE:
 		 begin 
-		    search_index <= 3'd000;
+		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= COMPARE;
 		 end
@@ -58,7 +58,7 @@ module search(check,Clk,Reset);
 		 end
 	       NEXT:
 		 begin
-		    if(search_index == 3d'399)
+		    if(search_index == 9'b110001111)//equals 399
 		      begin
 			 found <=1'b0;
 			 state <= DONE_SEARCH; // Not found, go to next section
@@ -73,7 +73,10 @@ module search(check,Clk,Reset);
 				//How do I exit a module in verilog?!?!?
 				
 			end //case: DONE_SEARCH
-	     end // else: !if(Reset)
+
+////////////////////////////////////////////////////////////
+	       
+	        	     end // else: !if(Reset)
      end // always @ (posedge Clk, posedge Reset)   
 endmodule // search
 
