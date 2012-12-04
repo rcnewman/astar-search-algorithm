@@ -71,12 +71,12 @@ module search(check,Clk,Reset);
 		 end // case: NEXT\
 			SEARCH_OPEN_DONE_FOUND:
 			begin
-				//How do I exit a module in verilog?!?!?
+				//state <= CHECK_IF_NEIGHBOR_IS_BETTER;
 				
 			end
 	       SEARCH_OPEN_DONE_NOT_FOUND:
 		 begin
-
+			//state <= NEIGHBOR_IS_BETTER;
 		 end
 	     
 
