@@ -1,4 +1,21 @@
 <?
+
+function levelIncrease($line)
+{
+if(strpos($line,'begin') !== false)
+return true;
+if(strpos($line,'module') !== false)
+return true;
+
+return false;
+}
+function levelDecrease($line){
+if(strpos($line,'end') !== false)
+return true;
+if(strpos($line,'endmodule') !== false)
+return true;
+return false;
+}
 $spacing = 4;
 
 $f = fopen('test.v','r');
@@ -15,9 +32,9 @@ while($line = fgets($f)) {
     $line = $space . $line . "\n";
     echo $line;
 
-    if(strpos($line,'begin'))
+    if(levelIncrease($line))
         $level++;
-    if(strpos($line,'end'))
+    if(levelDecrease($line))
         $level--;
 }
 
