@@ -1,5 +1,5 @@
 //linear search
-module search(check,Clk,Reset);
+module search(Clk,Reset);
 
    input Clk;
    input Reset;
@@ -23,7 +23,7 @@ module search(check,Clk,Reset);
      SEARCH_OPEN_COMPARE        = 	8'b00_100001,
      SEARCH_OPEN_NEXT           = 	8'b00_100010,
      SEARCH_OPEN_DONE_FOUND  	  = 	8'b00_100011,
-     SEARCH OPEN_DONE_NOT_FOUND =     8'b00_100100;
+     SEARCH_OPEN_DONE_NOT_FOUND =     8'b00_100100;
    
 	
    always @ (posedge Clk, posedge Reset)

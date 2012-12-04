@@ -404,6 +404,7 @@ begin
 previousNode0[39] <= currentx;
 end
 endcase
+end
 8'b1:
 begin
 case(tempneighborx[neighborcounter])
@@ -568,6 +569,7 @@ begin
 previousNode1[39] <= currentx;
 end
 endcase
+end
 8'b10:
 begin
 case(tempneighborx[neighborcounter])
@@ -732,6 +734,7 @@ begin
 previousNode2[39] <= currentx;
 end
 endcase
+end
 8'b11:
 begin
 case(tempneighborx[neighborcounter])
@@ -896,6 +899,7 @@ begin
 previousNode3[39] <= currentx;
 end
 endcase
+end
 8'b100:
 begin
 case(tempneighborx[neighborcounter])
@@ -1060,6 +1064,7 @@ begin
 previousNode4[39] <= currentx;
 end
 endcase
+end
 8'b101:
 begin
 case(tempneighborx[neighborcounter])
@@ -1224,6 +1229,7 @@ begin
 previousNode5[39] <= currentx;
 end
 endcase
+end
 8'b110:
 begin
 case(tempneighborx[neighborcounter])
@@ -1388,6 +1394,7 @@ begin
 previousNode6[39] <= currentx;
 end
 endcase
+end
 8'b111:
 begin
 case(tempneighborx[neighborcounter])
@@ -1552,6 +1559,7 @@ begin
 previousNode7[39] <= currentx;
 end
 endcase
+end
 8'b1000:
 begin
 case(tempneighborx[neighborcounter])
@@ -1716,6 +1724,7 @@ begin
 previousNode8[39] <= currentx;
 end
 endcase
+end
 8'b1001:
 begin
 case(tempneighborx[neighborcounter])
@@ -1880,6 +1889,7 @@ begin
 previousNode9[39] <= currentx;
 end
 endcase
+end
 8'b1010:
 begin
 case(tempneighborx[neighborcounter])
@@ -2044,6 +2054,7 @@ begin
 previousNode10[39] <= currentx;
 end
 endcase
+end
 8'b1011:
 begin
 case(tempneighborx[neighborcounter])
@@ -2208,6 +2219,7 @@ begin
 previousNode11[39] <= currentx;
 end
 endcase
+end
 8'b1100:
 begin
 case(tempneighborx[neighborcounter])
@@ -2372,6 +2384,7 @@ begin
 previousNode12[39] <= currentx;
 end
 endcase
+end
 8'b1101:
 begin
 case(tempneighborx[neighborcounter])
@@ -2536,6 +2549,7 @@ begin
 previousNode13[39] <= currentx;
 end
 endcase
+end
 8'b1110:
 begin
 case(tempneighborx[neighborcounter])
@@ -2700,6 +2714,7 @@ begin
 previousNode14[39] <= currentx;
 end
 endcase
+end
 8'b1111:
 begin
 case(tempneighborx[neighborcounter])
@@ -2864,6 +2879,7 @@ begin
 previousNode15[39] <= currentx;
 end
 endcase
+end
 8'b10000:
 begin
 case(tempneighborx[neighborcounter])
@@ -3028,6 +3044,7 @@ begin
 previousNode16[39] <= currentx;
 end
 endcase
+end
 8'b10001:
 begin
 case(tempneighborx[neighborcounter])
@@ -3192,6 +3209,7 @@ begin
 previousNode17[39] <= currentx;
 end
 endcase
+end
 8'b10010:
 begin
 case(tempneighborx[neighborcounter])
@@ -3356,6 +3374,7 @@ begin
 previousNode18[39] <= currentx;
 end
 endcase
+end
 8'b10011:
 begin
 case(tempneighborx[neighborcounter])
@@ -3520,6 +3539,7 @@ begin
 previousNode19[39] <= currentx;
 end
 endcase
+end
 8'b10100:
 begin
 case(tempneighborx[neighborcounter])
@@ -3684,6 +3704,7 @@ begin
 previousNode20[39] <= currentx;
 end
 endcase
+end
 8'b10101:
 begin
 case(tempneighborx[neighborcounter])
@@ -3848,6 +3869,7 @@ begin
 previousNode21[39] <= currentx;
 end
 endcase
+end
 8'b10110:
 begin
 case(tempneighborx[neighborcounter])
@@ -4012,6 +4034,7 @@ begin
 previousNode22[39] <= currentx;
 end
 endcase
+end
 8'b10111:
 begin
 case(tempneighborx[neighborcounter])
@@ -4176,6 +4199,7 @@ begin
 previousNode23[39] <= currentx;
 end
 endcase
+end
 8'b11000:
 begin
 case(tempneighborx[neighborcounter])
@@ -4340,6 +4364,7 @@ begin
 previousNode24[39] <= currentx;
 end
 endcase
+end
 8'b11001:
 begin
 case(tempneighborx[neighborcounter])
@@ -4504,6 +4529,7 @@ begin
 previousNode25[39] <= currentx;
 end
 endcase
+end
 8'b11010:
 begin
 case(tempneighborx[neighborcounter])
@@ -4668,6 +4694,7 @@ begin
 previousNode26[39] <= currentx;
 end
 endcase
+end
 8'b11011:
 begin
 case(tempneighborx[neighborcounter])
@@ -4832,6 +4859,7 @@ begin
 previousNode27[39] <= currentx;
 end
 endcase
+end
 8'b11100:
 begin
 case(tempneighborx[neighborcounter])
@@ -4996,6 +5024,7 @@ begin
 previousNode28[39] <= currentx;
 end
 endcase
+end
 8'b11101:
 begin
 case(tempneighborx[neighborcounter])
@@ -5160,6 +5189,7 @@ begin
 previousNode29[39] <= currentx;
 end
 endcase
+end
 8'b11110:
 begin
 case(tempneighborx[neighborcounter])
@@ -5324,6 +5354,7 @@ begin
 previousNode30[39] <= currentx;
 end
 endcase
+end
 8'b11111:
 begin
 case(tempneighborx[neighborcounter])
@@ -5488,6 +5519,7 @@ begin
 previousNode31[39] <= currentx;
 end
 endcase
+end
 8'b100000:
 begin
 case(tempneighborx[neighborcounter])
@@ -5652,6 +5684,7 @@ begin
 previousNode32[39] <= currentx;
 end
 endcase
+end
 8'b100001:
 begin
 case(tempneighborx[neighborcounter])
@@ -5816,6 +5849,7 @@ begin
 previousNode33[39] <= currentx;
 end
 endcase
+end
 8'b100010:
 begin
 case(tempneighborx[neighborcounter])
@@ -5980,6 +6014,7 @@ begin
 previousNode34[39] <= currentx;
 end
 endcase
+end
 8'b100011:
 begin
 case(tempneighborx[neighborcounter])
@@ -6144,6 +6179,7 @@ begin
 previousNode35[39] <= currentx;
 end
 endcase
+end
 8'b100100:
 begin
 case(tempneighborx[neighborcounter])
@@ -6308,6 +6344,7 @@ begin
 previousNode36[39] <= currentx;
 end
 endcase
+end
 8'b100101:
 begin
 case(tempneighborx[neighborcounter])
@@ -6472,6 +6509,7 @@ begin
 previousNode37[39] <= currentx;
 end
 endcase
+end
 8'b100110:
 begin
 case(tempneighborx[neighborcounter])
@@ -6636,6 +6674,7 @@ begin
 previousNode38[39] <= currentx;
 end
 endcase
+end
 8'b100111:
 begin
 case(tempneighborx[neighborcounter])
@@ -6800,3 +6839,4 @@ begin
 previousNode39[39] <= currentx;
 end
 endcase
+end
