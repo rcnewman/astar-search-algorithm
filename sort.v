@@ -900,12 +900,15 @@ GET_SECOND_DISTANCE:
       
 
 COMPARE_BETTER:
-  begin
-     if(total2 > total1)
-			state <= SWITCH;
-		 else
-			state <= BUBBLE_NEXT;
-  end
+	begin
+    
+	if(total2 > total1)
+		state <= SWITCH;
+	
+	else
+		state <= BUBBLE_NEXT;
+	end
+	
 SWITCH:
 	begin
 		did_swap <= 1'b1;
@@ -921,17 +924,23 @@ BUBBLE_NEXT:
 		begin
 			sort_count <= 0;
 			did_swap <= 1'b0;
+			total1 <= 0;
+			total2 <= 0;
 			state <= BUBBLE_SORT;
 		end
+		
 		if(sort_count >= open_counter && did_swap == 1'b0)
 		begin
 			sort_count <= 0;
 			state <= SORT_DONE;//go to next stage here
 		end
-		  if(sort_count < open_counter)
-		    begin
-			   sort_count <= sort_count + 1;
-			   state <= BUBBLE_SORT;
+		
+		if(sort_count < open_counter)
+			begin
+				sort_count <= sort_count + 1;
+				state <= BUBBLE_SORT;
+				total1 <= 0;
+				total2 <= 0;
 		    end
 	end // case: BUBBLE_NEXT
 
