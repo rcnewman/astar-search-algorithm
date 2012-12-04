@@ -19,11 +19,12 @@ module search(check,Clk,Reset);
    reg 	    found;
 	
    localparam 
-     SEARCH_QUEUE 	=	8'b0100_0010,
-     COMPARE 		= 	8'b0100_0011,
-     NEXT			= 	8'b0100_0100,
-	 DONE_SEARCH 	= 	8'b0100_0101;
-		
+     CHECK_IF_IN_CLOSED	          =	8'b00_100000,
+     SEARCH_CLOSED_COMPARE        = 	8'b00_100001,
+     SEARCH_CLOSED_NEXT           = 	8'b00_100010,
+     SEARCH_CLOSED_DONE_FOUND  	  = 	8'b00_100011,
+     SEARCH CLOSED_DONE_NOT_FOUND =     8'b00_100100;
+   
 	
    always @ (posedge Clk, posedge Reset)
      begin
@@ -36,11 +37,11 @@ module search(check,Clk,Reset);
 	  begin
 	     case(state)
 ////////////////////////////////////////////////////////////////////	
-	       SEARCH_QUEUE:
+	       CHECK_IF_IN_CLOSED:
 		 begin 
 		    search_index <= 9'b0;
 		    found <= 1'b0;
-		    state <= COMPARE;
+		    state <= SEARCH_CLOSED_COMPARE;
 		 end
 			
 	       COMPARE:
@@ -48,7 +49,7 @@ module search(check,Clk,Reset);
 		    if(closex[search_index] == checkx && closey[search_index] == checky)
 		      begin
 			 found <= 1'b1;
-			 state <= DONE_SEARCH; //Go to next section
+			 state <= SEARCH_CLOSED_DONE_FOUND; //Go to next section
 		      end
 		    else
 		      begin
@@ -61,20 +62,27 @@ module search(check,Clk,Reset);
 		    if(search_index == 9'b110001111)//equals 399
 		      begin
 			 found <=1'b0;
-			 state <= DONE_SEARCH; // Not found, go to next section
+			 state <= SEARCH_CLOSED_DONE_NOT_FOUND; // Not found, go to next section
 		      end
 		    else
 		      begin
 			 state <=COMPARE;
 		      end
 		 end // case: NEXT\
-			DONE_SEARCH:
+			SEARCH_CLOSED_DONE_FOUND:
 			begin
 				//How do I exit a module in verilog?!?!?
 				
-			end //case: DONE_SEARCH
+			end
+	       SEARCH_CLOSED_DONE_NOT_FOUND:
+		 begin
 
-////////////////////////////////////////////////////////////
+		 end
+	     
+
+ ////////////////////////////////////////////////////////////
+
+	     endcase // case (state)
 	       
 	        	     end // else: !if(Reset)
      end // always @ (posedge Clk, posedge Reset)   

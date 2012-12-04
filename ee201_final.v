@@ -8,54 +8,62 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    input sync, reset, gridx, gridy;
    output draw_grid, draw_obstacle, draw_path, draw_unknown;
 
-   reg[15:0] temp1, temp2, temp3, temp4, temp5, temp6, total1, total2;//temporary calculation registers
-   reg did_swap;
+   reg [15:0] temp1, temp2, temp3, temp4, temp5, temp6, total1, total2;//temporary calculation registers
+   reg 	      did_swap;
 
-   reg [7:0] openx [0:399];//open list x cord
-   reg [7:0] openy [0:399];//open list y cord
-   reg [8:0]   opencounter;//count openx/y reg
-   reg [7:0] closex [0:399];//close list x cord
-   reg [7:0] closey [0:399];//close list y cord
-   reg [8:0]   closecounter;//count closex/y reg
+   reg [7:0]  openx [0:399];//open list x cord
+   reg [7:0]  openy [0:399];//open list y cord
+   reg [8:0]  opencounter;//count openx/y reg
+   reg [7:0]  closex [0:399];//close list x cord
+   reg [7:0]  closey [0:399];//close list y cord
+   reg [8:0]  closecounter;//count closex/y reg
 
-   reg [7:0] currentx;
-   reg [7:0] currenty;
+   reg [7:0]  currentx;
+   reg [7:0]  currenty;
 
   
-   reg [7:0]   neighborx [7:0];//9x1byte, stores neighbor list
-   reg [7:0]   neighbory [7:0];//9x1byte, stores neighbor list
-   reg [7:0]   tempneighborx [7:0];
-   reg [7:0]   tempneighbory [7:0];
-   reg [3:0] neighborcounter;
-   reg 	       neighbor_is_better;
-   reg [7:0]   neighbor_distance_from_start;
+   reg [7:0]  neighborx [7:0];//9x1byte, stores neighbor list
+   reg [7:0]  neighbory [7:0];//9x1byte, stores neighbor list
+   reg [7:0]  tempneighborx [7:0];
+   reg [7:0]  tempneighbory [7:0];
+   reg [3:0]  neighborcounter;
+   reg 	      neighbor_is_better;
+   reg [7:0]  neighbor_distance_from_start;
    
-      
-   reg 	  [7:0]   state;//current state
-   reg 	    [7:0] nextstate;//for utility sms this lets it know where to go next
-
-   reg 	     bad;
+   
+   reg [7:0]  state;//current state
+   reg [7:0]  nextstate;//for utility sms this lets it know where to go next
+   
+   reg 	      bad;
 
    localparam
-     INITIALIZE                 = 8'b00000000,
-     INITIALIZE_ARRAY           = 8'b00000001,
-     VERIFY                     = 8'b00000010,
-     CHECK_DONE                 = 8'b00000011,
-     QUEUE_MODS                 = 8'b00000100,
-     QUEUE_MODS_SHIFT           = 8'b00000101,
-     QUEUE_MODS_APPEND          = 8'b00000110,
-     SORT_QUEUE                 = 8'b00001000,
-     CREATE_NEIGHBORS           = 8'b00010000,
-     RESET_NEIGHBORS            = 8'b00010001,
-     GENERATE_NEIGHBORS         = 8'b00010010,
-     NEIGHBOR_CHECK_LOOP        = 8'b00010011,
-     CHECK_IF_IN_CLOSED         = 8'b00100000,
-     CHECK_IF_IN_OPEN           = 8'b01000000,
-     CHECK_IF_NEIGHBOR_IS_BETTER= 8'b10000000,
-     NEIGHBOR_IS_BETTER         = 8'b11000000,
-     RECONSTRUCT                = 8'b11100000,
-     DONE                       = 8'b11111100,
-     ERROR                      = 8'b11111111;
+     INITIALIZE                  = 8'b00000000,
+     INITIALIZE_ARRAY            = 8'b00000001,
+     VERIFY                      = 8'b00000010,
+     CHECK_DONE                  = 8'b00000011,
+     QUEUE_MODS                  = 8'b00000_100,
+     QUEUE_MODS_SHIFT            = 8'b00000_101,
+     QUEUE_MODS_APPEND           = 8'b00000_110,
+     SORT_QUEUE                  = 8'b00001000,
+     CREATE_NEIGHBORS            = 8'b00010000,
+     RESET_NEIGHBORS             = 8'b00010001,
+     GENERATE_NEIGHBORS          = 8'b00010010,
+     NEIGHBOR_CHECK_LOOP         = 8'b00010011,
+     CHECK_IF_IN_CLOSED          = 8'b00_100000,
+     SEARCH_CLOSED_COMPARE       = 8'b00_100001,
+     SEARCH_CLOSED_NEXT          = 8'b00_100010,
+     SEARCH_CLOSED_DONE_FOUND    = 8'b00_100011,
+     SEARCH_CLOESD_DONE_NOT_FOUND= 8'b00_100100,
+     CHECK_IF_IN_OPEN            = 8'b0_1000000,
+     SEARCH_OPEN_COMPARE         = 8'b0_1000001,
+     SEARCH_OPEN_NEXT            = 8'b0_1000010,
+     SEARCH_OPEN_DONE_FOUND      = 8'b0_1000011,
+     SEARCH_OPEN_DONE_NOT_FOUND  = 8'b0_1000100,
+     CHECK_IF_NEIGHBOR_IS_BETTER = 8'b10000000,
+     NEIGHBOR_IS_BETTER          = 8'b11000000,
+     RECONSTRUCT                 = 8'b11100000,
+     DONE                        = 8'b11111100,
+     ERROR                       = 8'b11111111;
 
    reg [39:0]  map [39:0];
    
@@ -83,28 +91,28 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]   previousNode21 [39:0];
    reg [7:0]   previousNode22 [39:0];
    reg [7:0]   previousNode23 [39:0];
-   reg [7:0] previousNode24 [39:0];
-   reg [7:0] previousNode25 [39:0];
-   reg [7:0] previousNode26 [39:0];
-   reg [7:0] previousNode27 [39:0];
-   reg [7:0] previousNode28 [39:0];
-   reg [7:0] previousNode29 [39:0];
-   reg [7:0] previousNode30 [39:0];
-   reg [7:0] previousNode31 [39:0];
-   reg [7:0] previousNode32 [39:0];
-   reg [7:0] previousNode33 [39:0];
-   reg [7:0] previousNode34 [39:0];
-   reg [7:0] previousNode35 [39:0];
-   reg [7:0] previousNode36 [39:0];
-   reg [7:0] previousNode37 [39:0];
-   reg [7:0] previousNode38 [39:0];
-   reg [7:0] previousNode39 [39:0];
+   reg [7:0]   previousNode24 [39:0];
+   reg [7:0]   previousNode25 [39:0];
+   reg [7:0]   previousNode26 [39:0];
+   reg [7:0]   previousNode27 [39:0];
+   reg [7:0]   previousNode28 [39:0];
+   reg [7:0]   previousNode29 [39:0];
+   reg [7:0]   previousNode30 [39:0];
+   reg [7:0]   previousNode31 [39:0];
+   reg [7:0]   previousNode32 [39:0];
+   reg [7:0]   previousNode33 [39:0];
+   reg [7:0]   previousNode34 [39:0];
+   reg [7:0]   previousNode35 [39:0];
+   reg [7:0]   previousNode36 [39:0];
+   reg [7:0]   previousNode37 [39:0];
+   reg [7:0]   previousNode38 [39:0];
+   reg [7:0]   previousNode39 [39:0];
 
-reg [7:0]   distanceFromStart0 [39:0];
-reg [7:0]   distanceFromStart1 [39:0];
-reg [7:0]   distanceFromStart2 [39:0];
-reg [7:0]   distanceFromStart3 [39:0];
-reg [7:0]   distanceFromStart4 [39:0];
+   reg [7:0]   distanceFromStart0 [39:0];
+   reg [7:0]   distanceFromStart1 [39:0];
+   reg [7:0]   distanceFromStart2 [39:0];
+   reg [7:0]   distanceFromStart3 [39:0];
+   reg [7:0]   distanceFromStart4 [39:0];
 reg [7:0]   distanceFromStart5 [39:0];
 reg [7:0]   distanceFromStart6 [39:0];
 reg [7:0]   distanceFromStart7 [39:0];
@@ -141,8 +149,6 @@ reg [7:0]   distanceFromStart37 [39:0];
 reg [7:0]   distanceFromStart38 [39:0];
 reg [7:0]   distanceFromStart39 [39:0];
 
-
-   
    
    always @ (posedge sync,posedge reset)
      begin
@@ -152,12 +158,12 @@ reg [7:0]   distanceFromStart39 [39:0];
 	  end
 	else
 	  begin
-	case(state)
-	  INITIALIZE:
-	    begin
-	       //STATE TRANSITION
-	       state <= INITIALIZE_ARRAY;
-	       //RTL
+	     case(state)
+	       INITIALIZE:
+		 begin
+		    //STATE TRANSITION
+		    state <= INITIALIZE_ARRAY;
+		    //RTL
 map[0]=40'b0;
 map[1]=40'b0;
 map[2]=40'b0;
