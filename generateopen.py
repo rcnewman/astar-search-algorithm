@@ -7,7 +7,8 @@ for num in range(0,400):
     print ('openy[%d] <= 8\'b0;' % (num))
 
 for num in range(0,40):
-    print ('   reg [7:0]   previousNode%d [39:0];' % (num))
+    print ('   reg [7:0]   previousNodeX%d [39:0];' % (num))
+    print ('   reg [7:0]   previousNodeY%d [39:0];' % (num))
 
 for num in range(0,40):
     print ('   reg [7:0]   distanceFromStart%d [39:0];' % (num))
