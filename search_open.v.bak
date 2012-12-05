@@ -1,5 +1,5 @@
 //linear search
-module search(Clk,Reset);
+module search(check,Clk,Reset);
 
    input Clk;
    input Reset;
