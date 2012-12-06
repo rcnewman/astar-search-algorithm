@@ -365,6 +365,7 @@ distanceFromStart0[0] = 0;
 	       CHECK_DONE:
 		 begin
 		 $display("STATE: CHECK DONE");
+		 $display("Open: %d,%d", openx[0],openy[0]);
 		 //TRANSITION LOGIC
 		    if(openx[0] == 8'b00100111 && openy[0] == 8'b00100111)
 		      state <= RECONSTRUCT;
@@ -9139,7 +9140,7 @@ neighborcounter <= neighborcounter + 1;
 		 
       SORT_QUEUE:
 	begin
-	  $display("WTF");
+	  $display("STATE: SORT QUEUE");
 	  state <= BUBBLE_SORT;
 	   sort_count <= 10'b0;
 	   did_swap <= 1'b0;
