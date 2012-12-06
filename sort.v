@@ -869,8 +869,9 @@ openy[399] <= 8'b0;
 	   $display("STATE: BUBBLE_SORT");
 	 //  temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
 	//temp2 <= ((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx);
-	
-	total1 <= 1.41421 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
+	`include "sort_standalone_helper1.v"
+	`include "sort_standalone_helper2.v"
+	//total1 <= 1.41421 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
 	//distance from start x=openx[sort_count]  y=openy[sort_count]
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
@@ -880,9 +881,9 @@ openy[399] <= 8'b0;
 	
 	//TotalDistanceFromGoal
 	//total1 = temp3 + temp6;
-	state <= GET_SECOND_DISTANCE;
+	state <= COMPARE_BETTER;
 	end // case: BUBBLE_SORT
-      
+      /*
 GET_SECOND_DISTANCE:
 	begin
 	  state <= COMPARE_BETTER;
@@ -900,7 +901,7 @@ GET_SECOND_DISTANCE:
 	//total2 = temp3 + temp6;
 	end // case: GET_SECOND_DISTANCE
       
-
+*/
 COMPARE_BETTER:
 	begin
      $display("STATE: COMPARE_BETTER");
@@ -921,17 +922,16 @@ SWITCH:
 		openy[sort_count+1] <= openy[sort_count];
 		state <= BUBBLE_NEXT;
 	end
-
 BUBBLE_NEXT:
 	begin
-	   $display("STATE: BUBBLE_NEXT");
+	   //$display("STATE: BUBBLE_NEXT");
 		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
-			sort_count <= 10'b0;
+			sort_count <= sort_count - 1;
 			did_swap <= 1'b0;
 			total1 <= 0;
 			total2 <= 0;
-			state <= BUBBLE_SORT;
+			state <= COCKTAIL_BACK;
 		end
 		
 		if(sort_count >= opencounter && did_swap == 1'b0)
@@ -948,12 +948,61 @@ BUBBLE_NEXT:
 				total2 <= 0;
 		    end
 	end // case: BUBBLE_NEXT
-
+COCKTAIL_BACK:
+	begin
+		`include "sort_standalone_helper1.v"
+		`include "sort_standalone_helper2.v"
+		state <= COMPARE_COCKTAIL;
+	end
+COMPARE_COCKTAIL:
+	begin
+	if(total2 > total1)
+		state <= BACK_SWITCH;
+	else
+		state <= COCKTAIL_NEXT;
+	end
+BACK_SWITCH:
+	begin
+	   //$display("STATE: SWITCH");
+		did_swap <= 1'b1;
+		openx[sort_count] <= openx[sort_count+1];
+		openx[sort_count+1] <= openx[sort_count];
+		openy[sort_count] <= openy[sort_count+1];
+		openy[sort_count+1] <= openy[sort_count];
+		state <= COCKTAIL_NEXT;
+	end
+COCKTAIL_NEXT:
+	begin
+	   //$display("STATE: BUBBLE_NEXT");
+		if(sort_count <= 0 && did_swap == 1'b1)
+		begin
+			sort_count <= sort_count + 1;
+			did_swap <= 1'b0;
+			total1 <= 0;
+			total2 <= 0;
+			state <= BUBBLE_SORT;
+		end
+		
+		if(sort_count <= 0 && did_swap == 1'b0)
+		begin
+			sort_count <= 0;
+			state <= SORT_DONE;//go to next stage here
+		end
+		
+		if(sort_count > 0)
+			begin
+				sort_count <= sort_count - 1;
+				state <= COCKTAIL_BACK;
+				total1 <= 0;
+				total2 <= 0;
+		    end
+	end 
 SORT_DONE:
 	begin
 	   $display("STATE: SORT_DONE");
 		done <= 1'b1;
 	end
+	
 /////////////////////////////////////////////////////////////////////
 
 endcase
