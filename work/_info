@@ -4,46 +4,27 @@ K3
 cModel Technology
 Z0 dC:\modeltech64_10.1c\examples
 <<<<<<< HEAD
-V?N12m5?Ll@2E9XA1z:D4o0
-Z1 04 7 4 work sort_tb fast 0
-=1-0090f5bd1cf8-50bd359b-12d-169c
+Z1 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
 Z2 =======
-VM]IkY8_P<C^Y2SaB;4:X61
 R1
-=1-0090f5bd1cf8-50badeac-145-2c3c
 Z3 dC:\modeltech64_10.1c\examples
-<<<<<<< HEAD
-I@1[B2^TRo2i1KSAfBLAXO3
-Z4 VK4CJ<6OfW1^4SKR2ND??;0
-Z5 dC:\Users\RoyZheng\Desktop\CompSci\git\astar-search-algorithm
-w1354570388
-R2
-IgekNTLU6=Gn4>5blcaJnm1
+Z4 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v|
 R4
-R5
-w1354425144
+Z5 !s100 bKf?gY[CzmFN0JoN4YTdc1
+!s100 f_B?`?j_Q31f[3f9_Z@WQ1
+!s108 1354577295.253000
+!s108 1354436630.610000
+!s85 0
+!i10b 1
+!i10b 1
 <<<<<<< HEAD
+I7;kg9C5Lf24K9mzRM2UUT0
+Z6 dC:\Users\RoyZheng\Desktop\CompSci\git\astar-search-algorithm
+w1354570380
 R2
-R3
-Z6 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
+Z7 InM^C4mj@:QEj[^X^M[4JO0
 R6
-!s100 K:9UZnz:i>H^IOAKl[R6O1
-!s108 1354577294.668000
-!s100 ZY]ZT@nkH_E1Hj7Zhc8;Y3
-!s108 1354425152.112000
-<<<<<<< HEAD
-VcJIH`^A[en?^Rkn]_I^540
-R2
-Z7 V<UHekQ]oR9_IJh>RU7mnH3
-R3
-<<<<<<< HEAD
-Im>Sgc3O;MR]MGam9E?R_;0
-R5
-w1354570633
-R2
-IeKIfA2=N`?d1Vn9SfoefM0
-R5
-w1354436269
+w1354436623
 <<<<<<< HEAD
 R2
 R3
@@ -57,70 +38,89 @@ R9
 !s108 1354436276.620000
 !s85 0
 <<<<<<< HEAD
-I7;kg9C5Lf24K9mzRM2UUT0
-R5
-w1354570380
+Im>Sgc3O;MR]MGam9E?R_;0
+R6
+w1354570633
 R2
-Z10 InM^C4mj@:QEj[^X^M[4JO0
-R5
-w1354436623
+IeKIfA2=N`?d1Vn9SfoefM0
+R6
+w1354436269
 <<<<<<< HEAD
-Z11 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+VcJIH`^A[en?^Rkn]_I^540
 R2
+Z10 V<UHekQ]oR9_IJh>RU7mnH3
+R3
+<<<<<<< HEAD
+R2
+R3
+Z11 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 R11
-R3
-Z12 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v|
+!s100 K:9UZnz:i>H^IOAKl[R6O1
+!s108 1354577294.668000
+!s100 ZY]ZT@nkH_E1Hj7Zhc8;Y3
+!s108 1354425152.112000
+<<<<<<< HEAD
+I@1[B2^TRo2i1KSAfBLAXO3
+Z12 VK4CJ<6OfW1^4SKR2ND??;0
+R6
+w1354570388
+R2
+IgekNTLU6=Gn4>5blcaJnm1
 R12
-Z13 !s100 bKf?gY[CzmFN0JoN4YTdc1
-!s100 f_B?`?j_Q31f[3f9_Z@WQ1
-!s108 1354577295.253000
-!s108 1354436630.610000
-!s85 0
-!i10b 1
-!i10b 1
->>>>>>> starting search testbench
-Z14 o-quiet -auto_acc_if_foreign -work work
-n@_opt
-Z15 OL;O;10.1c;51
+R6
+w1354425144
+<<<<<<< HEAD
+V?N12m5?Ll@2E9XA1z:D4o0
+Z13 04 7 4 work sort_tb fast 0
+=1-0090f5bd1cf8-50bd359b-12d-169c
+R2
+VM]IkY8_P<C^Y2SaB;4:X61
+R13
+=1-0090f5bd1cf8-50badeac-145-2c3c
 R3
 >>>>>>> starting search testbench
-Z16 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
-Z17 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
-L0 6
-Z18 OL;L;10.1c;51
+R3
+Z14 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v|
+>>>>>>> starting search testbench
+Z15 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v
+Z16 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v
+L0 24
+Z17 OL;L;10.1c;51
+R3
+>>>>>>> starting search testbench
+R3
+!i10b 1
+>>>>>>> starting search testbench
+Z18 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
+Z19 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
+L0 2
+R17
+R1
+R3
+>>>>>>> starting search testbench
 r1
 31
-R11
 R3
+!s85 0
 >>>>>>> starting search testbench
 R3
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 !s85 0
 >>>>>>> starting search testbench
+Z20 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
+Z21 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
+L0 6
+R17
 r1
 31
-R3
-!s85 0
->>>>>>> starting search testbench
-Z19 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
-Z20 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
-L0 2
-R18
-R11
+R1
 R3
 >>>>>>> starting search testbench
+Z22 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z23 OL;O;10.1c;51
 R3
-!i10b 1
->>>>>>> starting search testbench
-Z21 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v
-Z22 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v
-L0 24
-R18
-R3
->>>>>>> starting search testbench
-R3
-Z23 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v|
 T_opt
 R3
 T_opt1
@@ -129,26 +129,26 @@ VWjXgLb<S9X1SlEH?f[8@T1
 =1-0090f5bd1cf8-50bae056-62-1094
 o-quiet -auto_acc_if_foreign -work work -O0
 n@_opt1
-R15
+R23
 R3
 T_opt2
 V@32K9nLUG=`=2GEmCNJo;1
 04 8 4 work astar_tb fast 0
 =1-0090f5bd1cf8-50be56d5-10f-2328
-R14
+R22
 n@_opt2
-R15
+R23
 R3
 vastar_algorithm
-R4
+R12
 r1
 !s85 0
 31
-Ic:K^1;T>`DGcP:HjgV_UH3
-R5
-w1354776240
-R16
-R17
+I5c=_:Nc9NOKz`joAz@69O3
+R6
+w1354776534
+R20
+R21
 Fgenerate_neighbor_distance_from_start.v
 FcheckIfNeighborIsBetter.v
 FneighborIsBetter.v
@@ -158,11 +158,11 @@ Fsearch_open_standalone.v
 Fsearch_close_standalone.v
 Fsort_standalone.v
 L0 11
-R18
-R6
+R17
 R11
-!s100 ^aWHB?QbQ^=2UF9P=N5;e2
-!s108 1354776259.034000
+R1
+!s100 0m>bJT[:3zADeUJ^?gJ893
+!s108 1354776538.665000
 !s107 sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
@@ -170,31 +170,31 @@ VBeSE_`NmWm_z]3aDdVNd@0
 r1
 31
 IRK25;em[Z36AK4JZFEeGj1
-R5
+R6
 w1354675804
 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
 L0 24
-R18
-R11
+R17
+R1
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354776260.430000
+!s108 1354776540.043000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
 ILaaE7[mcJ2kFDTDho`glf2
 V;9]j]dQEhRNOQE`AIKV^33
-R5
+R6
 w1350962723
 8C:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD.v
 FC:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD.v
 L0 16
-R18
+R17
 r1
 31
-R11
+R1
 nee201_@g@c@d
 !s100 <chzeZ7=miTh[a1RlUSPm1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD.v|
@@ -205,15 +205,15 @@ nee201_@g@c@d
 vee201_GCD_tb
 IYE@b0abYVXhaKaQZIm2QX0
 V>R[5ENnZLNFmFZd2<bg6<0
-R5
+R6
 w1350956624
 8C:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD_tb.v
 FC:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD_tb.v
 L0 25
-R18
+R17
 r1
 31
-R11
+R1
 nee201_@g@c@d_tb
 !s100 3FmgKUmTd<cF12I88zn4A1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/ee201_lab8/orange/ee201_GCD_tb.v|
@@ -224,17 +224,17 @@ nee201_@g@c@d_tb
 vsearch
 IL00e3FLFmf_4LS1<_?g:j3
 V_E:>aBXKJIBKKB5]A_Ebz3
-R5
+R6
 w1354773356
 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v
 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v
 L0 2
-R18
+R17
 r1
 31
-R11
+R1
 !s100 jb6m5SaZcBINKhCYGm9TD0
-!s108 1354776260.790000
+!s108 1354776540.434000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -242,54 +242,54 @@ R11
 vsearch_tb
 IK2EzM2o[j6GlUQ5j7TXa:2
 VTPV?9el6X0ZUdO>>Z9_RH2
-R5
+R6
 w1354579227
 8C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v
 FC:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v
 L0 24
-R18
+R17
 r1
 31
-R11
+R1
 !s100 Ffon]Z^fUb9UhPj[Ql[D03
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354776261.097000
+!s108 1354776540.611000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I^QbTQdTo[RZI_:@9Q:z8o1
-R7
-R5
+R10
+R6
 w1354763620
-R19
-R20
-L0 2
 R18
+R19
+L0 2
+R17
 r1
 31
 R8
-R11
+R1
 R9
 !s100 oO5h5_SL>F47W<LWYSNoo1
-!s108 1354776259.778000
+!s108 1354776539.370000
 !i10b 1
 !s85 0
 vsort_tb
-R13
-R10
-V=lngWRSczVgkS=323A2Ec0
 R5
+R7
+V=lngWRSczVgkS=323A2Ec0
+R6
 w1354677025
-R21
-R22
+R15
+R16
 L0 24
-R18
+R17
 r1
 31
-R12
-R11
-R23
-!s108 1354776260.011000
+R4
+R1
+R14
+!s108 1354776539.599000
 !i10b 1
 !s85 0

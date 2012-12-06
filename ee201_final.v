@@ -542,7 +542,7 @@ distanceFromStart0[0] = 0;
 			     end
 			else
 		      begin
-			     if(neighborcounter == 3'b111)
+			     if(neighborcounter == 4'b0111)
 			       state <= CHECK_DONE;
 				 else
 			       neighborcounter <= neighborcounter + 1;
@@ -557,6 +557,8 @@ distanceFromStart0[0] = 0;
 		      
 		      `include "checkIfNeighborIsBetter.v"
              endcase
+			 
+			 
           end
 
 NEIGHBOR_IS_BETTER:
@@ -564,7 +566,7 @@ begin
 $display("STATE: NEIGHBOR IS BETTER");
 		   $display("Checking neighbor position %d,%d", tempneighborx[neighborcounter], tempneighbory[neighborcounter]);
   //STATE TRANSITION
-  if(neighborcounter == 3'b111)
+  if(neighborcounter == 4'b0111)
     state <= CHECK_DONE;
   else
     begin

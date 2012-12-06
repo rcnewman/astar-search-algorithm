@@ -40,7 +40,7 @@
 				state <= NEIGHBOR_CHECK_LOOP;
 				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
 				neighborcounter <= neighborcounter + 1;
-				if(neighborcounter == 3'b111)
+				if(neighborcounter == 4'b0111)
 				state <= CHECK_DONE;
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
