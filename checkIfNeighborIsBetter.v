@@ -4,7 +4,9 @@
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1:
 		 begin
@@ -12,7 +14,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10:
 		 begin
@@ -20,7 +24,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11:
 		 begin
@@ -28,7 +34,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100:
 		 begin
@@ -36,7 +44,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b101:
 		 begin
@@ -44,7 +54,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b110:
 		 begin
@@ -52,7 +64,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b111:
 		 begin
@@ -60,7 +74,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1000:
 		 begin
@@ -68,7 +84,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1001:
 		 begin
@@ -76,7 +94,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1010:
 		 begin
@@ -84,7 +104,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1011:
 		 begin
@@ -92,7 +114,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1100:
 		 begin
@@ -100,7 +124,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1101:
 		 begin
@@ -108,7 +134,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1110:
 		 begin
@@ -116,7 +144,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b1111:
 		 begin
@@ -124,7 +154,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10000:
 		 begin
@@ -132,7 +164,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10001:
 		 begin
@@ -140,7 +174,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10010:
 		 begin
@@ -148,7 +184,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10011:
 		 begin
@@ -156,7 +194,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10100:
 		 begin
@@ -164,7 +204,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10101:
 		 begin
@@ -172,7 +214,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10110:
 		 begin
@@ -180,7 +224,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b10111:
 		 begin
@@ -188,7 +234,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11000:
 		 begin
@@ -196,7 +244,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11001:
 		 begin
@@ -204,7 +254,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11010:
 		 begin
@@ -212,7 +264,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11011:
 		 begin
@@ -220,7 +274,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11100:
 		 begin
@@ -228,7 +284,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11101:
 		 begin
@@ -236,7 +294,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11110:
 		 begin
@@ -244,7 +304,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b11111:
 		 begin
@@ -252,7 +314,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100000:
 		 begin
@@ -260,7 +324,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100001:
 		 begin
@@ -268,7 +334,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100010:
 		 begin
@@ -276,7 +344,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100011:
 		 begin
@@ -284,7 +354,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100100:
 		 begin
@@ -292,7 +364,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100101:
 		 begin
@@ -300,7 +374,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100110:
 		 begin
@@ -308,7 +384,9 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end
 	       8'b100111:
 		 begin
@@ -316,5 +394,7 @@ neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
-neighborcounter <= neighborcounter + 1; state <= NEIGHBOR_CHECK_LOOP;
+neighborcounter <= neighborcounter + 1; 
+state <= NEIGHBOR_CHECK_LOOP;
+end
 		 end

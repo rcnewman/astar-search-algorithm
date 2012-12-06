@@ -567,7 +567,7 @@ $display("STATE: NEIGHBOR IS BETTER");
     state <= CHECK_DONE;
   else
     begin
-      		    //neighborcounter <= neighborcounter + 1;
+      		    neighborcounter <= neighborcounter + 1;
     state <= NEIGHBOR_CHECK_LOOP;
   end
     

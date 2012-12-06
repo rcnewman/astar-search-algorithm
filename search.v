@@ -884,6 +884,7 @@ closey[399] <= 8'b1;
 			begin
 				//state <= NEIGHBOR_CHECK_LOOP;
 				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
+				//neighborcounter <= neighborcounter + 1;
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
 		 begin
