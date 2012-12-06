@@ -144,11 +144,12 @@ R12
 r1
 !s85 0
 31
-I1;RDkF763[f`[E6MDKDzU3
+Ik5ZDoRokE2D=4g7zcNLPi0
 R6
-w1354777860
+w1354778727
 R20
 R21
+Fdisplaygrid.v
 Fgenerate_neighbor_distance_from_start.v
 FcheckIfNeighborIsBetter.v
 FneighborIsBetter.v
@@ -159,13 +160,13 @@ Fsearch_close_standalone.v
 Fsort_standalone.v
 Fsort_standalone_helper1.v
 Fsort_standalone_helper2.v
-L0 11
+L0 12
 R17
 R11
 R1
-!s100 77UCT6hC27B]EiGQ3UIa90
-!s108 1354777864.044000
-!s107 sort_standalone_helper2.v|sort_standalone_helper1.v|sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
+!s100 8n@?kgFRhYJimjdeO35c73
+!s108 1354778733.484000
+!s107 sort_standalone_helper2.v|sort_standalone_helper1.v|sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|displaygrid.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
 VBeSE_`NmWm_z]3aDdVNd@0
@@ -182,7 +183,7 @@ R1
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354777865.567000
+!s108 1354778734.852000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
@@ -236,7 +237,7 @@ r1
 31
 R1
 !s100 jb6m5SaZcBINKhCYGm9TD0
-!s108 1354777865.779000
+!s108 1354778735.287000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -257,7 +258,7 @@ R1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354777865.936000
+!s108 1354778735.514000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I^QbTQdTo[RZI_:@9Q:z8o1
@@ -274,7 +275,7 @@ R8
 R1
 R9
 !s100 oO5h5_SL>F47W<LWYSNoo1
-!s108 1354777864.675000
+!s108 1354778734.272000
 !i10b 1
 !s85 0
 vsort_tb
@@ -292,6 +293,6 @@ r1
 R4
 R1
 R14
-!s108 1354777864.917000
+!s108 1354778734.491000
 !i10b 1
 !s85 0
