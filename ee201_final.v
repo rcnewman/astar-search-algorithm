@@ -530,13 +530,15 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 			 tempneighborx[7] <= 8'b11111111;
 			 tempneighbory[7] <= 8'b11111111;
 		      end
+			  
+			  neighborcounter <= 4'b0;
 		 end // case: GENERATE_NEIGHBORS
 	       NEIGHBOR_CHECK_LOOP:
 		 begin	   
 		    $display("STATE: NEIGHBOR CHECK LOOP");
-		    $display("Checking %d,%d", tempneighborx[neighborcounter],tempneighbory[neighborcounter]);
    		    if(tempneighborx[neighborcounter] != 8'b11111111 && tempneighbory[neighborcounter] != 8'b11111111 && map[tempneighbory[neighborcounter]][tempneighborx[neighborcounter]] != 1'b1)//exists and is not obstacle
 		      begin
+		    $display("Checking %d,%d", tempneighborx[neighborcounter],tempneighbory[neighborcounter]);
 		         $display("NeighborCounter: %d",neighborcounter);
 		         state <= CHECK_IF_IN_CLOSED;
 		         checkx = tempneighborx[neighborcounter];
