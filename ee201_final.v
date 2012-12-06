@@ -66,6 +66,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      COCKTAIL_BACK               = 8'b0000_1110,
      COMPARE_COCKTAIL            = 8'b00_110001,
      COCKTAIL_NEXT               = 8'b00_110000,
+     BACK_SWITCH                 = 8'b00_110010,
      SORT_DONE                   = 8'b0000_1111,
      
      CREATE_NEIGHBORS            = 8'b10010000,
