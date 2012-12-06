@@ -3,7 +3,11 @@
 		    $display("STATE: CHECK_IF_IN_OPEN");
 		    search_index <= 9'b0;
 		    found <= 1'b0;
-		    state <= SEARCH_OPEN_COMPARE;
+		    
+			if(opencounter == 0)
+				state <= SEARCH_OPEN_DONE_NOT_FOUND;
+			else
+				state <= SEARCH_OPEN_COMPARE;
 		 end
 			
 	       SEARCH_OPEN_COMPARE:
@@ -23,7 +27,7 @@
 	       SEARCH_OPEN_NEXT:
 		 begin
 		    $display("STATE: SEARCH_OPEN_NEXT");
-		    if(search_index == opencounter)//equals 399
+		    if(search_index >= opencounter)//equals 399
 		      begin
 			 found <=1'b0;
 			 state <= SEARCH_OPEN_DONE_NOT_FOUND; // Not found, go to next section
