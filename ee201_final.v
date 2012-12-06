@@ -276,7 +276,7 @@ integer i;
 		    bad = 0;
 		    opencounter <= 9'b000000000;
 		    closecounter <= 9'b000000000;
-		    temp1 <= 32'b00000000000000000000000000000000;
+		    temp1 <= 16'b0;
 		    
 		    	     goalx = 8'b00100111;
 	     goaly = 8'b00100111;
@@ -338,7 +338,6 @@ integer i;
 			 distanceFromStart39[temp1] = 8'b11111111;
 		 end // if (temp1 <= 16'b0000000000100111)
 		 
-		       
 			 openx[temp1] <= 8'b11111111;
 			 openy[temp1] <= 8'b11111111;
 			 closex[temp1] <= 8'b11111111;
@@ -353,7 +352,8 @@ distanceFromStart0[0] = 0;
 		 begin
 		 $display("STATE: VERIFY");
 		    //TRANSITION LOGIC
-		    if(map[0] == 40'b0000000000000000000000000000000000000001)
+		    //if(map[0] == 40'b0000000000000000000000000000000000000001)
+			if(map[0][0] == 1'b1)
 		      state <= ERROR;
 		    else if(map[39] == 40'b1000000000000000000000000000000000000000)
 		      state <= ERROR;
