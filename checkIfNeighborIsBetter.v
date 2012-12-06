@@ -4,6 +4,7 @@
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -14,6 +15,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -24,6 +26,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -34,6 +37,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -44,6 +48,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -54,6 +59,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -64,6 +70,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -74,6 +81,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -84,6 +92,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -94,6 +103,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -104,6 +114,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -114,6 +125,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -124,6 +136,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -134,6 +147,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -144,6 +158,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -154,6 +169,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -164,6 +180,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -174,6 +191,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -184,6 +202,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -194,6 +213,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -204,6 +224,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -214,6 +235,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -224,6 +246,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -234,6 +257,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -244,6 +268,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -254,6 +279,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -264,6 +290,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -274,6 +301,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -284,6 +312,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -294,6 +323,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -304,6 +334,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -314,6 +345,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -324,6 +356,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -334,6 +367,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -344,6 +378,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -354,6 +389,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -364,6 +400,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -374,6 +411,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -384,6 +422,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end
@@ -394,6 +433,7 @@ end
 		      state <= NEIGHBOR_IS_BETTER;
 		    else 
 begin 
+if(neighborcounter == 3'b111) state <= CHECK_DONE;
 neighborcounter <= neighborcounter + 1; 
 state <= NEIGHBOR_CHECK_LOOP;
 end

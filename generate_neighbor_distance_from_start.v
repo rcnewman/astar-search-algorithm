@@ -7,7 +7,7 @@ begin
 $display("Current distance from start: %d",distanceFromStart0[0]);
 $display("Current position: %d,%d", currentx, currenty);
 $display("Neighbor position: %d,%d", tempneighborx[neighborcounter], tempneighbory[neighborcounter]);
-neighbor_distance_from_start <= distanceFromStart0[0]*1000 + (currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 1000 : 1414;
+neighbor_distance_from_start <= distanceFromStart0[0] + (currentx == tempneighborx[neighborcounter] || currenty == tempneighbory[neighborcounter]) ? 1000 : 1414;
 end
 8'b1:
 begin
