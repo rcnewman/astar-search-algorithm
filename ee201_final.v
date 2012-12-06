@@ -1,3 +1,4 @@
+
 /*questio
  VGA output?
  string output to some sort of console for debugging? display
@@ -26,7 +27,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  currentx;
    reg [7:0]  currenty;
 
-integer i;
+integer i,j;
   
    reg [7:0]  neighborx [7:0];//9x1byte, stores neighbor list
    reg [7:0]  neighbory [7:0];//9x1byte, stores neighbor list
@@ -88,6 +89,7 @@ integer i;
      DEBUG_DISTANCE=8'b11100110;
 
    reg [39:0]  map [39:0];
+   reg [39:0] finished_map [39:0];
    
    reg [7:0]   previousNodeX0 [39:0];
    reg [7:0]   previousNodeY0 [39:0];
@@ -234,7 +236,7 @@ integer i;
 		    //STATE TRANSITION
 		    state <= INITIALIZE_ARRAY;
 		    //RTL
-		    map[0]=40'b0;
+		    map[0]=40'b1000000000;
 		    map[1]=40'b0;
 		    map[2]=40'b0;
 		    map[3]=40'b0;
@@ -368,6 +370,9 @@ distanceFromStart0[0] = 0;
 		 end // case: VERIFY
 	       CHECK_DONE:
 		 begin
+		   `include "displaygrid.v"
+		   
+		   
 		 $display("STATE: CHECK DONE");
 		 $display("Open: %d,%d", openx[0],openy[0]);
 		 //TRANSITION LOGIC
