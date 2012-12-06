@@ -590,7 +590,7 @@ end
 
 RECONSTRUCT:
 begin
-  $display("STATE: RECONSTRUCT");
+  //$display("STATE: RECONSTRUCT");
   
   case(temp1)
     
@@ -599,10 +599,6 @@ begin
   endcase
   
 end
-
-
-
-
 
 
 

@@ -1,200 +1,280 @@
 8'b0:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("0",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart0[i]);
 end
 $display(" ");
+end
 8'b1:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("1",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart1[i]);
 end
 $display(" ");
+end
 8'b10:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("2",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart2[i]);
 end
 $display(" ");
+end
 8'b11:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("3",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart3[i]);
 end
 $display(" ");
+end
 8'b100:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("4",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart4[i]);
 end
 $display(" ");
+end
 8'b101:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("5",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart5[i]);
 end
 $display(" ");
+end
 8'b110:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("6",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart6[i]);
 end
 $display(" ");
+end
 8'b111:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("7",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart7[i]);
 end
 $display(" ");
+end
 8'b1000:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("8",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart8[i]);
 end
 $display(" ");
+end
 8'b1001:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("9",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart9[i]);
 end
 $display(" ");
+end
 8'b1010:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("10",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart10[i]);
 end
 $display(" ");
+end
 8'b1011:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("11",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart11[i]);
 end
 $display(" ");
+end
 8'b1100:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("12",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart12[i]);
 end
 $display(" ");
+end
 8'b1101:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("13",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart13[i]);
 end
 $display(" ");
+end
 8'b1110:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("14",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart14[i]);
 end
 $display(" ");
+end
 8'b1111:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("15",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart15[i]);
 end
 $display(" ");
+end
 8'b10000:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("16",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart16[i]);
 end
 $display(" ");
+end
 8'b10001:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("17",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart17[i]);
 end
 $display(" ");
+end
 8'b10010:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("18",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart18[i]);
 end
 $display(" ");
+end
 8'b10011:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("19",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart19[i]);
 end
 $display(" ");
+end
 8'b10100:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("20",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart20[i]);
 end
 $display(" ");
+end
 8'b10101:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("21",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart21[i]);
 end
 $display(" ");
+end
 8'b10110:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("22",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart22[i]);
 end
 $display(" ");
+end
 8'b10111:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("23",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart23[i]);
 end
 $display(" ");
+end
 8'b11000:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("24",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart24[i]);
 end
 $display(" ");
+end
 8'b11001:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("25",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart25[i]);
 end
 $display(" ");
+end
 8'b11010:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("26",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart26[i]);
 end
 $display(" ");
+end
 8'b11011:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("27",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart27[i]);
 end
 $display(" ");
+end
 8'b11100:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("28",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart28[i]);
 end
 $display(" ");
+end
 8'b11101:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("29",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart29[i]);
 end
 $display(" ");
+end
 8'b11110:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("30",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart30[i]);
 end
 $display(" ");
+end
 8'b11111:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("31",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart31[i]);
 end
 $display(" ");
+end
 8'b100000:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("32",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart32[i]);
 end
 $display(" ");
+end
 8'b100001:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("33",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart33[i]);
 end
 $display(" ");
+end
 8'b100010:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("34",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart34[i]);
 end
 $display(" ");
+end
 8'b100011:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("35",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart35[i]);
 end
 $display(" ");
+end
 8'b100100:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("36",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart36[i]);
 end
 $display(" ");
+end
 8'b100101:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("37",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart37[i]);
 end
 $display(" ");
+end
 8'b100110:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("38",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart38[i]);
 end
 $display(" ");
+end
 8'b100111:
+begin
 for (i = 0; i < 16; i = i +1) begin
-$write("39",distanceFromStart$d[i]);
+$write("%d|",distanceFromStart39[i]);
 end
 $display(" ");
+end

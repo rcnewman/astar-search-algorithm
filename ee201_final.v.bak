@@ -594,15 +594,11 @@ begin
   
   case(temp1)
     
-`include "
+`include "reconstruct_debug.v"
   
   endcase
   
 end
-
-
-
-
 
 
 
