@@ -1,9 +1,8 @@
 
-module sort(Clk,Reset,done);
+module sort(Clk,Reset);
   
   input Clk;
   input Reset;
-  output done;
   
   reg done;
   
@@ -15,7 +14,7 @@ module sort(Clk,Reset,done);
   reg [7:0] openx [0:399];//open list x cord
 
   reg [7:0] openy [0:399];//open list y cord
-   reg [9:0] open_counter;
+   reg [9:0] opencounter;
    
    
    reg [7:0] startx, starty, goalx, goaly;
@@ -23,7 +22,7 @@ module sort(Clk,Reset,done);
    reg [9:0] sort_count;//used for sorting
   
   localparam
-    SORT_QUEUE = 8'b00001000,
+    SORT_QUEUE = 8'b000010000,
     BUBBLE_SORT = 8'b00001001,
     GET_SECOND_DISTANCE = 8'b00001010,
     COMPARE_BETTER = 8'b00001011,
@@ -42,12 +41,12 @@ openx[1] <= 8'b0;
 openy[1] <= 8'b0;
 openx[2] <= 8'b0;
 openy[2] <= 8'b0;
-openx[3] <= 8'b0;
-openy[3] <= 8'b0;
+openx[3] <= 8'b1;
+openy[3] <= 8'b1;
 openx[4] <= 8'b0;
 openy[4] <= 8'b0;
-openx[5] <= 8'b0;
-openy[5] <= 8'b0;
+openx[5] <= 8'b10;
+openy[5] <= 8'b10;
 openx[6] <= 8'b0;
 openy[6] <= 8'b0;
 openx[7] <= 8'b0;
@@ -55,7 +54,7 @@ openy[7] <= 8'b0;
 openx[8] <= 8'b0;
 openy[8] <= 8'b0;
 openx[9] <= 8'b0;
-openy[9] <= 8'b101;
+openy[9] <= 8'b0;
 openx[10] <= 8'b0;
 openy[10] <= 8'b0;
 openx[11] <= 8'b0;
@@ -839,7 +838,8 @@ openy[399] <= 8'b0;
 
 	     state <= SORT_QUEUE;
 
-	     open_counter <= 10'b110001111;
+	     //opencounter <= 10'b110001111;//399
+	     opencounter <= 10'b1010;//10
 	     did_swap <= 1'b0;
 	     startx <= 8'b0;
 	     starty <= 8'b0;
@@ -855,9 +855,9 @@ openy[399] <= 8'b0;
 
       SORT_QUEUE:
 	begin
+	  $display("STATE: SORT_QUEUE");
 	  state <= BUBBLE_SORT;
-	   sort_count <= 10'b0;
-	   open_counter <= 10'b110001111;
+	   sort_count = 10'b0;
 	   did_swap <= 1'b0;
 	   done <= 1'b0;
 	end
@@ -866,9 +866,12 @@ openy[399] <= 8'b0;
 //GET FIRST, DISTANCE
       BUBBLE_SORT:
 	begin
-	  
+	   $display("STATE: BUBBLE_SORT");
+	 //  temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
+	//temp2 <= ((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx);
 	
-	total1 <= 1414 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
+	total1 <= 1.41421 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx) + (((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx) - 2 * ((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx));
+	//distance from start x=openx[sort_count]  y=openy[sort_count]
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
 	//temp5 <= ((openy[sort_count] - starty < 0)? -1*(openy[sort_count]-starty):openy[sort_count]-starty) + ((openx[sort_count]-startx < 0)? -1 *(openx[sort_count]-startx):openx[sort_count]-startx);
@@ -877,21 +880,21 @@ openy[399] <= 8'b0;
 	
 	//TotalDistanceFromGoal
 	//total1 = temp3 + temp6;
-	state = GET_SECOND_DISTANCE;
+	state <= GET_SECOND_DISTANCE;
 	end // case: BUBBLE_SORT
       
 GET_SECOND_DISTANCE:
 	begin
 	  state <= COMPARE_BETTER;
+	   $display("STATE: GET_SECOND_DISTANCE");
 	  
-	//temp1 <=;
-	//temp2 <= ;
-	
-	total2 <= 1414 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx) + (((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx) - 2 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx));
+//	temp1 <=((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx);
+//	temp2 <= ((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx);
+	total2 <= 1.41421 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx) + (((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx) - 2 * ((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx));
+		//distance from start x=openx[sort_count]  y=openy[sort_count]
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
 	//temp5 <= ((openy[sort_count+1] - starty < 0)? -1*(openy[sort_count+1]-starty):openy[sort_count+1]-starty) + ((openx[sort_count+1]-startx < 0)? -1 *(openx[sort_count+1]-startx):openx[sort_count+1]-startx);
-	
 	//temp6 <= 1.41421 * temp4 + (temp5 - 2 * temp6);
 	
 	//total2 = temp3 + temp6;
@@ -900,7 +903,7 @@ GET_SECOND_DISTANCE:
 
 COMPARE_BETTER:
 	begin
-    
+     $display("STATE: COMPARE_BETTER");
 	if(total2 > total1)
 		state <= SWITCH;
 	
@@ -910,6 +913,7 @@ COMPARE_BETTER:
 	
 SWITCH:
 	begin
+	   $display("STATE: SWITCH");
 		did_swap <= 1'b1;
 		openx[sort_count] <= openx[sort_count+1];
 		openx[sort_count+1] <= openx[sort_count];
@@ -920,22 +924,23 @@ SWITCH:
 
 BUBBLE_NEXT:
 	begin
-		if(sort_count >= open_counter && did_swap == 1'b1)
+	   $display("STATE: BUBBLE_NEXT");
+		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
-			sort_count <= 0;
+			sort_count <= 10'b0;
 			did_swap <= 1'b0;
 			total1 <= 0;
 			total2 <= 0;
 			state <= BUBBLE_SORT;
 		end
 		
-		if(sort_count >= open_counter && did_swap == 1'b0)
+		if(sort_count >= opencounter && did_swap == 1'b0)
 		begin
 			sort_count <= 0;
 			state <= SORT_DONE;//go to next stage here
 		end
 		
-		if(sort_count < open_counter)
+		if(sort_count < opencounter)
 			begin
 				sort_count <= sort_count + 1;
 				state <= BUBBLE_SORT;
@@ -946,8 +951,8 @@ BUBBLE_NEXT:
 
 SORT_DONE:
 	begin
+	   $display("STATE: SORT_DONE");
 		done <= 1'b1;
-		//state <= CREATE_NEIGHBORS;
 	end
 /////////////////////////////////////////////////////////////////////
 
