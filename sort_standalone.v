@@ -118,6 +118,16 @@ COMPARE_COCKTAIL;
 	else
 		state <= COCKTAIL_NEXT;
 	end
+BACK_SWITCH:
+	begin
+	   //$display("STATE: SWITCH");
+		did_swap <= 1'b1;
+		openx[sort_count] <= openx[sort_count+1];
+		openx[sort_count+1] <= openx[sort_count];
+		openy[sort_count] <= openy[sort_count+1];
+		openy[sort_count+1] <= openy[sort_count];
+		state <= COCKTAIL_NEXT;
+	end
 COCKTAIL_NEXT:
 	begin
 	   //$display("STATE: BUBBLE_NEXT");
