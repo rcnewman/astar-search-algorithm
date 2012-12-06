@@ -865,7 +865,10 @@ closey[399] <= 8'b1;
 		      end
 		 end
 	       SEARCH_CLOSED_NEXT:
+<<<<<<< HEAD
 	       $display("STATE: SEARCH_CLOSED_NEXT");
+=======
+>>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
 		 begin
 		    if(search_index == closecounter)//equals 399
 		      begin
@@ -880,11 +883,18 @@ closey[399] <= 8'b1;
 			SEARCH_CLOSED_DONE_FOUND:
 			begin
 				//state <= NEIGHBOR_CHECK_LOOP;
+<<<<<<< HEAD
 				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
 	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
 	       //neighborcounter <= neighborcounter + 1;
+=======
+				
+			end
+	       SEARCH_CLOSED_DONE_NOT_FOUND:
+	       
+>>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
 			
 		 begin
 //state <= CHECK_IF_IN_OPEN;

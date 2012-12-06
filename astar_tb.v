@@ -21,7 +21,7 @@
 // Additional Comments:
 ///////////////////////////////
 
-module sort_tb;
+module astar_tb;
   
   //inputs
   reg Clk_tb;
@@ -29,9 +29,10 @@ module sort_tb;
   
   integer clk_cnt;
   
-  sort uut(
-  .Clk(Clk_tb),
-  .Reset(Reset_tb)
+  //module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,draw_unknown);
+  astar_algorithm uut(
+  .sync(Clk_tb),
+  .reset(Reset_tb)
   );
   
   	initial 

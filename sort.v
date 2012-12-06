@@ -866,7 +866,10 @@ openy[399] <= 8'b0;
 //GET FIRST, DISTANCE
       BUBBLE_SORT:
 	begin
+<<<<<<< HEAD
 	   $display("STATE: BUBBLE_SORT");
+=======
+>>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
 	 //  temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
 	//temp2 <= ((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx);
 	
@@ -924,7 +927,10 @@ SWITCH:
 
 BUBBLE_NEXT:
 	begin
+<<<<<<< HEAD
 	   $display("STATE: BUBBLE_NEXT");
+=======
+>>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
 		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
 			sort_count <= 10'b0;
