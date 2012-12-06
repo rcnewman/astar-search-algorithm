@@ -5,7 +5,7 @@
 			$display("NEIGHBORDISTANCE: %d",neighbor_distance_from_start);
 		    search_index <= 9'b0;
 		    found <= 1'b0;
-		    if(opencounter == 0)
+		    if(closecounter == 0)
 				state <= SEARCH_CLOSED_DONE_NOT_FOUND;
 			else
 				state <= SEARCH_CLOSED_COMPARE;
@@ -13,7 +13,7 @@
 			
 	       SEARCH_CLOSED_COMPARE:
 		 begin
-		   $display("STATE: SEARCH_CLOSED_COMPARE");
+		   //$display("STATE: SEARCH_CLOSED_COMPARE");
 		    if(closex[search_index] == checkx && closey[search_index] == checky)
 		      begin
 			 found <= 1'b1;
@@ -27,7 +27,7 @@
 		 end
 	       SEARCH_CLOSED_NEXT:
 		 begin
-		   	       $display("STATE: SEARCH_CLOSED_NEXT");
+		   	       //$display("STATE: SEARCH_CLOSED_NEXT");
 		    if(search_index == closecounter)//equals 399
 		      begin
 			 found <=1'b0;

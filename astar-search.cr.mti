@@ -1,13 +1,98 @@
-C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v {2 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
+C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v {0 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module sort
 ** Warning: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(25): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 
+** Error: sort_standalone_helper1.v(4): (vlog-2730) Undefined variable: 'distanceFromStart0'.
 
-Top level modules:
-	sort
+** Error: sort_standalone_helper1.v(8): (vlog-2730) Undefined variable: 'distanceFromStart1'.
 
-} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
+** Error: sort_standalone_helper1.v(12): (vlog-2730) Undefined variable: 'distanceFromStart2'.
+
+** Error: sort_standalone_helper1.v(16): (vlog-2730) Undefined variable: 'distanceFromStart3'.
+
+** Error: sort_standalone_helper1.v(20): (vlog-2730) Undefined variable: 'distanceFromStart4'.
+
+** Error: sort_standalone_helper1.v(24): (vlog-2730) Undefined variable: 'distanceFromStart5'.
+
+** Error: sort_standalone_helper1.v(28): (vlog-2730) Undefined variable: 'distanceFromStart6'.
+
+** Error: sort_standalone_helper1.v(32): (vlog-2730) Undefined variable: 'distanceFromStart7'.
+
+** Error: sort_standalone_helper1.v(36): (vlog-2730) Undefined variable: 'distanceFromStart8'.
+
+** Error: sort_standalone_helper1.v(40): (vlog-2730) Undefined variable: 'distanceFromStart9'.
+
+** Error: sort_standalone_helper1.v(44): (vlog-2730) Undefined variable: 'distanceFromStart10'.
+
+** Error: sort_standalone_helper1.v(48): (vlog-2730) Undefined variable: 'distanceFromStart11'.
+
+** Error: sort_standalone_helper1.v(52): (vlog-2730) Undefined variable: 'distanceFromStart12'.
+
+** Error: sort_standalone_helper1.v(56): (vlog-2730) Undefined variable: 'distanceFromStart13'.
+
+** Error: sort_standalone_helper1.v(60): (vlog-2730) Undefined variable: 'distanceFromStart14'.
+
+** Error: sort_standalone_helper1.v(64): (vlog-2730) Undefined variable: 'distanceFromStart15'.
+
+** Error: sort_standalone_helper1.v(68): (vlog-2730) Undefined variable: 'distanceFromStart16'.
+
+** Error: sort_standalone_helper1.v(72): (vlog-2730) Undefined variable: 'distanceFromStart17'.
+
+** Error: sort_standalone_helper1.v(76): (vlog-2730) Undefined variable: 'distanceFromStart18'.
+
+** Error: sort_standalone_helper1.v(80): (vlog-2730) Undefined variable: 'distanceFromStart19'.
+
+** Error: sort_standalone_helper1.v(84): (vlog-2730) Undefined variable: 'distanceFromStart20'.
+
+** Error: sort_standalone_helper1.v(88): (vlog-2730) Undefined variable: 'distanceFromStart21'.
+
+** Error: sort_standalone_helper1.v(92): (vlog-2730) Undefined variable: 'distanceFromStart22'.
+
+** Error: sort_standalone_helper1.v(96): (vlog-2730) Undefined variable: 'distanceFromStart23'.
+
+** Error: sort_standalone_helper1.v(100): (vlog-2730) Undefined variable: 'distanceFromStart24'.
+
+** Error: sort_standalone_helper1.v(104): (vlog-2730) Undefined variable: 'distanceFromStart25'.
+
+** Error: sort_standalone_helper1.v(108): (vlog-2730) Undefined variable: 'distanceFromStart26'.
+
+** Error: sort_standalone_helper1.v(112): (vlog-2730) Undefined variable: 'distanceFromStart27'.
+
+** Error: sort_standalone_helper1.v(116): (vlog-2730) Undefined variable: 'distanceFromStart28'.
+
+** Error: sort_standalone_helper1.v(120): (vlog-2730) Undefined variable: 'distanceFromStart29'.
+
+** Error: sort_standalone_helper1.v(124): (vlog-2730) Undefined variable: 'distanceFromStart30'.
+
+** Error: sort_standalone_helper1.v(128): (vlog-2730) Undefined variable: 'distanceFromStart31'.
+
+** Error: sort_standalone_helper1.v(132): (vlog-2730) Undefined variable: 'distanceFromStart32'.
+
+** Error: sort_standalone_helper1.v(136): (vlog-2730) Undefined variable: 'distanceFromStart33'.
+
+** Error: sort_standalone_helper1.v(140): (vlog-2730) Undefined variable: 'distanceFromStart34'.
+
+** Error: sort_standalone_helper1.v(144): (vlog-2730) Undefined variable: 'distanceFromStart35'.
+
+** Error: sort_standalone_helper1.v(148): (vlog-2730) Undefined variable: 'distanceFromStart36'.
+
+** Error: sort_standalone_helper1.v(152): (vlog-2730) Undefined variable: 'distanceFromStart37'.
+
+** Error: sort_standalone_helper1.v(156): (vlog-2730) Undefined variable: 'distanceFromStart38'.
+
+** Error: sort_standalone_helper1.v(160): (vlog-2730) Undefined variable: 'distanceFromStart39'.
+
+** Error: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(934): (vlog-2730) Undefined variable: 'COCKTAIL_BACK'.
+
+** Error: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(955): (vlog-2730) Undefined variable: 'COMPARE_COCKTAIL'.
+
+** Error: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(960): (vlog-2730) Undefined variable: 'BACK_SWITCH'.
+
+** Error: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v(962): (vlog-2730) Undefined variable: 'COCKTAIL_NEXT'.
+
+
+} {6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0 24.0 25.0 26.0 27.0 28.0 29.0 30.0 31.0 32.0 33.0 34.0 35.0 36.0 37.0 38.0 39.0 40.0 41.0 42.0 43.0 44.0 45.0 46.0 47.0 48.0 49.0 50.0 51.0 52.0 53.0 54.0 55.0 56.0 57.0 58.0 59.0 60.0 61.0 62.0 63.0 64.0 65.0 66.0 67.0 68.0 69.0 70.0 71.0 72.0 73.0 74.0 75.0 76.0 77.0 78.0 79.0 80.0 81.0 82.0 83.0 84.0 85.0 86.0 87.0 88.0 89.0 90.0 91.0 92.0 93.0} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module astar_tb
 

@@ -12,7 +12,7 @@
 			
 	       SEARCH_OPEN_COMPARE:
 		 begin
-		    $display("STATE: SEARCH_OPEN_COMPARE");
+		    //$display("STATE: SEARCH_OPEN_COMPARE");
 		    if(openx[search_index] == checkx && openy[search_index] == checky)
 		      begin
 			 found <= 1'b1;
@@ -26,7 +26,7 @@
 		 end
 	       SEARCH_OPEN_NEXT:
 		 begin
-		    $display("STATE: SEARCH_OPEN_NEXT");
+		    //$display("STATE: SEARCH_OPEN_NEXT");
 		    if(search_index >= opencounter)//equals 399
 		      begin
 			 found <=1'b0;

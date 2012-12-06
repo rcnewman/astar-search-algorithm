@@ -347,6 +347,9 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    openy[temp1] <= 8'b11111111;
 		    closex[temp1] <= 8'b11111111;
 		    closey[temp1] <= 8'b11111111;
+			
+			opencounter <= 9'b0;
+			closecounter <= 9'b0;
 		    
 		    distanceFromStart0[0] = 0;
 		    temp1 <= temp1+1;
@@ -370,7 +373,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		 end // case: VERIFY
 	       CHECK_DONE:
 		 begin
-`include "displaygrid.v"
+//`include "displaygrid.v"
 		    $display("STATE: CHECK DONE");
 		    $display("Open: %d,%d", openx[0],openy[0]);
 		    //TRANSITION LOGIC
@@ -383,6 +386,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	       QUEUE_MODS:
 		 begin
 		    $display("STATE: QUEUE MODS");
+			$display("Close size: %d" , closecounter);
 		    //STATE TRANSITION
 		    state <= QUEUE_MODS_SHIFT;
 		    //RTL
