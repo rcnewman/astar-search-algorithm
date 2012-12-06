@@ -1,4 +1,4 @@
-/*questions
+/*questio
  VGA output?
  string output to some sort of console for debugging? display
  

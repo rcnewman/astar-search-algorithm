@@ -90,6 +90,7 @@ module reconstruct(Clk,Reset);
     reg [7:0] current_recon_x;
     reg [7:0] current_recon_y;
     
+	reg[9:0] recon_counter;
 localparam
 	RECONSTRUCT 			= 8'000_000_00, 	
 	FIND_PREVIOUS 			= 8'000_001_00,
