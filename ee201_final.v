@@ -529,22 +529,22 @@ distanceFromStart0[0] = 0;
 		 end // case: GENERATE_NEIGHBORS
 	       NEIGHBOR_CHECK_LOOP:
 		 begin	   
-		 $display("STATE: NEIGHBOR CHECK LOOP");
+		    $display("STATE: NEIGHBOR CHECK LOOP");
    		    if(tempneighborx[neighborcounter] != 8'b11111111 && tempneighbory[neighborcounter] != 8'b11111111 && map[tempneighbory[neighborcounter]][tempneighborx[neighborcounter]] != 1'b1)//exists and is not obstacle
-		   begin
-		   $display("NeighborCounter: %d",neighborcounter);
-		      state <= CHECK_IF_IN_CLOSED;
-		      checkx = tempneighborx[neighborcounter];
-			 checky = tempneighbory[neighborcounter];
-			 `include "generate_neighbor_distance_from_start.v"
-			 end
-			   else
+		        begin
+		        $display("NeighborCounter: %d",neighborcounter);
+		            state <= CHECK_IF_IN_CLOSED;
+		            checkx = tempneighborx[neighborcounter];
+			        checky = tempneighbory[neighborcounter];
+			      `include "generate_neighbor_distance_from_start.v"
+			     end
+			else
 		      begin
-			 if(neighborcounter == 3'b111)
-			   state <= CHECK_DONE;
-			   else
-			     neighborcounter <= neighborcounter + 1;
-		      end
+			     if(neighborcounter == 3'b111)
+			       state <= CHECK_DONE;
+				   
+			       neighborcounter <= neighborcounter + 1;
+		       end
 		    neighbor_is_better <= 1'b0;
 		  
 		 end
@@ -562,6 +562,7 @@ end
 NEIGHBOR_IS_BETTER:
 begin
 $display("STATE: NEIGHBOR IS BETTER");
+		   $display("Checking neighbor position %d,%d", tempneighborx[neighborcounter], tempneighbory[neighborcounter]);
   //STATE TRANSITION
   if(neighborcounter == 3'b111)
     state <= CHECK_DONE;
