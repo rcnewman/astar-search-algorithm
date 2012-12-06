@@ -1,5 +1,5 @@
 //linear search
-module search(check,Clk,Reset);
+module search(Clk,Reset);
 
    input Clk;
    input Reset;
@@ -39,6 +39,7 @@ module search(check,Clk,Reset);
 ////////////////////////////////////////////////////////////////////	
 	       CHECK_IF_IN_OPEN:
 		 begin 
+		    $display("STATE: CHECK_IF_IN_OPEN");
 		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= SEARCH_OPEN_COMPARE;
@@ -46,6 +47,7 @@ module search(check,Clk,Reset);
 			
 	       SEARCH_OPEN_COMPARE:
 		 begin
+		    $display("STATE: SEARCH_OPEN_COMPARE");
 		    if(openx[search_index] == checkx && openy[search_index] == checky)
 		      begin
 			 found <= 1'b1;
@@ -59,7 +61,8 @@ module search(check,Clk,Reset);
 		 end
 	       SEARCH_OPEN_NEXT:
 		 begin
-		    if(search_index == 9'b110001111)//equals 399
+		    $display("STATE: SEARCH_OPEN_NEXT");
+		    if(search_index == opencounter)//equals 399
 		      begin
 			 found <=1'b0;
 			 state <= SEARCH_OPEN_DONE_NOT_FOUND; // Not found, go to next section
@@ -71,11 +74,13 @@ module search(check,Clk,Reset);
 		 end // case: NEXT\
 			SEARCH_OPEN_DONE_FOUND:
 			begin
+			   $display("STATE: SEARCH_OPEN_DONE_FOUND");
 				//state <= CHECK_IF_NEIGHBOR_IS_BETTER;
 				
 			end
 	       SEARCH_OPEN_DONE_NOT_FOUND:
 		 begin
+		    $display("STATE: SEARCH_OPEN_DONE_NOT_FOUND");
 			//state <= NEIGHBOR_IS_BETTER;
 		 end
 	     

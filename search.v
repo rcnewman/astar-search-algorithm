@@ -18,6 +18,8 @@ module search(Clk,Reset);
    reg [8:0] search_index; //used to iterate through reg
    reg 	    found;
 	
+	reg [9:0] closecounter;
+	
    localparam 
      CHECK_IF_IN_CLOSED	          =	8'b00_100000,
      SEARCH_CLOSED_COMPARE        = 	8'b00_100001,
@@ -865,11 +867,8 @@ closey[399] <= 8'b1;
 		      end
 		 end
 	       SEARCH_CLOSED_NEXT:
-<<<<<<< HEAD
-	       $display("STATE: SEARCH_CLOSED_NEXT");
-=======
->>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
 		 begin
+	       $display("STATE: SEARCH_CLOSED_NEXT");
 		    if(search_index == closecounter)//equals 399
 		      begin
 			 found <=1'b0;
@@ -883,21 +882,13 @@ closey[399] <= 8'b1;
 			SEARCH_CLOSED_DONE_FOUND:
 			begin
 				//state <= NEIGHBOR_CHECK_LOOP;
-<<<<<<< HEAD
 				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
-	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
-	       //neighborcounter <= neighborcounter + 1;
-=======
-				
-			end
-	       SEARCH_CLOSED_DONE_NOT_FOUND:
-	       
->>>>>>> 48a8114dcec4208d7e75087badb316c1c8d584b4
-			
 		 begin
+		   	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
 //state <= CHECK_IF_IN_OPEN;
+	       //neighborcounter <= neighborcounter + 1;
 		 end
 	     
 

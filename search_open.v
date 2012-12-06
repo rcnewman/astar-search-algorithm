@@ -25,7 +25,8 @@ module search(Clk,Reset);
      SEARCH_OPEN_DONE_FOUND  	  = 	8'b00_100011,
      SEARCH_OPEN_DONE_NOT_FOUND =     8'b00_100100;
    
-	
+	reg [9:0] opencounter;
+   
    always @ (posedge Clk, posedge Reset)
      begin
 	if(Reset)

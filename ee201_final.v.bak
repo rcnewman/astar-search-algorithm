@@ -365,7 +365,7 @@ distanceFromStart0[0] = 0;
 	       CHECK_DONE:
 		 begin
 		 $display("STATE: CHECK DONE");
-		 $display("
+		 $display("Open: %d,%d", openx[0],openy[0]);
 		 //TRANSITION LOGIC
 		    if(openx[0] == 8'b00100111 && openy[0] == 8'b00100111)
 		      state <= RECONSTRUCT;
@@ -9050,50 +9050,9 @@ end
 //COPY PASTED CODE HERE!!!!!!!!
       
 	     
-     CHECK_IF_IN_OPEN:
-         begin 
-            search_index <= 9'b0;
-            found <= 1'b0;
-            state <= SEARCH_OPEN_COMPARE;
-         end
-            
-           SEARCH_OPEN_COMPARE:
-         begin
-            if(openx[search_index] == checkx && openy[search_index] == checky)
-              begin
-             found <= 1'b1;
-             state <= SEARCH_OPEN_DONE_FOUND; //Go to next section
-              end
-            else
-              begin
-             search_index <= search_index + 1;
-             state <= SEARCH_OPEN_NEXT;
-              end
-         end
-           SEARCH_OPEN_NEXT:
-         begin
-            if(search_index == opencounter)//equals 399
-              begin
-             found <=1'b0;
-             state <= SEARCH_OPEN_DONE_NOT_FOUND; // Not found, go to next section
-              end
-            else
-              begin
-             state <=SEARCH_OPEN_COMPARE;
-              end
-         end // case: NEXT\
-            SEARCH_OPEN_DONE_FOUND:
-            begin
-                state <= CHECK_IF_NEIGHBOR_IS_BETTER;
-                
-            end
-           SEARCH_OPEN_DONE_NOT_FOUND:
-         begin
-state <= NEIGHBOR_IS_BETTER;
-         end
-
-	       CHECK_IF_IN_CLOSED:
+		 	       CHECK_IF_IN_CLOSED:
 		 begin 
+		    $display("STATE: CHECK_IF_IN_CLOSED");
 		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= SEARCH_CLOSED_COMPARE;
@@ -9101,6 +9060,7 @@ state <= NEIGHBOR_IS_BETTER;
 			
 	       SEARCH_CLOSED_COMPARE:
 		 begin
+		   $display("STATE: SEARCH_CLOSED_COMPARE");
 		    if(closex[search_index] == checkx && closey[search_index] == checky)
 		      begin
 			 found <= 1'b1;
@@ -9114,6 +9074,7 @@ state <= NEIGHBOR_IS_BETTER;
 		 end
 	       SEARCH_CLOSED_NEXT:
 		 begin
+		   	       $display("STATE: SEARCH_CLOSED_NEXT");
 		    if(search_index == closecounter)//equals 399
 		      begin
 			 found <=1'b0;
@@ -9123,26 +9084,72 @@ state <= NEIGHBOR_IS_BETTER;
 		      begin
 			 state <=SEARCH_CLOSED_COMPARE;
 		      end
-		 end // case: NEXT\
+		 end // case: NEXT
 			SEARCH_CLOSED_DONE_FOUND:
 			begin
 				state <= NEIGHBOR_CHECK_LOOP;
-				
+				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
 		 begin
 state <= CHECK_IF_IN_OPEN;
-neighborcounter <= neighborcounter + 1;
+
+	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
+	       neighborcounter <= neighborcounter + 1;
 		 end
 		 
-		 
-		 
-		 
+		    CHECK_IF_IN_OPEN:
+		 begin 
+		    $display("STATE: CHECK_IF_IN_OPEN");
+		    search_index <= 9'b0;
+		    found <= 1'b0;
+		    state <= SEARCH_OPEN_COMPARE;
+		 end
+			
+	       SEARCH_OPEN_COMPARE:
+		 begin
+		    $display("STATE: SEARCH_OPEN_COMPARE");
+		    if(openx[search_index] == checkx && openy[search_index] == checky)
+		      begin
+			 found <= 1'b1;
+			 state <= SEARCH_OPEN_DONE_FOUND; //Go to next section
+		      end
+		    else
+		      begin
+			 search_index <= search_index + 1;
+			 state <= SEARCH_OPEN_NEXT;
+		      end
+		 end
+	       SEARCH_OPEN_NEXT:
+		 begin
+		    $display("STATE: SEARCH_OPEN_NEXT");
+		    if(search_index == opencounter)//equals 399
+		      begin
+			 found <=1'b0;
+			 state <= SEARCH_OPEN_DONE_NOT_FOUND; // Not found, go to next section
+		      end
+		    else
+		      begin
+			 state <=SEARCH_OPEN_COMPARE;
+		      end
+		 end // case: NEXT\
+			SEARCH_OPEN_DONE_FOUND:
+			begin
+			   $display("STATE: SEARCH_OPEN_DONE_FOUND");
+				state <= CHECK_IF_NEIGHBOR_IS_BETTER;
+				
+			end
+	       SEARCH_OPEN_DONE_NOT_FOUND:
+		 begin
+		    $display("STATE: SEARCH_OPEN_DONE_NOT_FOUND");
+			state <= NEIGHBOR_IS_BETTER;
+		 end
+
       SORT_QUEUE:
 	begin
-	  $display("STATE: SORT QUEUE");
+	  $display("STATE: SORT_QUEUE");
 	  state <= BUBBLE_SORT;
-	   sort_count <= 10'b0;
+	   sort_count = 10'b0;
 	   did_swap <= 1'b0;
 	   done <= 1'b0;
 	end
@@ -9151,6 +9158,7 @@ neighborcounter <= neighborcounter + 1;
 //GET FIRST, DISTANCE
       BUBBLE_SORT:
 	begin
+	   $display("STATE: BUBBLE_SORT");
 	 //  temp1 <=((openx[sort_count] - goalx < openy[sort_count] - goaly)?openy[sort_count]-goaly:openx[sort_count]-goalx);
 	//temp2 <= ((openy[sort_count] - goaly < 0)? -1*(openy[sort_count]-goaly):openy[sort_count]-goaly) + ((openx[sort_count]-goalx < 0)? -1 *(openx[sort_count]-goalx):openx[sort_count]-goalx);
 	
@@ -9170,6 +9178,7 @@ neighborcounter <= neighborcounter + 1;
 GET_SECOND_DISTANCE:
 	begin
 	  state <= COMPARE_BETTER;
+	   $display("STATE: GET_SECOND_DISTANCE");
 	  
 //	temp1 <=((openx[sort_count+1] - goalx < openy[sort_count+1] - goaly)?openy[sort_count+1]-goaly:openx[sort_count+1]-goalx);
 //	temp2 <= ((openy[sort_count+1] - goaly < 0)? -1*(openy[sort_count+1]-goaly):openy[sort_count+1]-goaly) + ((openx[sort_count+1]-goalx < 0)? -1 *(openx[sort_count+1]-goalx):openx[sort_count+1]-goalx);
@@ -9186,7 +9195,7 @@ GET_SECOND_DISTANCE:
 
 COMPARE_BETTER:
 	begin
-    
+     $display("STATE: COMPARE_BETTER");
 	if(total2 > total1)
 		state <= SWITCH;
 	
@@ -9196,6 +9205,7 @@ COMPARE_BETTER:
 	
 SWITCH:
 	begin
+	   $display("STATE: SWITCH");
 		did_swap <= 1'b1;
 		openx[sort_count] <= openx[sort_count+1];
 		openx[sort_count+1] <= openx[sort_count];
@@ -9206,6 +9216,7 @@ SWITCH:
 
 BUBBLE_NEXT:
 	begin
+	   $display("STATE: BUBBLE_NEXT");
 		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
 			sort_count <= 10'b0;
@@ -9232,10 +9243,11 @@ BUBBLE_NEXT:
 
 SORT_DONE:
 	begin
+	   $display("STATE: SORT_DONE");
 		done <= 1'b1;
-		state <= CREATE_NEIGHBORS;
+		state <= 
 	end
-	
+
 
 //END COPYPASTED CODE!!!!
 
