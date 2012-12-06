@@ -111,21 +111,11 @@ COCKTAIL_BACK:
 		`include "sort_standalone_helper2.v"
 		state <= COMPARE_COCKTAIL;
 	end
-COMPARE_COCKTAIL:
+COMPARE_COCKTAIL;
 	begin
 	if(total2 > total1)
 		state <= BACK_SWITCH;
 	else
-		state <= COCKTAIL_NEXT;
-	end
-BACK_SWITCH:
-	begin
-	   //$display("STATE: SWITCH");
-		did_swap <= 1'b1;
-		openx[sort_count] <= openx[sort_count+1];
-		openx[sort_count+1] <= openx[sort_count];
-		openy[sort_count] <= openy[sort_count+1];
-		openy[sort_count+1] <= openy[sort_count];
 		state <= COCKTAIL_NEXT;
 	end
 COCKTAIL_NEXT:
