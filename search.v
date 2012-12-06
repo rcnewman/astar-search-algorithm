@@ -889,7 +889,7 @@ closey[399] <= 8'b1;
 		 begin
 		   	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
 //state <= CHECK_IF_IN_OPEN;
-	       //neighborcounter <= neighborcounter + 1;
+	       
 		 end
 	     
 

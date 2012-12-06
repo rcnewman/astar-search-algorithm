@@ -45,7 +45,6 @@
 state <= CHECK_IF_IN_OPEN;
 
 	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
-	       neighborcounter <= neighborcounter + 1;
 		 end
 		 
 		   
