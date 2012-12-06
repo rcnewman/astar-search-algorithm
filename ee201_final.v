@@ -535,6 +535,7 @@ distanceFromStart0[0] = 0;
 		      state <= CHECK_IF_IN_CLOSED;
 		      checkx = tempneighborx[neighborcounter];
 			 checky = tempneighbory[neighborcounter];
+			 `include "generate_neighbor_distance_from_start.v"
 			 end
 			   else
 		      begin
