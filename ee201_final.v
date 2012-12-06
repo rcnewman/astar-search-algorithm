@@ -388,6 +388,7 @@ distanceFromStart0[0] = 0;
 		    closex[closecounter] <= openx[0];
 		    closex[closecounter] <= openy[0];
 		    closecounter <= closecounter + 1;
+			opencounter <= opencounter - 1;
 		    temp1 <= 0; 
 		 end // case: QUEUE_MODS
 	       QUEUE_MODS_SHIFT:

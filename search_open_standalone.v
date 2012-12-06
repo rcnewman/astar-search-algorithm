@@ -42,6 +42,7 @@
 	       SEARCH_OPEN_DONE_NOT_FOUND:
 		 begin
 		    $display("STATE: SEARCH_OPEN_DONE_NOT_FOUND");
+			$display("opencounter size: %d",opencounter);
 			state <= NEIGHBOR_IS_BETTER;
 			openx[opencounter] <= tempneighborx[neighborcounter];
 			openy[opencounter] <= tempneighbory[neighborcounter];
