@@ -393,7 +393,7 @@ distanceFromStart0[0] = 0;
 		 end // case: QUEUE_MODS
 	       QUEUE_MODS_SHIFT:
 		 begin
-		 $display("STATE: QUEUE MODS SHIFT");
+		 //$display("STATE: QUEUE MODS SHIFT");
 		    //STATE TRANSITION
 		    if(temp1 == 16'b0000000110001110)//equals to 398
 		      state <= QUEUE_MODS_APPEND;
@@ -558,6 +558,8 @@ distanceFromStart0[0] = 0;
 		      `include "checkIfNeighborIsBetter.v"
              endcase
 			 
+			 if(neighborcounter == 4'b0111)
+			 state <= CHECK_DONE;
 			 
           end
 

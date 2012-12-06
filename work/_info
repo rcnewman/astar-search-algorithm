@@ -144,9 +144,9 @@ R12
 r1
 !s85 0
 31
-I5c=_:Nc9NOKz`joAz@69O3
+I1;RDkF763[f`[E6MDKDzU3
 R6
-w1354776534
+w1354777860
 R20
 R21
 Fgenerate_neighbor_distance_from_start.v
@@ -157,13 +157,15 @@ Freconstruct_debug.v
 Fsearch_open_standalone.v
 Fsearch_close_standalone.v
 Fsort_standalone.v
+Fsort_standalone_helper1.v
+Fsort_standalone_helper2.v
 L0 11
 R17
 R11
 R1
-!s100 0m>bJT[:3zADeUJ^?gJ893
-!s108 1354776538.665000
-!s107 sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
+!s100 77UCT6hC27B]EiGQ3UIa90
+!s108 1354777864.044000
+!s107 sort_standalone_helper2.v|sort_standalone_helper1.v|sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
 VBeSE_`NmWm_z]3aDdVNd@0
@@ -180,7 +182,7 @@ R1
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354776540.043000
+!s108 1354777865.567000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
@@ -234,7 +236,7 @@ r1
 31
 R1
 !s100 jb6m5SaZcBINKhCYGm9TD0
-!s108 1354776540.434000
+!s108 1354777865.779000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -255,7 +257,7 @@ R1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354776540.611000
+!s108 1354777865.936000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I^QbTQdTo[RZI_:@9Q:z8o1
@@ -272,7 +274,7 @@ R8
 R1
 R9
 !s100 oO5h5_SL>F47W<LWYSNoo1
-!s108 1354776539.370000
+!s108 1354777864.675000
 !i10b 1
 !s85 0
 vsort_tb
@@ -290,6 +292,6 @@ r1
 R4
 R1
 R14
-!s108 1354776539.599000
+!s108 1354777864.917000
 !i10b 1
 !s85 0
