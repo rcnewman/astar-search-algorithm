@@ -9021,15 +9021,8 @@ end
 
 
 
-
-
-
     
-    
-    endcase
-    
-    
-    
+    endcase  
 end
 
 
@@ -9245,7 +9238,7 @@ SORT_DONE:
 	begin
 	   $display("STATE: SORT_DONE");
 		done <= 1'b1;
-		state <= 
+		state <= CREATE_NEIGHBORS;
 	end
 
 
