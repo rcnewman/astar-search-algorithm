@@ -26,6 +26,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  currentx;
    reg [7:0]  currenty;
 
+integer i;
   
    reg [7:0]  neighborx [7:0];//9x1byte, stores neighbor list
    reg [7:0]  neighbory [7:0];//9x1byte, stores neighbor list

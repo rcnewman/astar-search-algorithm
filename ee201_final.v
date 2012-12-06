@@ -82,6 +82,7 @@ integer i;
      NEIGHBOR_IS_BETTER          = 8'b11000000,
      RECONSTRUCT                 = 8'b11100000,
      DONE                        = 8'b11111100,
+     OUTPUT_PATH                 = 8'b11111110,
      ERROR                       = 8'b11111111;
 
    reg [39:0]  map [39:0];
