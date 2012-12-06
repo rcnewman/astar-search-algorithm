@@ -144,11 +144,12 @@ R4
 r1
 !s85 0
 31
-I5id]k0EW:H4ddL@WGf36c1
+Ig]HSLhGhO=^V]3ziedUHW1
 R5
-w1354770723
+w1354772972
 R16
 R17
+Fgenerate_neighbor_distance_from_start.v
 FcheckIfNeighborIsBetter.v
 FneighborIsBetter.v
 Fdebug.v
@@ -160,9 +161,9 @@ L0 11
 R18
 R6
 R11
-!s100 lAR18VMOi_3cNDk?C^7:l1
-!s108 1354770752.601000
-!s107 sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
+!s100 bAZTN5Zf1m[ZljBbj^9>72
+!s108 1354772977.315000
+!s107 sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
 VBeSE_`NmWm_z]3aDdVNd@0
@@ -179,7 +180,7 @@ R11
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354770753.880000
+!s108 1354772978.687000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
@@ -233,7 +234,7 @@ r1
 31
 R11
 !s100 ZCP3@ChL[REX_dR:BZo190
-!s108 1354770754.080000
+!s108 1354772978.899000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -254,7 +255,7 @@ R11
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354770754.235000
+!s108 1354772979.078000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I^QbTQdTo[RZI_:@9Q:z8o1
@@ -271,7 +272,7 @@ R8
 R11
 R9
 !s100 oO5h5_SL>F47W<LWYSNoo1
-!s108 1354770752.995000
+!s108 1354772977.853000
 !i10b 1
 !s85 0
 vsort_tb
@@ -289,6 +290,6 @@ r1
 R12
 R11
 R23
-!s108 1354770753.289000
+!s108 1354772978.064000
 !i10b 1
 !s85 0

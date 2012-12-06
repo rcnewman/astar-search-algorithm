@@ -1,6 +1,6 @@
 8'b0:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX0[0] <= currentx;
@@ -245,7 +245,7 @@ endcase
 end
 8'b1:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX1[0] <= currentx;
@@ -490,7 +490,7 @@ endcase
 end
 8'b10:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX2[0] <= currentx;
@@ -735,7 +735,7 @@ endcase
 end
 8'b11:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX3[0] <= currentx;
@@ -980,7 +980,7 @@ endcase
 end
 8'b100:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX4[0] <= currentx;
@@ -1225,7 +1225,7 @@ endcase
 end
 8'b101:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX5[0] <= currentx;
@@ -1470,7 +1470,7 @@ endcase
 end
 8'b110:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX6[0] <= currentx;
@@ -1715,7 +1715,7 @@ endcase
 end
 8'b111:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX7[0] <= currentx;
@@ -1960,7 +1960,7 @@ endcase
 end
 8'b1000:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX8[0] <= currentx;
@@ -2205,7 +2205,7 @@ endcase
 end
 8'b1001:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX9[0] <= currentx;
@@ -2450,7 +2450,7 @@ endcase
 end
 8'b1010:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX10[0] <= currentx;
@@ -2695,7 +2695,7 @@ endcase
 end
 8'b1011:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX11[0] <= currentx;
@@ -2940,7 +2940,7 @@ endcase
 end
 8'b1100:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX12[0] <= currentx;
@@ -3185,7 +3185,7 @@ endcase
 end
 8'b1101:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX13[0] <= currentx;
@@ -3430,7 +3430,7 @@ endcase
 end
 8'b1110:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX14[0] <= currentx;
@@ -3675,7 +3675,7 @@ endcase
 end
 8'b1111:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX15[0] <= currentx;
@@ -3920,7 +3920,7 @@ endcase
 end
 8'b10000:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX16[0] <= currentx;
@@ -4165,7 +4165,7 @@ endcase
 end
 8'b10001:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX17[0] <= currentx;
@@ -4410,7 +4410,7 @@ endcase
 end
 8'b10010:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX18[0] <= currentx;
@@ -4655,7 +4655,7 @@ endcase
 end
 8'b10011:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX19[0] <= currentx;
@@ -4900,7 +4900,7 @@ endcase
 end
 8'b10100:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX20[0] <= currentx;
@@ -5145,7 +5145,7 @@ endcase
 end
 8'b10101:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX21[0] <= currentx;
@@ -5390,7 +5390,7 @@ endcase
 end
 8'b10110:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX22[0] <= currentx;
@@ -5635,7 +5635,7 @@ endcase
 end
 8'b10111:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX23[0] <= currentx;
@@ -5880,7 +5880,7 @@ endcase
 end
 8'b11000:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX24[0] <= currentx;
@@ -6125,7 +6125,7 @@ endcase
 end
 8'b11001:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX25[0] <= currentx;
@@ -6370,7 +6370,7 @@ endcase
 end
 8'b11010:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX26[0] <= currentx;
@@ -6615,7 +6615,7 @@ endcase
 end
 8'b11011:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX27[0] <= currentx;
@@ -6860,7 +6860,7 @@ endcase
 end
 8'b11100:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX28[0] <= currentx;
@@ -7105,7 +7105,7 @@ endcase
 end
 8'b11101:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX29[0] <= currentx;
@@ -7350,7 +7350,7 @@ endcase
 end
 8'b11110:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX30[0] <= currentx;
@@ -7595,7 +7595,7 @@ endcase
 end
 8'b11111:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX31[0] <= currentx;
@@ -7840,7 +7840,7 @@ endcase
 end
 8'b100000:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX32[0] <= currentx;
@@ -8085,7 +8085,7 @@ endcase
 end
 8'b100001:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX33[0] <= currentx;
@@ -8330,7 +8330,7 @@ endcase
 end
 8'b100010:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX34[0] <= currentx;
@@ -8575,7 +8575,7 @@ endcase
 end
 8'b100011:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX35[0] <= currentx;
@@ -8820,7 +8820,7 @@ endcase
 end
 8'b100100:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX36[0] <= currentx;
@@ -9065,7 +9065,7 @@ endcase
 end
 8'b100101:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX37[0] <= currentx;
@@ -9310,7 +9310,7 @@ endcase
 end
 8'b100110:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX38[0] <= currentx;
@@ -9555,7 +9555,7 @@ endcase
 end
 8'b100111:
 begin
-case(tempneighborx[neighborcounter])
+case(tempneighbory[neighborcounter])
 8'b0:
 begin
 previousNodeX39[0] <= currentx;

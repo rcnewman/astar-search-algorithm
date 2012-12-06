@@ -43,4 +43,7 @@
 		 begin
 		    $display("STATE: SEARCH_OPEN_DONE_NOT_FOUND");
 			state <= NEIGHBOR_IS_BETTER;
+			openx[opencounter] <= tempneighborx[neighborcounter];
+			openy[opencounter] <= tempneighbory[neighborcounter];
+			opencounter <= opencounter + 1;
 		 end

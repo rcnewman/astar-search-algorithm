@@ -2,6 +2,7 @@
 		 	       CHECK_IF_IN_CLOSED:
 		 begin 
 		    $display("STATE: CHECK_IF_IN_CLOSED");
+			$display("NEIGHBORDISTANCE: %d",neighbor_distance_from_start);
 		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= SEARCH_CLOSED_COMPARE;
