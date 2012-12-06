@@ -25,7 +25,8 @@ module search(Clk,Reset);
      SEARCH_OPEN_DONE_FOUND  	  = 	8'b00_100011,
      SEARCH_OPEN_DONE_NOT_FOUND =     8'b00_100100;
    
-	
+	reg [9:0] opencounter;
+   
    always @ (posedge Clk, posedge Reset)
      begin
 	if(Reset)
@@ -39,6 +40,7 @@ module search(Clk,Reset);
 ////////////////////////////////////////////////////////////////////	
 	       CHECK_IF_IN_OPEN:
 		 begin 
+		    $display("STATE: CHECK_IF_IN_OPEN");
 		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= SEARCH_OPEN_COMPARE;
@@ -46,6 +48,7 @@ module search(Clk,Reset);
 			
 	       SEARCH_OPEN_COMPARE:
 		 begin
+		    $display("STATE: SEARCH_OPEN_COMPARE");
 		    if(openx[search_index] == checkx && openy[search_index] == checky)
 		      begin
 			 found <= 1'b1;
@@ -59,7 +62,8 @@ module search(Clk,Reset);
 		 end
 	       SEARCH_OPEN_NEXT:
 		 begin
-		    if(search_index == 9'b110001111)//equals 399
+		    $display("STATE: SEARCH_OPEN_NEXT");
+		    if(search_index == opencounter)//equals 399
 		      begin
 			 found <=1'b0;
 			 state <= SEARCH_OPEN_DONE_NOT_FOUND; // Not found, go to next section
@@ -71,12 +75,17 @@ module search(Clk,Reset);
 		 end // case: NEXT\
 			SEARCH_OPEN_DONE_FOUND:
 			begin
+			   $display("STATE: SEARCH_OPEN_DONE_FOUND");
 				//state <= CHECK_IF_NEIGHBOR_IS_BETTER;
 				
 			end
 	       SEARCH_OPEN_DONE_NOT_FOUND:
 		 begin
+		    $display("STATE: SEARCH_OPEN_DONE_NOT_FOUND");
 			//state <= NEIGHBOR_IS_BETTER;
+			//openx[opencounter] <= tempneighborx[neighborcounter];
+			//openy[opencounter] <= tempneighbory[neighborcounter];
+			//opencounter <= opencounter + 1;
 		 end
 	     
 

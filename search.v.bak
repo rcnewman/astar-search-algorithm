@@ -847,7 +847,6 @@ closey[399] <= 8'b1;
 	       CHECK_IF_IN_CLOSED:
 		 begin 
 		    $display("STATE: CHECK_IF_IN_CLOSED");
-			//$display("NEIGHBORDISTANCE: %d",neighbor_distance_from_start);	
 		    search_index <= 9'b0;
 		    found <= 1'b0;
 		    state <= SEARCH_CLOSED_COMPARE;
@@ -884,13 +883,13 @@ closey[399] <= 8'b1;
 			begin
 				//state <= NEIGHBOR_CHECK_LOOP;
 				$display("STATE: SEARCH_CLOSED_DONE_FOUND");
-				//neighborcounter <= neighborcounter + 1;
 			end
 	       SEARCH_CLOSED_DONE_NOT_FOUND:
 		 begin
 		   	       $display("STATE: SEARCH_CLOSED_DONE_NOT_FOUND");
 //state <= CHECK_IF_IN_OPEN;
-	       
+
+	       //neighborcounter <= neighborcounter + 1;
 		 end
 	     
 
