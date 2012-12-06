@@ -21,5 +21,6 @@ begin
 		else
 			$write("O");
 	end
+	$write("\n");
 end
-		
+$write("\n\n");
