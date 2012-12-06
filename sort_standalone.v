@@ -23,6 +23,7 @@ SORT_QUEUE:
 	//end
 	//endcase
 	`include "sort_standalone_helper1.v"
+	`include "sort_standalone_helper2.v"
 	//distance from start x=openx[sort_count]  y=openy[sort_count]
 	
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
@@ -32,9 +33,9 @@ SORT_QUEUE:
 	
 	//TotalDistanceFromGoal
 	//total1 = temp3 + temp6;
-	state <= GET_SECOND_DISTANCE;
+	state <= COMPARE_BETTER;
 	end // case: BUBBLE_SORT
-      
+      /*
 GET_SECOND_DISTANCE:
 	begin
 	  state <= COMPARE_BETTER;
@@ -50,21 +51,19 @@ GET_SECOND_DISTANCE:
 	//	total2 <= (1414 * ((openx[sort_count+1] - goalx < openy[sort_count + 1] - goaly)?openy[sort_count + 1]-goaly:openx[sort_count + 1]-goalx) + (((openy[sort_count + 1] - goaly < 0)? -1*(openy[sort_count + 1]-goaly):openy[sort_count + 1]-goaly) + ((openx[sort_count + 1]-goalx < 0)? -1 *(openx[sort_count + 1]-goalx):openx[sort_count + 1]-goalx) - 2 * ((openx[sort_count + 1] - goalx < openy[sort_count + 1] - goaly)?openy[sort_count + 1]-goaly:openx[sort_count + 1]-goalx))) + distanceFromStart0[openy[sort_count + 1]];
 	//end
 	//endcase
-	`include "sort_standalone_helper2.v"
 	//temp4 <=((openx[sort_count] - startx < openy[sort_count] - starty)?openy[sort_count]-starty:openx[sort_count]-startx);
 	//temp5 <= ((openy[sort_count+1] - starty < 0)? -1*(openy[sort_count+1]-starty):openy[sort_count+1]-starty) + ((openx[sort_count+1]-startx < 0)? -1 *(openx[sort_count+1]-startx):openx[sort_count+1]-startx);
 	//temp6 <= 1.41421 * temp4 + (temp5 - 2 * temp6);
 	
 	//total2 = temp3 + temp6;
 	end // case: GET_SECOND_DISTANCE
-      
+      */
 
 COMPARE_BETTER:
 	begin
     // $display("STATE: COMPARE_BETTER");
 	if(total2 > total1)
 		state <= SWITCH;
-	
 	else
 		state <= BUBBLE_NEXT;
 	end
@@ -85,11 +84,11 @@ BUBBLE_NEXT:
 	   //$display("STATE: BUBBLE_NEXT");
 		if(sort_count >= opencounter && did_swap == 1'b1)
 		begin
-			sort_count <= 10'b0;
+			sort_count <= sort_count - 1;
 			did_swap <= 1'b0;
 			total1 <= 0;
 			total2 <= 0;
-			state <= BUBBLE_SORT;
+			state <= COCKTAIL_BACK;
 		end
 		
 		if(sort_count >= opencounter && did_swap == 1'b0)
@@ -106,7 +105,45 @@ BUBBLE_NEXT:
 				total2 <= 0;
 		    end
 	end // case: BUBBLE_NEXT
-
+COCKTAIL_BACK:
+	begin
+		`include "sort_standalone_helper1.v"
+		`include "sort_standalone_helper2.v"
+		state <= COMPARE_COCKTAIL;
+	end
+COMPARE_COCKTAIL;
+	begin
+	if(total2 > total1)
+		state <= BACK_SWITCH;
+	else
+		state <= COCKTAIL_NEXT;
+	end
+COCKTAIL_NEXT:
+	begin
+	   //$display("STATE: BUBBLE_NEXT");
+		if(sort_count <= 0 && did_swap == 1'b1)
+		begin
+			sort_count <= sort_count + 1;
+			did_swap <= 1'b0;
+			total1 <= 0;
+			total2 <= 0;
+			state <= BUBBLE_SORT;
+		end
+		
+		if(sort_count <= 0 && did_swap == 1'b0)
+		begin
+			sort_count <= 0;
+			state <= SORT_DONE;//go to next stage here
+		end
+		
+		if(sort_count > 0)
+			begin
+				sort_count <= sort_count - 1;
+				state <= COCKTAIL_BACK;
+				total1 <= 0;
+				total2 <= 0;
+		    end
+	end 
 SORT_DONE:
 	begin
 	   $display("STATE: SORT_DONE");
