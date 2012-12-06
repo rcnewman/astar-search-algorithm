@@ -1,3 +1,4 @@
+
 /*questio
  VGA output?
  string output to some sort of console for debugging? display
@@ -26,7 +27,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  currentx;
    reg [7:0]  currenty;
 
-integer i,j;
+   integer    i,j;
   
    reg [7:0]  neighborx [7:0];//9x1byte, stores neighbor list
    reg [7:0]  neighbory [7:0];//9x1byte, stores neighbor list
@@ -36,18 +37,18 @@ integer i,j;
    reg 	      neighbor_is_better;
    reg [19:0]  neighbor_distance_from_start;
    
-      reg [7:0] checkx;//searches for this in queue
+   reg [7:0]   checkx;//searches for this in queue
    reg [7:0] checky;
-      reg [9:0] sort_count;//used for sorting
-      reg [7:0] goalx;
-      reg[7:0] goaly;
-      reg done;
-      
+   reg [9:0] sort_count;//used for sorting
+   reg [7:0] goalx;
+   reg [7:0] goaly;
+   reg 	     done;
+   
    reg [7:0]  state;//current state
    reg [7:0]  nextstate;//for utility sms this lets it know where to go next
    
    reg 	      bad;
-
+   
    localparam
      INITIALIZE                  = 8'b00000000,
      INITIALIZE_ARRAY            = 8'b00000001,
@@ -56,14 +57,17 @@ integer i,j;
      QUEUE_MODS                  = 8'b00000_100,
      QUEUE_MODS_SHIFT            = 8'b00000_101,
      QUEUE_MODS_APPEND           = 8'b00000_110,
-     SORT_QUEUE = 8'b00001000,
-    BUBBLE_SORT = 8'b00001001,
-    GET_SECOND_DISTANCE = 8'b00001010,
-    COMPARE_BETTER = 8'b00001011,
-    SWITCH = 8'b00001100,
-    BUBBLE_NEXT = 8'b00001101,
-    SORT_DONE = 8'b00001110,
-    
+     SORT_QUEUE                  = 8'b0000_1000,
+     BUBBLE_SORT                 = 8'b0000_1001,
+     GET_SECOND_DISTANCE         = 8'b0000_1010,
+     COMPARE_BETTER              = 8'b0000_1011,
+     SWITCH                      = 8'b0000_1100,
+     BUBBLE_NEXT                 = 8'b0000_1101,
+     COCKTAIL_BACK               = 8'b0000_1110,
+     COMPARE_COCKTAIL            = 8'b00_110001,
+     COCKTAIL_NEXT               = 8'b00_110000,
+     SORT_DONE                   = 8'b0000_1111,
+     
      CREATE_NEIGHBORS            = 8'b10010000,
      RESET_NEIGHBORS             = 8'b10010001,
      GENERATE_NEIGHBORS          = 8'b10010010,
@@ -84,8 +88,8 @@ integer i,j;
      DONE                        = 8'b11111100,
      OUTPUT_PATH                 = 8'b11111110,
      ERROR                       = 8'b11111111,
-     DEBUG=8'b11100111,
-     DEBUG_DISTANCE=8'b11100110;
+     DEBUG                       = 8'b11100111,
+     DEBUG_DISTANCE              = 8'b11100110;
 
    reg [39:0]  map [39:0];
    reg [39:0] finished_map [39:0];
@@ -216,7 +220,7 @@ integer i,j;
    
    
    		    //COPYPASTE FROM OTHER SOURCE
-		       reg [8:0] search_index; //used to iterate through reg
+   reg [8:0] 	search_index; //used to iterate through reg
    reg 	    found;
    
    
@@ -281,24 +285,22 @@ integer i,j;
 		    closecounter <= 9'b000000000;
 		    temp1 <= 16'b0;
 		    
-		    	     goalx = 8'b00100111;
-	     goaly = 8'b00100111;
+		    goalx = 8'b00100111;
+		    goaly = 8'b00100111;
 		    
-
-   
 		 end // case: INITIALIZE
 	       INITIALIZE_ARRAY:
 		 begin
-		 $display("STATE: INITIALIZE ARRAY");
+		    $display("STATE: INITIALIZE ARRAY");
 		    //STATE TRANSITION
 		    if(temp1 == 16'b0000000110001111)
 		      state <= VERIFY;
-
+		    
 		    //RTL
 		    if(temp1 <= 16'b0000000000100111)
 		      begin
-		        //ROY YOU BETTER CHANGE THIS SHIT
-		        //shit what was i supposed to do
+		         //ROY YOU BETTER CHANGE THIS SHIT
+		         //shit what was i supposed to do
 			 distanceFromStart0[temp1] = 20'b11111111111111111111;
 			 distanceFromStart1[temp1] = 20'b11111111111111111111;
 			 distanceFromStart2[temp1] = 20'b11111111111111111111;
@@ -339,24 +341,22 @@ integer i,j;
 			 distanceFromStart37[temp1] = 20'b11111111111111111111;
 			 distanceFromStart38[temp1] = 20'b11111111111111111111;
 			 distanceFromStart39[temp1] = 20'b11111111111111111111;
-
-		 end // if (temp1 <= 16'b0000000000100111)
-			 openx[temp1] <= 8'b11111111;
-			 openy[temp1] <= 8'b11111111;
-			 closex[temp1] <= 8'b11111111;
-			 closey[temp1] <= 8'b11111111;
-		 
-
-distanceFromStart0[0] = 0;
-		      
-			 temp1 <= temp1+1;
+		      end // if (temp1 <= 16'b0000000000100111)
+		    openx[temp1] <= 8'b11111111;
+		    openy[temp1] <= 8'b11111111;
+		    closex[temp1] <= 8'b11111111;
+		    closey[temp1] <= 8'b11111111;
+		    
+		    distanceFromStart0[0] = 0;
+		    temp1 <= temp1+1;
 		 end // case: INITIALIZE_ARRAY
+	       
 	       VERIFY:
 		 begin
-		 $display("STATE: VERIFY");
+		    $display("STATE: VERIFY");
 		    //TRANSITION LOGIC
 		    //if(map[0] == 40'b0000000000000000000000000000000000000001)
-			if(map[0][0] == 1'b1)
+		    if(map[0][0] == 1'b1)
 		      state <= ERROR;
 		    else if(map[39] == 40'b1000000000000000000000000000000000000000)
 		      state <= ERROR;
@@ -369,21 +369,19 @@ distanceFromStart0[0] = 0;
 		 end // case: VERIFY
 	       CHECK_DONE:
 		 begin
-		   `include "displaygrid.v"
-		   
-		   
-		 $display("STATE: CHECK DONE");
-		 $display("Open: %d,%d", openx[0],openy[0]);
-		 //TRANSITION LOGIC
+`include "displaygrid.v"
+		    $display("STATE: CHECK DONE");
+		    $display("Open: %d,%d", openx[0],openy[0]);
+		    //TRANSITION LOGIC
 		    if(openx[0] == 8'b00100111 && openy[0] == 8'b00100111)
 		      state <= RECONSTRUCT;
 		    else if(openx[0] == 8'b11111111 && openy[0] == 8'b11111111)
 		      state <= RECONSTRUCT;
 		    else state <= QUEUE_MODS;
-		      		 end // case: CHECK_DONE
+		 end // case: CHECK_DONE
 	       QUEUE_MODS:
 		 begin
-		 $display("STATE: QUEUE MODS");
+		    $display("STATE: QUEUE MODS");
 		    //STATE TRANSITION
 		    state <= QUEUE_MODS_SHIFT;
 		    //RTL
@@ -392,12 +390,12 @@ distanceFromStart0[0] = 0;
 		    closex[closecounter] <= openx[0];
 		    closex[closecounter] <= openy[0];
 		    closecounter <= closecounter + 1;
-			opencounter <= opencounter - 1;
+		    opencounter <= opencounter - 1;
 		    temp1 <= 0; 
 		 end // case: QUEUE_MODS
 	       QUEUE_MODS_SHIFT:
 		 begin
-		 //$display("STATE: QUEUE MODS SHIFT");
+		    //$display("STATE: QUEUE MODS SHIFT");
 		    //STATE TRANSITION
 		    if(temp1 == 16'b0000000110001110)//equals to 398
 		      state <= QUEUE_MODS_APPEND;
@@ -408,7 +406,7 @@ distanceFromStart0[0] = 0;
 		 end // case: QUEUE_MODS_SHIFT
 	       QUEUE_MODS_APPEND:
 		 begin
-		 $display("STATE: QUEUE MODS APPEND");
+		    $display("STATE: QUEUE MODS APPEND");
 		    //STATE TRANSITION
 		    state <= SORT_QUEUE;
 		    //RTL
@@ -418,7 +416,7 @@ distanceFromStart0[0] = 0;
 		 
 	       CREATE_NEIGHBORS:
 		 begin
-		 $display("STATE: CREATE NEIGHBORS");
+		    $display("STATE: CREATE NEIGHBORS");
 		    //STATE TRANSITIONS
 		    state <= RESET_NEIGHBORS;
 		    //RTL
@@ -426,7 +424,7 @@ distanceFromStart0[0] = 0;
 		 end
 	       RESET_NEIGHBORS:
 		 begin
-		 $display("STATE: RESET NEIGHBORS");
+		    $display("STATE: RESET NEIGHBORS");
 		    //STATE TRANSITIONS
 		    if(neighborcounter == 3'b111)
 		      state <= GENERATE_NEIGHBORS;
@@ -535,71 +533,64 @@ distanceFromStart0[0] = 0;
 	       NEIGHBOR_CHECK_LOOP:
 		 begin	   
 		    $display("STATE: NEIGHBOR CHECK LOOP");
-			$display("Checking %d,%d", tempneighborx[neighborcounter],tempneighbory[neighborcounter]);
+		    $display("Checking %d,%d", tempneighborx[neighborcounter],tempneighbory[neighborcounter]);
    		    if(tempneighborx[neighborcounter] != 8'b11111111 && tempneighbory[neighborcounter] != 8'b11111111 && map[tempneighbory[neighborcounter]][tempneighborx[neighborcounter]] != 1'b1)//exists and is not obstacle
-		        begin
-		        $display("NeighborCounter: %d",neighborcounter);
-		            state <= CHECK_IF_IN_CLOSED;
-		            checkx = tempneighborx[neighborcounter];
-			        checky = tempneighbory[neighborcounter];
-			      `include "generate_neighbor_distance_from_start.v"
-			     end
-			else
 		      begin
-			     if(neighborcounter == 4'b0111)
-			       state <= CHECK_DONE;
-				 else
-			       neighborcounter <= neighborcounter + 1;
-		       end
+		         $display("NeighborCounter: %d",neighborcounter);
+		         state <= CHECK_IF_IN_CLOSED;
+		         checkx = tempneighborx[neighborcounter];
+			 checky = tempneighbory[neighborcounter];
+`include "generate_neighbor_distance_from_start.v"
+		      end
+		    else
+		      begin
+			 if(neighborcounter == 4'b0111)
+			   state <= CHECK_DONE;
+			 else
+			   neighborcounter <= neighborcounter + 1;
+		      end
 		    neighbor_is_better <= 1'b0;
-		 end
+		 end // case: NEIGHBOR_CHECK_LOOP
 	       
 	       CHECK_IF_NEIGHBOR_IS_BETTER:
 		 begin
-		 $display("STATE: CHECK IF NEIGHBOR IS BETTER");
+		    $display("STATE: CHECK IF NEIGHBOR IS BETTER");
 		    case(currentx)
+`include "checkIfNeighborIsBetter.v"
+		    endcase
+		    
+		    if(neighborcounter == 4'b0111)
+		      state <= CHECK_DONE;
+		    
+		 end
+
+	       NEIGHBOR_IS_BETTER:
+		 begin
+		    $display("STATE: NEIGHBOR IS BETTER");
+		    $display("Checking neighbor position %d,%d", tempneighborx[neighborcounter], tempneighbory[neighborcounter]);
+		    //STATE TRANSITION
+		    if(neighborcounter == 4'b0111)
+		      state <= CHECK_DONE;
+		    else
+		      begin
+      			 neighborcounter <= neighborcounter + 1;
+			 state <= NEIGHBOR_CHECK_LOOP;
+		      end
+		    
+		    case(tempneighborx[neighborcounter])
 		      
-		      `include "checkIfNeighborIsBetter.v"
-             endcase
-			 
-			 if(neighborcounter == 4'b0111)
-			 state <= CHECK_DONE;
-			 
-          end
-
-NEIGHBOR_IS_BETTER:
-begin
-$display("STATE: NEIGHBOR IS BETTER");
-		   $display("Checking neighbor position %d,%d", tempneighborx[neighborcounter], tempneighbory[neighborcounter]);
-  //STATE TRANSITION
-  if(neighborcounter == 4'b0111)
-    state <= CHECK_DONE;
-  else
-    begin
-      		    neighborcounter <= neighborcounter + 1;
-    state <= NEIGHBOR_CHECK_LOOP;
-  end
-    
-  case(tempneighborx[neighborcounter])
-    
 `include "neighborIsBetter.v"
+		      
+		    endcase  
+		    //if there are no neighbors, be sure to set state to check done
+	 end // case: NEIGHBOR_IS_BETTER
 
-    endcase  
-end
-
-
-//if there are no neighbors, be sure to set state to check done
-
-
-
-
-RECONSTRUCT:
-begin
-  $display("STATE: RECONSTRUCT");
-  state <= DEBUG;
-
-end
-
+	       RECONSTRUCT:
+		 begin
+		    $display("STATE: RECONSTRUCT");
+		    state <= DEBUG;
+		    
+		 end
 
 `include "debug.v"
 
@@ -609,22 +600,13 @@ end
 `include "sort_standalone.v"
       
 
-
-
-
-
-
-
-
-
-	  
-endcase
-
-	end // else: !if(reset)
+	       
+	     endcase // case (state)
+	  end // else: !if(reset)
      end // always @ (posedge sync,posedge reset)
-
-
-
+   
+   
+   
    
 /*
    
