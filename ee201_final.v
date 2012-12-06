@@ -543,10 +543,10 @@ distanceFromStart0[0] = 0;
 		      begin
 			     if(neighborcounter == 3'b111)
 			       state <= CHECK_DONE;
-				   
+				 else
+			       neighborcounter <= neighborcounter + 1;
 		       end
 		    neighbor_is_better <= 1'b0;
-			       neighborcounter <= neighborcounter + 1;
 		 end
 	       
 	       CHECK_IF_NEIGHBOR_IS_BETTER:
@@ -555,9 +555,8 @@ distanceFromStart0[0] = 0;
 		    case(currentx)
 		      
 		      `include "checkIfNeighborIsBetter.v"
-		   
-endcase
-end
+             endcase
+          end
 
 NEIGHBOR_IS_BETTER:
 begin
