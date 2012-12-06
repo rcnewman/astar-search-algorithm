@@ -144,9 +144,9 @@ R12
 r1
 !s85 0
 31
-I73a;YoTAATS=[knbZIP?M1
+IA9J3RiaH6<]?dTJ>Dz0N?0
 R6
-w1354769211
+w1354770488
 R20
 R21
 FcheckIfNeighborIsBetter.v
@@ -160,8 +160,8 @@ L0 11
 R17
 R11
 R1
-!s100 4Q;Td6LDX:>9mM9b=Y:?d3
-!s108 1354769214.530000
+!s100 PIX44VZPnzGBl2zY`8Ji:3
+!s108 1354770495.216000
 !s107 sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
@@ -179,7 +179,7 @@ R1
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354769215.639000
+!s108 1354770496.252000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
@@ -233,7 +233,7 @@ r1
 31
 R1
 !s100 ZCP3@ChL[REX_dR:BZo190
-!s108 1354769215.822000
+!s108 1354770496.443000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -254,7 +254,7 @@ R1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354769216.075000
+!s108 1354770496.633000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I^QbTQdTo[RZI_:@9Q:z8o1
@@ -271,7 +271,7 @@ R8
 R1
 R9
 !s100 oO5h5_SL>F47W<LWYSNoo1
-!s108 1354769214.918000
+!s108 1354770495.537000
 !i10b 1
 !s85 0
 vsort_tb
@@ -289,6 +289,6 @@ r1
 R4
 R1
 R14
-!s108 1354769215.200000
+!s108 1354770495.732000
 !i10b 1
 !s85 0
