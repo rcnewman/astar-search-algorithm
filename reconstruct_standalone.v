@@ -4,6 +4,9 @@ RECONSTRUCT:
 			recon_counter <= 0;
 			current_recon_x <= 8'b0010_0111;
 			current_recon_y <= 8'b0010_0111;
+			$display("X:%d Y:%d",current_recon_x,current_recon_y);
+	$display("prevX:%d prevY:%d", previousNodeX39[current_recon_y],previousNodeY39[current_recon_x]);
+	
 			state <= FIND_PREVIOUS;
 		 end //STATE RECONSTRUCT
 		 
