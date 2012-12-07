@@ -421,8 +421,9 @@ end
 	CHECK_RECONSTRUCT_DONE;
 	begin
 	$display("STATE: CHECK_RECONSTRUCT_DONE");
-	$display("X:%d Y:%D",current_recon_x,current_recon_y);
-		if(finished_path_x[recon_counter] == 0 && finished_path_y[recon_counter] == 0)
+	$display("X:%d Y:%d",current_recon_x,current_recon_y);
+	
+		if(current_recon_x == 0 && current_recon_y == 0)
 			state <= DONE;
 		else
 			recon_counter <= recon_counter + 1;
