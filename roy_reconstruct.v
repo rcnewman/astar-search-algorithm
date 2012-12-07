@@ -38,6 +38,9 @@ RECONSTRUCT_NEXT:
 RECONSTRUCT_FINISH:
   begin
   $display("RECONSTRUCT_FINISH");
+  $display("Took %d nodes to reach destination",temp1);
      state <= DONE;
-`include "displaygrid.v"
+
+	 for(i = 0; i < temp1; i = i + 1)
+			finished_map[finished_path_y[i]][finished_path_x[i]] = 1;
   end

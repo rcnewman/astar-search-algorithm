@@ -20,8 +20,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  openx [0:399];//open list x cord
    reg [7:0]  openy [0:399];//open list y cord
    reg [8:0]  opencounter;//count openx/y reg
-   reg [7:0]  closex [0:399];//close list x cord
-   reg [7:0]  closey [0:399];//close list y cord
+   reg [7:0]  closex [0:799];//close list x cord
+   reg [7:0]  closey [0:799];//close list y cord
    reg [8:0]  closecounter;//count closex/y reg
 
    reg [7:0]  currentx;
@@ -229,8 +229,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    		    //COPYPASTE FROM OTHER SOURCE
    reg [8:0] 	search_index; //used to iterate through reg
    reg 	    found;
-       reg [7:0] finished_path_x [39:0];
-    reg [7:0] finished_path_y [39:0];
+       reg [7:0] finished_path_x [399:0];
+    reg [7:0] finished_path_y [399:0];
     reg [7:0] current_recon_x;
     reg [7:0] current_recon_y;
     
@@ -609,7 +609,12 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    endcase  
 		    //if there are no neighbors, be sure to set state to check done
 	 end // case: NEIGHBOR_IS_BETTER
-
+DONE:
+begin
+	 temp1 <= 32'b0;
+	 if(temp1 != 32'b0)
+`include "displaygrid.v"
+end
 
 `include "roy_reconstruct.v"
 `include "debug.v"
