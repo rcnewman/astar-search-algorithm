@@ -1,11 +1,11 @@
 RECONSTRUCT:
-		 begin
-			//$display("STATE: RECONSTRUCT");
-			recon_counter <= 10'b0;
-			current_recon_x <= 8'b0010_0111;
-			current_recon_y <= 8'b0010_0111;
-			$display("X:%d Y:%d",current_recon_x,current_recon_y);
-	$display("prevX:%d prevY:%d", previousNodeX39[current_recon_y],previousNodeY39[current_recon_x]);
+  begin
+     //$display("STATE: RECONSTRUCT");
+     recon_counter <= 10'b0;
+     current_recon_x <= 8'b0010_0111;
+     current_recon_y <= 8'b0010_0111;
+     $display("X:%d Y:%d",current_recon_x,current_recon_y);
+     $display("prevX:%d prevY:%d", previousNodeX39[current_recon_y],previousNodeY39[current_recon_x]);
 	
 	
 	$display("39 39: %d,%d",previousNodeX39[39],previousNodeY39[39]);
