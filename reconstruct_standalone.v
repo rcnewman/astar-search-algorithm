@@ -2,8 +2,8 @@ RECONSTRUCT:
 		 begin
 			$display("STATE: RECONSTRUCT");
 			recon_counter <= 0;
-			current_recon_x <= 8'b0000_0000;
-			current_recon_y <= 8'b0000_0000;
+			current_recon_x <= 8'b0010_0111;
+			current_recon_y <= 8'b0010_0111;
 			state <= FIND_PREVIOUS;
 		 end //STATE RECONSTRUCT
 		 
