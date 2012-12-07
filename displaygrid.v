@@ -11,12 +11,9 @@ begin
 			begin
 			$write("P");
 			end
-		else if (currentx == j)
+		else if (currentx == j && currenty == i)
 			begin
-			if(currenty == i)
-				begin
 				$write("A");
-				end
 			end
 		else
 			$write("O");

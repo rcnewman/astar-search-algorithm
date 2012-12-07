@@ -62,6 +62,8 @@ BUBBLE_SORT:
 COMPARE_BETTER:
   begin
      // $display("STATE: COMPARE_BETTER");
+	 
+//$display("TOTAL 2 = %d ; TOTAL 1 = %d", total2, total1);	
      if(total2 > total1)
        state <= SWITCH;
      else

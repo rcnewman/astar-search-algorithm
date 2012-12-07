@@ -191,7 +191,7 @@ finished_path_y[39] <= 8'b11111111;
 	else begin
 	case(state)
 	
-	
+	//////////////////////////////////////////////
 	RECONSTRUCT:
 		 begin
 			$display("STATE: RECONSTRUCT");
@@ -620,6 +620,7 @@ end
 	end
 	DONE:
 	begin
-		$display("You're done mothafucka");
+		`include "displaygrid.v"
+		//$display("You're done mothafucka");
 	end
-	
+	////////////////////////////////////////////////////////////////////////////////////////

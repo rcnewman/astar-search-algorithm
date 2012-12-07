@@ -240,8 +240,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    //STATE TRANSITION
 		    state <= INITIALIZE_ARRAY;
 		    //RTL
-		    map[0]=40'b1000000000;
-		    map[1]=40'b0;
+		    map[0]=40'b0000000000;
+		    map[1]=40'b11111111111111111111111111111111111111;
 		    map[2]=40'b0;
 		    map[3]=40'b0;
 		    map[4]=40'b0;
@@ -393,7 +393,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    currentx <= openx[0];
 		    currenty <= openy[0];
 		    closex[closecounter] <= openx[0];
-		    closex[closecounter] <= openy[0];
+		    closey[closecounter] <= openy[0];
 		    closecounter <= closecounter + 1;
 		    opencounter <= opencounter - 1;
 		    temp1 <= 0; 
@@ -547,6 +547,13 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		         state <= CHECK_IF_IN_CLOSED;
 		         checkx = tempneighborx[neighborcounter];
 			 checky = tempneighbory[neighborcounter];
+			 //HARDCODING!!!
+			 if(tempneighborx[neighborcounter] == 8'b00100111 && tempneighbory[neighborcounter] == 8'b00100111)
+			 begin
+			 state <= RECONSTRUCT;
+			 previousNodeX39[39] = currentx;
+			 previousNodeY39[39] = currenty;
+			 end
 `include "generate_neighbor_distance_from_start.v"
 		      end
 		    else
@@ -595,8 +602,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	       RECONSTRUCT:
 		 begin
 		    $display("STATE: RECONSTRUCT");
-		    state <= DEBUG;
-		    
+		    //state <= DEBUG;
 		 end
 
 `include "debug.v"
@@ -605,6 +611,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 `include "search_open_standalone.v"
 `include "search_close_standalone.v"
 `include "sort_standalone.v"
+`include "reconstruct_standalone.v"
       
 
 	       
