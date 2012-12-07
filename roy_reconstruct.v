@@ -22,5 +22,8 @@ RECONSTRUCT_NEXT:
      state <= RECONSTRUCT_PLACE;
 `include "roy_reconstruct_helper1.v"
   end
-
-
+RECONSTRUCT_FINISH:
+  begin
+     state <= DONE;
+`include "displaygrid.v"
+  end

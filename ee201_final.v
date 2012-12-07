@@ -611,13 +611,13 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	 end // case: NEIGHBOR_IS_BETTER
 
 
+`include "reconstruct_standalone.v"
 `include "debug.v"
 
 //ROSS' CODE GOES HERE!!
 `include "search_open_standalone.v"
 `include "search_close_standalone.v"
 `include "sort_standalone.v"
-`include "reconstruct_standalone.v"
 
 	       
 	     endcase // case (state)
