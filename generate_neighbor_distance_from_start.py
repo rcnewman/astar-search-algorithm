@@ -13,3 +13,6 @@ for num in range(0,40):
     print ('end')
 print('endcase')
 #(currentx == tempneighborx || currenty == tempneighbory) ? 1000 : 1414
+
+
+
