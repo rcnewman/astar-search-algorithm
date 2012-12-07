@@ -879,46 +879,7 @@ openx[398] <= 8'b0;
 openy[398] <= 8'b0;
 openx[399] <= 8'b0;
 openy[399] <= 8'b0;
- distanceFromStart0[0] = 20'b0;
-			 distanceFromStart1[0] = 20'b0;
-			 distanceFromStart2[0] = 20'b0;
-			 distanceFromStart3[0] = 20'b0;
-			 distanceFromStart4[0] = 20'b0;
-			 distanceFromStart5[0] = 20'b0;
-			 distanceFromStart6[0] = 20'b0;
-			 distanceFromStart7[0] = 20'b0;
-			 distanceFromStart8[0] = 20'b0;
-			 distanceFromStart9[0] = 20'b0;
-			 distanceFromStart10[0] = 20'b0;
-			 distanceFromStart11[0] = 20'b0;
-			 distanceFromStart12[0] = 20'b0;
-			 distanceFromStart13[0] = 20'b0;
-			 distanceFromStart14[0] = 20'b0;
-			 distanceFromStart15[0] = 20'b0;
-			 distanceFromStart16[0] = 20'b0;
-			 distanceFromStart17[0] = 20'b0;
-			 distanceFromStart18[0] = 20'b0;
-			 distanceFromStart19[0] = 20'b0;
-			 distanceFromStart20[0] = 20'b0;
-			 distanceFromStart21[0] = 20'b0;
-			 distanceFromStart22[0] = 20'b0;
-			 distanceFromStart23[0] = 20'b0;
-			 distanceFromStart24[0] = 20'b0;
-			 distanceFromStart25[0] = 20'b0;
-			 distanceFromStart26[0] = 20'b0;
-			 distanceFromStart27[0] = 20'b0;
-			 distanceFromStart28[0] = 20'b0;
-			 distanceFromStart29[0] = 20'b0;
-			 distanceFromStart30[0] = 20'b0;
-			 distanceFromStart31[0] = 20'b0;
-			 distanceFromStart32[0] = 20'b0;
-			 distanceFromStart33[0] = 20'b0;
-			 distanceFromStart34[0] = 20'b0;
-			 distanceFromStart35[0] = 20'b0;
-			 distanceFromStart36[0] = 20'b0;
-			 distanceFromStart37[0] = 20'b0;
-			 distanceFromStart38[0] = 20'b0;
-			 distanceFromStart39[0] = 20'b0;
+
 	     state <= SORT_QUEUE;
 
 	     //opencounter <= 10'b110001111;//399
@@ -988,9 +949,9 @@ GET_SECOND_DISTANCE:
 COMPARE_BETTER:
 	begin
      $display("STATE: COMPARE_BETTER");
+$display("TOTAL 2 = %d ; TOTAL 1 = %d", total2, total1);	 
 	if(total2 > total1)
 		state <= SWITCH;
-	
 	else
 		state <= BUBBLE_NEXT;
 	end
