@@ -9,6 +9,8 @@ RECONSTRUCT:
 		 
 	FIND_PREVIOUS:
 	begin
+	
+	$display("STATE: FIND_PREVIOUS");
 		state <= CHECK_RECONSTRUCT_DONE;
 		case(current_recon_x) 
 			8'b0:
@@ -418,6 +420,7 @@ end
 	
 	CHECK_RECONSTRUCT_DONE:
 	begin
+	$display("STATE: CHECK_RECONSTRUCT_DONE");
 		if(finished_path_x[recon_counter] == 0 && finished_path_y[recon_counter] == 0)
 			state <= DONE;
 		else
@@ -426,5 +429,7 @@ end
 	end
 	DONE:
 	begin
-		$display("You're done mothafucka");
+	
+		`include "displaygrid.v"
 	end
+	
