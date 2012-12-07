@@ -86,6 +86,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      CHECK_IF_NEIGHBOR_IS_BETTER = 8'b10000000,
      NEIGHBOR_IS_BETTER          = 8'b11000000,
      RECONSTRUCT                 = 8'b11100000,
+	 FIND_PREVIOUS=8'b11100001,
+	 CHECK_RECONSTRUCT_DONE=8'b11100010,
      DONE                        = 8'b11111100,
      OUTPUT_PATH                 = 8'b11111110,
      ERROR                       = 8'b11111111,
@@ -223,7 +225,12 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    		    //COPYPASTE FROM OTHER SOURCE
    reg [8:0] 	search_index; //used to iterate through reg
    reg 	    found;
-   
+       reg [7:0] finished_path_x [39:0];
+    reg [7:0] finished_path_y [39:0];
+    reg [7:0] current_recon_x;
+    reg [7:0] current_recon_y;
+    
+	reg[9:0] recon_counter;
    
    always @ (posedge sync,posedge reset)
      begin
@@ -599,11 +606,6 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    //if there are no neighbors, be sure to set state to check done
 	 end // case: NEIGHBOR_IS_BETTER
 
-	       RECONSTRUCT:
-		 begin
-		    $display("STATE: RECONSTRUCT");
-		    //state <= DEBUG;
-		 end
 
 `include "debug.v"
 
@@ -612,7 +614,6 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 `include "search_close_standalone.v"
 `include "sort_standalone.v"
 `include "reconstruct_standalone.v"
-      
 
 	       
 	     endcase // case (state)

@@ -416,7 +416,7 @@ end
 		endcase
 	end //end FIND_PREVIOUS
 	
-	CHECK_RECONSTRUCT_DONE:
+	CHECK_RECONSTRUCT_DONE;
 	begin
 		if(finished_path_x[recon_counter] == 0 && finished_path_y[recon_counter] == 0)
 			state <= DONE;
