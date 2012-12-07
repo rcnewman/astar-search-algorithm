@@ -86,7 +86,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      CHECK_IF_NEIGHBOR_IS_BETTER = 8'b10000000,
      NEIGHBOR_IS_BETTER          = 8'b11000000,
      RECONSTRUCT                 = 8'b11100000,
-     RECONSTRUCT_PATH            = 8'b11100001,
+     RECONSTRUCT_PLACE            = 8'b11100001,
      RECONSTRUCT_NEXT            = 8'b11100010,
      RECONSTRUCT_FINISH          = 8'b11100011,
 //	 FIND_PREVIOUS=8'b11100001,
@@ -611,7 +611,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 	 end // case: NEIGHBOR_IS_BETTER
 
 
-`include "reconstruct_standalone.v"
+`include "roy_reconstruct.v"
 `include "debug.v"
 
 //ROSS' CODE GOES HERE!!
