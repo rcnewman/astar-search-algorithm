@@ -1,6 +1,6 @@
 RECONSTRUCT:
 		 begin
-			$display("STATE: RECONSTRUCT");
+			//$display("STATE: RECONSTRUCT");
 			recon_counter <= 0;
 			current_recon_x <= 8'b0010_0111;
 			current_recon_y <= 8'b0010_0111;
@@ -10,7 +10,7 @@ RECONSTRUCT:
 	FIND_PREVIOUS:
 	begin
 	
-	$display("STATE: FIND_PREVIOUS");
+	//$display("STATE: FIND_PREVIOUS");
 		state <= CHECK_RECONSTRUCT_DONE;
 		case(current_recon_x) 
 			8'b0:
@@ -420,8 +420,9 @@ end
 	
 	CHECK_RECONSTRUCT_DONE;
 	begin
-	$display("STATE: CHECK_RECONSTRUCT_DONE");
+	//$display("STATE: CHECK_RECONSTRUCT_DONE");
 	$display("X:%d Y:%d",current_recon_x,current_recon_y);
+	$display("prevX:%d prevY:%d", previousNodeX39[current_recon_y],previousNodeY39[current_recon_x]);
 	
 		if(current_recon_x == 0 && current_recon_y == 0)
 			state <= DONE;
