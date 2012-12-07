@@ -5,27 +5,37 @@ for num in range(0,40):
 
 	
 	
+#for num in range(0,40):
+#    print('8\'%s:' % bin(num)[1:])
+#    print('begin')
+#    print('finished_path_x[recon_counter] <= previousNodeX%d[current_recon_y];' % (num))
+#    print('current_recon_x <= previousNodeX%d[current_recon_y];' % (num))
+#    print('end')
+#
+#for num in range(0,40):
+#    print('8\'%s:' % bin(num)[1:])
+#    print('begin')
+#    print('finished_path_y[recon_counter] <= previousNodeY%d[current_recon_x];' % (num))
+#    print('current_recon_y <= previousNodeY%d[current_recon_x];' % (num))
+#    print('end')
+
 for num in range(0,40):
     print('8\'%s:' % bin(num)[1:])
     print('begin')
     print('finished_path_x[recon_counter] <= previousNodeX%d[current_recon_y];' % (num))
+    print('end')
+for num in range(0,40):
+    print('8\'%s:' % bin(num)[1:])
+    print('begin')
+    print('finished_path_y[recon_counter] <= previousNodeY%d[current_recon_x];' % (num))
+    print('end')
+for num in range(0,40):
+    print('8\'%s:' % bin(num)[1:])
+    print('begin')
     print('current_recon_x <= previousNodeX%d[current_recon_y];' % (num))
-    print('end')
-
+	print('end')
 for num in range(0,40):
     print('8\'%s:' % bin(num)[1:])
     print('begin')
-    print('finished_path_y[recon_counter] <= previousNodeY%d[current_recon_x];' % (num))
     print('current_recon_y <= previousNodeY%d[current_recon_x];' % (num))
-    print('end')
-
-for num in range(0,40):
-    print('8\'%s:' % bin(num)[1:])
-    print('begin')
-    print('finished_path_x[recon_counter] <= previousNodeX%d[current_recon_y];' % (num))
-    print('end')
-for num in range(0,40):
-    print('8\'%s:' % bin(num)[1:])
-    print('begin')
-    print('finished_path_y[recon_counter] <= previousNodeY%d[current_recon_x];' % (num))
-    print('end')
+	print('end')
