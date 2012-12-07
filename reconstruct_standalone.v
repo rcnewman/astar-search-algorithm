@@ -675,7 +675,7 @@ end
 
 end //end FIND_PREVIOUS
 
-CHECK_RECONSTRUCT_DONE;
+CHECK_RECONSTRUCT_DONE:
 begin
 	//$display("STATE: CHECK_RECONSTRUCT_DONE");
 	$display("X:%d Y:%d",current_recon_x,current_recon_y);
