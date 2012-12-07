@@ -79,6 +79,7 @@ module sort(Clk,Reset);
      begin
 	if(Reset)
 	  begin
+	//  `include "sort_debug_initialize.v"
 openx[0] <= 8'b0;
 openy[0] <= 8'b0;
 openx[1] <= 8'b0;
