@@ -144,9 +144,9 @@ R12
 r1
 !s85 0
 31
-I269<hb]D:m=L;Tj]zigGi1
+IXQ7hEmGJjcn9ndT6a@3hD0
 R6
-w1354843061
+w1354845099
 R20
 R21
 Fgenerate_neighbor_distance_from_start.v
@@ -162,13 +162,14 @@ Z25 Fsort_standalone_helper2.v
 R24
 R25
 Freconstruct_standalone.v
+Fdisplaygrid.v
 L0 12
 R17
 R11
 R1
-!s100 Fa^_9Yn3T9Q=c3FL_bLB?3
-!s108 1354843068.424000
-!s107 reconstruct_standalone.v|sort_standalone_helper2.v|sort_standalone_helper1.v|sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
+!s100 0bG9SG^jJCfLV?`6L9C3j0
+!s108 1354845103.686000
+!s107 displaygrid.v|reconstruct_standalone.v|sort_standalone_helper2.v|sort_standalone_helper1.v|sort_standalone.v|search_close_standalone.v|search_open_standalone.v|reconstruct_debug.v|debug.v|neighborIsBetter.v|checkIfNeighborIsBetter.v|generate_neighbor_distance_from_start.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v|
 !i10b 1
 vastar_tb
 VBeSE_`NmWm_z]3aDdVNd@0
@@ -185,7 +186,7 @@ R1
 !s85 0
 !s100 EYIm4Bm[nJ29IT82Jc9Ez3
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
-!s108 1354843070.394000
+!s108 1354845105.561000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v|
 !i10b 1
 vee201_GCD
@@ -239,7 +240,7 @@ r1
 31
 R1
 !s100 jb6m5SaZcBINKhCYGm9TD0
-!s108 1354843070.652000
+!s108 1354845105.899000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v|
 !i10b 1
@@ -260,7 +261,7 @@ R1
 !s90 -reportprogress|300|-work|work|-vopt|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 !i10b 1
 !s85 0
-!s108 1354843070.906000
+!s108 1354845106.591000
 !s107 C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_tb.v|
 vsort
 I@UmoVL0[RRMmP0:`m_F_P3
@@ -280,7 +281,7 @@ r1
 R8
 R1
 !s100 <nP@I2A`EQkn3PC_A0ARW2
-!s108 1354843069.377000
+!s108 1354845104.630000
 !s107 sort_standalone_helper2.v|sort_standalone_helper1.v|C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v|
 !i10b 1
 !s85 0
@@ -299,6 +300,6 @@ r1
 R4
 R1
 R14
-!s108 1354843069.799000
+!s108 1354845105.015000
 !i10b 1
 !s85 0
