@@ -20,8 +20,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  openx [0:399];//open list x cord
    reg [7:0]  openy [0:399];//open list y cord
    reg [8:0]  opencounter;//count openx/y reg
-   reg [7:0]  closex [0:399];//close list x cord
-   reg [7:0]  closey [0:399];//close list y cord
+   reg [7:0]  closex [0:799];//close list x cord
+   reg [7:0]  closey [0:799];//close list y cord
    reg [8:0]  closecounter;//count closex/y reg
 
    reg [7:0]  currentx;
@@ -52,8 +52,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    localparam
      INITIALIZE                  = 8'b00000000,
      INITIALIZE_ARRAY            = 8'b00000001,
-     VERIFY                      = 8'b00000010,
      CHECK_DONE                  = 8'b00000011,
+     VERIFY                      = 8'b00000010,
      QUEUE_MODS                  = 8'b00000_100,
      QUEUE_MODS_SHIFT            = 8'b00000_101,
      QUEUE_MODS_APPEND           = 8'b00000_110,
@@ -86,8 +86,12 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
      CHECK_IF_NEIGHBOR_IS_BETTER = 8'b10000000,
      NEIGHBOR_IS_BETTER          = 8'b11000000,
      RECONSTRUCT                 = 8'b11100000,
-	 FIND_PREVIOUS=8'b11100001,
-	 CHECK_RECONSTRUCT_DONE=8'b11100010,
+     RECONSTRUCT_PLACE            = 8'b11100001,
+     RECONSTRUCT_NEXT            = 8'b11100010,
+     RECONSTRUCT_FINISH          = 8'b11100011,
+//	 FIND_PREVIOUS=8'b11100001,
+//	 CHECK_RECONSTRUCT_DONE=8'b11100010,
+//	 ASSIGN_NEW=8'b11100011,
      DONE                        = 8'b11111100,
      OUTPUT_PATH                 = 8'b11111110,
      ERROR                       = 8'b11111111,
@@ -225,8 +229,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    		    //COPYPASTE FROM OTHER SOURCE
    reg [8:0] 	search_index; //used to iterate through reg
    reg 	    found;
-       reg [7:0] finished_path_x [39:0];
-    reg [7:0] finished_path_y [39:0];
+       reg [7:0] finished_path_x [399:0];
+    reg [7:0] finished_path_y [399:0];
     reg [7:0] current_recon_x;
     reg [7:0] current_recon_y;
     
@@ -247,46 +251,46 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    //STATE TRANSITION
 		    state <= INITIALIZE_ARRAY;
 		    //RTL
-		    map[0]=40'b0000000000;
-		    map[1]=40'b11111111111111111111111111111111111111;
-		    map[2]=40'b0;
-		    map[3]=40'b0;
-		    map[4]=40'b0;
-		    map[5]=40'b0;
-		    map[6]=40'b0;
-		    map[7]=40'b0;
-		    map[8]=40'b0;
-		    map[9]=40'b0;
-		    map[10]=40'b0;
-		    map[11]=40'b0;
-		    map[12]=40'b0;
-		    map[13]=40'b0;
-		    map[14]=40'b0;
-		    map[15]=40'b0;
-		    map[16]=40'b0;
-		    map[17]=40'b0;
-		    map[18]=40'b0;
-		    map[19]=40'b0;
-		    map[20]=40'b0;
-		    map[21]=40'b0;
-		    map[22]=40'b0;
-		    map[23]=40'b0;
-		    map[24]=40'b0;
-		    map[25]=40'b0;
-		    map[26]=40'b0;
-		    map[27]=40'b0;
-		    map[28]=40'b0;
-		    map[29]=40'b0;
-		    map[30]=40'b0;
-		    map[31]=40'b0;
-		    map[32]=40'b0;
-		    map[33]=40'b0;
-		    map[34]=40'b0;
-		    map[35]=40'b0;
-		    map[36]=40'b0;
-		    map[37]=40'b0;
-		    map[38]=40'b0;
-		    map[39]=40'b0;
+		    map[0]=		40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[1]=		40'b11111_11111_11111_11111_11111_11111_11111_11110;
+		    map[2]=		40'b00000_00000_00000_00000_00000_00110_00000_00000;
+		    map[3]=		40'b00000_00000_00000_00000_00000_00011_00000_00111;
+		    map[4]=		40'b00000_00000_00000_00000_00000_00001_10000_01000;
+		    map[5]=		40'b00000_00000_00000_00000_00000_00000_11000_10000;
+		    map[6]=		40'b00000_00000_00000_00000_00000_00000_01100_00000;
+		    map[7]=		40'b00000_00000_00000_00000_00000_00000_00110_00000;
+		    map[8]=		40'b00000_00000_00000_00000_00000_00000_00011_10000;
+		    map[9]=		40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[10]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[11]=	40'b01111_11111_11111_11111_11111_11111_11111_11111;
+		    map[12]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[13]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[14]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[15]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[16]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[17]=	40'b11111_11111_11111_11111_11111_11111_11111_11110
+		    map[18]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[19]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[20]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[21]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[22]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[23]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[24]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[25]=	40'b00000_00000_00000_00000_00000_00000_00000_00010;
+		    map[26]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[27]=	40'b00000_00000_00000_00000_00000_00000_00000_00000;
+		    map[28]=	40'b11111_11111_11001_11111_11111_11111_11111_11111;
+		    map[29]=	40'b00000_00000_01000_00000_00000_00000_00000_00000;
+		    map[30]=	40'b00000_00000_01000_00000_00000_00000_00000_00000;
+		    map[31]=	40'b00000_00000_01000_00000_00000_00000_00000_00000;
+		    map[32]=	40'b00000_00000_01000_00000_00000_00000_00000_00000;
+		    map[33]=	40'b00000_00000_01000_00000_00000_00000_00000_00000;
+		    map[34]=	40'b00000_00001_01111_11111_00000_00000_00000_00000;
+		    map[35]=	40'b00000_00001_00000_00110_00000_00000_00000_00000;
+		    map[36]=	40'b00000_00001_00000_01110_00000_00000_00000_00000;
+		    map[37]=	40'b00000_00001_00000_00000_00000_00000_00000_00000;
+		    map[38]=	40'b00000_00001_00000_01110_00000_00000_00000_00000;
+		    map[39]=	40'b00000_00000_00000_00010_00000_00000_00000_00000;
 	       
 		    bad = 0;
 		    opencounter <= 9'b000000000;
@@ -605,20 +609,20 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    endcase  
 		    //if there are no neighbors, be sure to set state to check done
 	 end // case: NEIGHBOR_IS_BETTER
+DONE:
+begin
+	 temp1 <= 32'b0;
+	 if(temp1 != 32'b0)
+`include "displaygrid.v"
+end
 
-	       RECONSTRUCT:
-		 begin
-		    $display("STATE: RECONSTRUCT");
-		    //state <= DEBUG;
-		 end
-
+`include "roy_reconstruct.v"
 `include "debug.v"
 
 //ROSS' CODE GOES HERE!!
 `include "search_open_standalone.v"
 `include "search_close_standalone.v"
 `include "sort_standalone.v"
-`include "reconstruct_standalone.v"
 
 	       
 	     endcase // case (state)
