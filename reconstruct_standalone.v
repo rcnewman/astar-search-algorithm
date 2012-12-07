@@ -429,7 +429,7 @@ end
 	end
 	DONE:
 	begin
-	
+		$display("STATE: DONE MOTHAFUCKA");
 		`include "displaygrid.v"
 	end
 	
