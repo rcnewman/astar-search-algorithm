@@ -1,40 +1,40 @@
 module reconstruct(Clk,Reset);
-  
-  input Clk;
-  input Reset;
-  
- 
-  reg [7:0]   previousNodeX0 [39:0];
-  reg [7:0]   previousNodeY0 [39:0];
-  reg [7:0]   previousNodeX1 [39:0];
-  reg [7:0]   previousNodeY1 [39:0];
-  reg [7:0]   previousNodeX2 [39:0];
-  reg [7:0]   previousNodeY2 [39:0];
-  reg [7:0]   previousNodeX3 [39:0];
-   reg [7:0]   previousNodeY3 [39:0];
-   reg [7:0]   previousNodeX4 [39:0];
-   reg [7:0]   previousNodeY4 [39:0];
-   reg [7:0]   previousNodeX5 [39:0];
-   reg [7:0]   previousNodeY5 [39:0];
-   reg [7:0]   previousNodeX6 [39:0];
-   reg [7:0]   previousNodeY6 [39:0];
-   reg [7:0]   previousNodeX7 [39:0];
-   reg [7:0]   previousNodeY7 [39:0];
-   reg [7:0]   previousNodeX8 [39:0];
-   reg [7:0]   previousNodeY8 [39:0];
-   reg [7:0]   previousNodeX9 [39:0];
-   reg [7:0]   previousNodeY9 [39:0];
-   reg [7:0]   previousNodeX10 [39:0];
-   reg [7:0]   previousNodeY10 [39:0];
-   reg [7:0]   previousNodeX11 [39:0];
-   reg [7:0]   previousNodeY11 [39:0];
-   reg [7:0]   previousNodeX12 [39:0];
-   reg [7:0]   previousNodeY12 [39:0];
-   reg [7:0]   previousNodeX13 [39:0];
-   reg [7:0]   previousNodeY13 [39:0];
-   reg [7:0]   previousNodeX14 [39:0];
-   reg [7:0]   previousNodeY14 [39:0];
-   reg [7:0]   previousNodeX15 [39:0];
+   
+   input Clk;
+   input Reset;
+   
+   
+   reg [7:0] previousNodeX0 [39:0];
+   reg [7:0] previousNodeY0 [39:0];
+   reg [7:0] previousNodeX1 [39:0];
+   reg [7:0] previousNodeY1 [39:0];
+   reg [7:0] previousNodeX2 [39:0];
+   reg [7:0] previousNodeY2 [39:0];
+   reg [7:0] previousNodeX3 [39:0];
+   reg [7:0] previousNodeY3 [39:0];
+   reg [7:0] previousNodeX4 [39:0];
+   reg [7:0] previousNodeY4 [39:0];
+   reg [7:0] previousNodeX5 [39:0];
+   reg [7:0] previousNodeY5 [39:0];
+   reg [7:0] previousNodeX6 [39:0];
+   reg [7:0] previousNodeY6 [39:0];
+   reg [7:0] previousNodeX7 [39:0];
+   reg [7:0] previousNodeY7 [39:0];
+   reg [7:0] previousNodeX8 [39:0];
+   reg [7:0] previousNodeY8 [39:0];
+   reg [7:0] previousNodeX9 [39:0];
+   reg [7:0] previousNodeY9 [39:0];
+   reg [7:0] previousNodeX10 [39:0];
+   reg [7:0] previousNodeY10 [39:0];
+   reg [7:0] previousNodeX11 [39:0];
+   reg [7:0] previousNodeY11 [39:0];
+   reg [7:0] previousNodeX12 [39:0];
+   reg [7:0] previousNodeY12 [39:0];
+   reg [7:0] previousNodeX13 [39:0];
+   reg [7:0] previousNodeY13 [39:0];
+   reg [7:0] previousNodeX14 [39:0];
+   reg [7:0] previousNodeY14 [39:0];
+   reg [7:0] previousNodeX15 [39:0];
    reg [7:0]   previousNodeY15 [39:0];
    reg [7:0]   previousNodeX16 [39:0];
    reg [7:0]   previousNodeY16 [39:0];

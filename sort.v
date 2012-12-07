@@ -20,9 +20,9 @@ module sort(Clk,Reset);
    reg [7:0] startx, starty, goalx, goaly;
    
    reg [9:0] sort_count;//used for sorting
-  reg [19:0]   distanceFromStart0 [39:0];
-   reg [19:0]   distanceFromStart1 [39:0];
-   reg [19:0]   distanceFromStart2 [39:0];
+   reg [19:0] distanceFromStart0 [39:0];
+   reg [19:0] distanceFromStart1 [39:0];
+   reg [19:0] distanceFromStart2 [39:0];
    reg [19:0]   distanceFromStart3 [39:0];
    reg [19:0]   distanceFromStart4 [39:0];
    reg [19:0]   distanceFromStart5 [39:0];
@@ -69,10 +69,10 @@ module sort(Clk,Reset);
     SWITCH = 				8'b00001100,
     BUBBLE_NEXT = 			8'b00001101,
     SORT_DONE = 			8'b00001110,
-	COMPARE_COCKTAIL =		8'b00001111,
-	COCKTAIL_BACK	=		8'b00010000,
-	BACK_SWITCH		=		8'b00010001,
-	COCKTAIL_NEXT	=		8'b00010010;
+    COMPARE_COCKTAIL =		8'b00001111,
+    COCKTAIL_BACK	=		8'b00010000,
+    BACK_SWITCH		=		8'b00010001,
+    COCKTAIL_NEXT	=		8'b00010010;
    
 
    always @ (posedge Clk, posedge Reset)
