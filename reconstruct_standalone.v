@@ -23,8 +23,12 @@ begin
 	8'b0:
 	begin
 		finished_path_x[recon_counter] <= previousNodeX0[current_recon_y];
-	finished_path_y[recon_counter] <= previousNodeY0[current_recon_x];
 	end
+	endcase
+	
+	case (current_recon_y)
+		8'b0:
+		finished_path_y[recon_counter] <= previousNodeY0[current_recon_x];
 	endcase
 end
 ASSIGN_NEW:
@@ -34,8 +38,11 @@ begin
 		8'b0:
 		begin
 		current_recon_x <= previousNodeX0[current_recon_y];
-		current_recon_y <= previousNodeY0[current_recon_x];
 		end
+	endcase
+	case (current_recon_y)
+		8'b0:
+		current_recon_y <= previousNodeY0[current_recon_x];
 	endcase
 
 end //end FIND_PREVIOUS
