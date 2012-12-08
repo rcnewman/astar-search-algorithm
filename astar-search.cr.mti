@@ -19,6 +19,15 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	sort_tb
 
+} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v {2 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module astar_algorithm
+** Warning: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v(636): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+
+Top level modules:
+	astar_algorithm
+
 } {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module search
