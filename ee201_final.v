@@ -251,8 +251,9 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    //STATE TRANSITION
 		    state <= INITIALIZE_ARRAY;
 		    //RTL
-`include "mapdefault.v"
-	       
+//`include "mapdefault.v"
+	// `include "map1.v"   
+	`include "map2.v"   
 		    bad = 0;
 		    opencounter <= 9'b000000000;
 		    closecounter <= 9'b000000000;
@@ -272,7 +273,7 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
 		    //RTL
 		    if(temp1 <= 16'b0000000000100111)
 		      begin
-		         //ROY YOU BETTER CHANGE THIS SHIT
+		         //ROY YOU BETTER CHANGE THIS SHIT -roy
 		         //shit what was i supposed to do
 			 distanceFromStart0[temp1] = 20'b11111111111111111111;
 			 distanceFromStart1[temp1] = 20'b11111111111111111111;
