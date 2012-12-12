@@ -1,16 +1,16 @@
-C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
--- Compiling module astar_tb
-
-Top level modules:
-	astar_tb
-
-} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
+C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module sort
 
 Top level modules:
 	sort
+
+} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/astar_tb.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module astar_tb
+
+Top level modules:
+	astar_tb
 
 } {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/sort_tb.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
@@ -19,7 +19,23 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 Top level modules:
 	sort_tb
 
+} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v {2 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module astar_algorithm
+** Warning: C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/ee201_final.v(637): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+
+Top level modules:
+	astar_algorithm
+
 } {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module search
+
+Top level modules:
+	search
+
+} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v
 Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 -- Compiling module search
 
@@ -32,12 +48,5 @@ Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
 
 Top level modules:
 	search_tb
-
-} {} {}} C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v {1 {vlog -work work -vopt C:/Users/RoyZheng/Desktop/CompSci/git/astar-search-algorithm/search_open.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
--- Compiling module search
-
-Top level modules:
-	search
 
 } {} {}}

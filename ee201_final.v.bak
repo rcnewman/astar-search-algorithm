@@ -20,8 +20,8 @@ module astar_algorithm(sync,reset,gridx,gridy,draw_grid,draw_obstacle,draw_path,
    reg [7:0]  openx [0:399];//open list x cord
    reg [7:0]  openy [0:399];//open list y cord
    reg [8:0]  opencounter;//count openx/y reg
-   reg [7:0]  closex [0:999];//close list x cord
-   reg [7:0]  closey [0:999];//close list y cord
+   reg [7:0]  closex [0:799];//close list x cord
+   reg [7:0]  closey [0:799];//close list y cord
    reg [8:0]  closecounter;//count closex/y reg
 
    reg [7:0]  currentx;
