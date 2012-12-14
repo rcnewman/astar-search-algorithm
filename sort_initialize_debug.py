@@ -1,1 +1,0 @@
-for num in range(40)
