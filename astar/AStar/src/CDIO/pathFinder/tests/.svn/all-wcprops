@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/17/AStar/src/CDIO/pathFinder/tests
+END
+TestPathFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/16/AStar/src/CDIO/pathFinder/tests/TestPathFinder.java
+END
+TestAStar.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/17/AStar/src/CDIO/pathFinder/tests/TestAStar.java
+END
+TestBresenhamsLine.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/15/AStar/src/CDIO/pathFinder/tests/TestBresenhamsLine.java
+END
