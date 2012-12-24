@@ -2,6 +2,12 @@ astar-search-algorithm
 ======================
 
 verilog implementation of the a* search algorithm
+-----
+TO USE:
+Logic is implemented in *.v
+Main state machine is in ee201_final.v
+Map*.v are the initialization maps.
+-----
 
 State machine documentation in PDF format is available in repository root (StateMachineDesign.pdf).
 
